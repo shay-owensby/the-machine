@@ -32,7 +32,7 @@ A brand-agnostic Claude Code plugin that acts as a per-client **email marketing 
     ├── references/
     │   └── topic-researcher.md     # topic suggestion log — newest entries at the TOP; dedup source of truth
     ├── reports/
-    │   └── analytics/              # campaign-analyst markdown reports (YYYY-mm-dd-campaign-analysis.md)
+    │   └── analytics/              # email-campaign-analyst markdown reports (YYYY-mm-dd-campaign-analysis.md)
     └── drafts/
         └── YYYY-mm-dd/             # one folder per issue
             ├── YYYY-mm-dd.html         # email body only (header/footer live on the platform)
@@ -49,10 +49,10 @@ Brand files are looked up at the client project root (`./ABOUT.md`, `./DESIGN.md
 - `commands/email-newsletter.md` — the weekly pipeline: kickoff question → parallel research + analytics subagents → user picks topic → images (Higgsfield MCP) → copywriting subagent → QA subagent → user review → draft delivery → bookkeeping.
 
 **Agents** (isolated subagent system prompts):
-- `agents/topic-researcher.md` — 1–3 trending topic candidates with rationale + sources; **always** prepends every suggestion to `email-marketing/references/topic-researcher.md` and never repeats a logged topic.
+- `agents/email-topic-researcher.md` — 1–3 trending topic candidates with rationale + sources; **always** prepends every suggestion to `email-marketing/references/topic-researcher.md` and never repeats a logged topic.
 - `agents/email-copywriter.md` — subject line A/B/C, preview text, and email-client-safe HTML body grounded in the facts of `ABOUT.md` and written in the voice of `SOUL.md`.
 - `agents/email-qa.md` — adversarial pre-flight: links, spam triggers, rendering pitfalls, size, accessibility, brand compliance.
-- `agents/campaign-analyst.md` — read-only past-campaign stats via the platform API; **always** exports a markdown report to `email-marketing/reports/analytics/`.
+- `agents/email-campaign-analyst.md` — read-only past-campaign stats via the platform API; **always** exports a markdown report to `email-marketing/reports/analytics/`.
 
 **Skills** (shared expertise):
 - `skills/email-marketing-config/` — config loading/validation + the canonical setup-check protocol. References: `config-schema.md`, `topic-log-format.md`.

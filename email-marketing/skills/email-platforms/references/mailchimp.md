@@ -152,7 +152,7 @@ Create the campaign with `type: "variate"` instead of `regular` (A/B Split campa
 - ⚠️ unverified — `test_size` (percent) and `wait_time` (minutes; must map to Mailchimp's allowed increments) exact constraints: confirm at https://mailchimp.com/developer/marketing/api/campaigns/add-campaign/ (expand `variate_settings`).
 - Content is set the same way (`PUT /campaigns/{id}/content`). The draft still requires the user to review/confirm in the UI. Note: variate campaigns require a paying Mailchimp plan.
 
-## Campaign reports (read-only, campaign-analyst agent)
+## Campaign reports (read-only, email-campaign-analyst agent)
 
 ```bash
 set -a; source .env; set +a

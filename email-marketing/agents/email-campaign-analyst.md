@@ -1,5 +1,5 @@
 ---
-name: campaign-analyst
+name: email-campaign-analyst
 description: Pull and analyze past email campaign performance from the client's platform API (read-only) and export a markdown report to email-marketing/reports/analytics/. Use when analytics are enabled and an API connection exists, typically at the start of a newsletter run.
 ---
 

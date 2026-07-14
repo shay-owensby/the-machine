@@ -72,7 +72,7 @@ images:
   style_notes: ""                   # additions beyond DESIGN.md, never contradicting it
 
 analytics:
-  enabled: true                     # run campaign-analyst pre-pass (api_draft platforms only)
+  enabled: true                     # run email-campaign-analyst pre-pass (api_draft platforms only)
 
 schedule:                           # informational only — the plugin NEVER sends or schedules
   cadence: weekly

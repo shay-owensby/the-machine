@@ -166,7 +166,7 @@ Both return 201 with `data.attributes.image_url` — use that URL in the templat
 
 The stable Klaviyo revision has no clean way to create a subject-line A/B test on a campaign via API (A/B tests are configured in the campaign UI). **Policy: record variant B/C subject lines in the campaign's `meta.yaml` for the user to enter manually in the Klaviyo UI** when reviewing the draft. ⚠️ unverified — a `campaign-variation` resource appears in the pre-release revision `2026-04-15.pre` (see https://developers.klaviyo.com/en/reference/campaigns_omni_api_overview); do not use pre-release revisions in this plugin.
 
-## Campaign reports (read-only, campaign-analyst agent)
+## Campaign reports (read-only, email-campaign-analyst agent)
 
 `POST /api/campaign-values-reports/` — a POST, but it is a **read-only query** (JSON:API reporting convention), scope `campaigns:read`:
 

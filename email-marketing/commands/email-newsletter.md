@@ -27,8 +27,8 @@ Ask the user: **"Anything specific to include in this week's email?"** — annou
 
 Launch in a single message, both in the background if long-running:
 
-- **campaign-analyst** (only if `delivery.mode: api_draft` AND `analytics.enabled: true`): pass platform name and env var names. It exports its markdown report to `email-marketing/reports/analytics/YYYY-mm-dd-campaign-analysis.md` and returns a short brief. If it returns "no usable data", continue without it.
-- **topic-researcher** (skip only if the user fully dictated the topic AND asked for no alternatives — even then, the dictated topic must be logged): pass industry/audience/hints/website from config, `brand.about_file`'s path so candidates are grounded in what the business actually offers, the user's kickoff notes, and remind it of its two contracts — exclude everything already in the topic log, and prepend ALL candidates to the top of `email-marketing/references/topic-researcher.md` before returning.
+- **email-campaign-analyst** (only if `delivery.mode: api_draft` AND `analytics.enabled: true`): pass platform name and env var names. It exports its markdown report to `email-marketing/reports/analytics/YYYY-mm-dd-campaign-analysis.md` and returns a short brief. If it returns "no usable data", continue without it.
+- **email-topic-researcher** (skip only if the user fully dictated the topic AND asked for no alternatives — even then, the dictated topic must be logged): pass industry/audience/hints/website from config, `brand.about_file`'s path so candidates are grounded in what the business actually offers, the user's kickoff notes, and remind it of its two contracts — exclude everything already in the topic log, and prepend ALL candidates to the top of `email-marketing/references/topic-researcher.md` before returning.
 
 ## 5. Topic selection
 

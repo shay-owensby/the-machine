@@ -128,7 +128,7 @@ If the API key can't create templates/campaigns (older account, restricted key, 
 
 The campaign object includes an `abTest` field, but the docs we could fetch don't spell out its shape or whether the public API can configure subject-line splits. ⚠️ unverified — confirm at https://api-docs.omnisend.com/reference/campaigns.md. Until confirmed: **record both subject variants in the campaign's meta.yaml** and instruct the user to configure the A/B test manually in the Omnisend campaign editor before sending.
 
-## Campaign reports (read-only — campaign-analyst agent)
+## Campaign reports (read-only — email-campaign-analyst agent)
 
 `POST /api/analytics/reports` (yes, POST — it's a query API and is read-only). Up to 4 queries per request; metrics grouped by message **send date**. Verified at https://api-docs.omnisend.com/reference/reports.md
 

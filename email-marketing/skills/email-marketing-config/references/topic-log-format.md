@@ -2,7 +2,7 @@
 
 Location: `<client-project>/email-marketing/references/topic-researcher.md`
 
-This file is the **single source of truth** for topic deduplication. The topic-researcher agent MUST read it before researching and MUST prepend every new suggestion to it — logging is mandatory, not optional. Entries are **newest-first**: new date sections are inserted at the TOP, directly below the header block.
+This file is the **single source of truth** for topic deduplication. The email-topic-researcher agent MUST read it before researching and MUST prepend every new suggestion to it — logging is mandatory, not optional. Entries are **newest-first**: new date sections are inserted at the TOP, directly below the header block.
 
 ## File template (written by setup)
 
@@ -10,7 +10,7 @@ This file is the **single source of truth** for topic deduplication. The topic-r
 # Topic Suggestion Log
 
 <!-- MACHINE-MANAGED FILE — newest entries at the top.
-     The topic-researcher agent prepends a dated section per run.
+     The email-topic-researcher agent prepends a dated section per run.
      Status lifecycle: suggested -> used | rejected.
      Never suggest a topic that semantically duplicates ANY row below,
      regardless of status. Do not edit rows except the Status/Issue columns. -->

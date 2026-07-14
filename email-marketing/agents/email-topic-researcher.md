@@ -1,5 +1,5 @@
 ---
-name: topic-researcher
+name: email-topic-researcher
 description: Research 1–3 trending, brand-relevant newsletter topic candidates with sources, dedup them against the project topic log, and log every suggestion. Use when the email-newsletter pipeline needs topic candidates for the next issue.
 ---
 

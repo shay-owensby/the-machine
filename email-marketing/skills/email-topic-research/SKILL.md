@@ -17,7 +17,7 @@ If the log file is missing in a configured project, recreate it from the templat
 
 ### 2. Gather inputs
 
-Read the client's `brand.about_file` (path from config) first — it's the primary source of what the business actually does and sells; ground every candidate in a real product, service, or offer it describes. If `about_file` is null, fall back to `brand.industry` and `brand.audience_description` from config and note the degradation. Also from `email-marketing/config.yaml`: `brand.topic_hints`, `brand.website`, `brand.timezone` (for seasonality). Plus, when provided by the orchestrator: the user's kickoff notes (highest priority — if the user already named a topic, validate and enrich it rather than replacing it) and the campaign-analyst's insights (lean toward what historically got opens/clicks).
+Read the client's `brand.about_file` (path from config) first — it's the primary source of what the business actually does and sells; ground every candidate in a real product, service, or offer it describes. If `about_file` is null, fall back to `brand.industry` and `brand.audience_description` from config and note the degradation. Also from `email-marketing/config.yaml`: `brand.topic_hints`, `brand.website`, `brand.timezone` (for seasonality). Plus, when provided by the orchestrator: the user's kickoff notes (highest priority — if the user already named a topic, validate and enrich it rather than replacing it) and the email-campaign-analyst's insights (lean toward what historically got opens/clicks).
 
 ### 3. Research — tool ladder
 

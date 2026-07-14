@@ -41,4 +41,4 @@ One skill, six platforms. Read `platform.name` from the client's `email-marketin
 - **Create draft**: follow the reference's numbered flow verbatim (several platforms are multi-step: template → campaign → assign/update). Subject, preview text, from/reply-to, and list targeting come from `meta.yaml` + config `audience.*`.
 - **Media upload** (`images.hosting: platform_upload`): download the generated image locally first (see `email-images` skill), then the reference's media endpoint; use the returned platform CDN URL in the HTML. No media API on that platform (Omnisend, Moosend) → fall back to `hosted_url` behavior and flag `re_host_before_send` in meta.yaml.
 - **A/B subjects**: Mailchimp (variate) and Constant Contact (`/abtest`) support it via API — see references. Klaviyo/Omnisend/Moosend: leave variants B/C in `meta.yaml` for manual UI entry and tell the user.
-- **Reports** (campaign-analyst): each reference's "Campaign reports" section; strictly read-only; respect the (often tight) report rate limits.
+- **Reports** (email-campaign-analyst): each reference's "Campaign reports" section; strictly read-only; respect the (often tight) report rate limits.

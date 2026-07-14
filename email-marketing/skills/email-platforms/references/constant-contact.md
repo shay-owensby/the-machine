@@ -172,7 +172,7 @@ Supported via API, subject-line only (verified at https://developer.constantcont
 
 Creating the A/B test does NOT send anything — it only configures the draft. Still record both subject variants in the campaign's meta.yaml so the human sees them at review time. The winner is sent automatically by Constant Contact *after the human sends the campaign* from the UI.
 
-## Campaign reports (read-only — campaign-analyst agent)
+## Campaign reports (read-only — email-campaign-analyst agent)
 
 - Summary for up to 500 recent campaigns (`unique_counts`: sends, opens, clicks, forwards, optouts, abuse, bounces, not_opened):
 
