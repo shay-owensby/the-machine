@@ -1,0 +1,21 @@
+{
+  "name": "email-marketing",
+  "version": "0.1.0",
+  "description": "Per-brand email marketing agent team — weekly newsletter production: trend research with a deduplicated topic log, brand-voiced copywriting (subject + A/B variants, preview text, email-safe HTML body), Higgsfield image generation, adversarial QA, and draft delivery to Mailchimp, Klaviyo, Constant Contact, Omnisend, Moosend, or MoeGo. Drafts only — never sends.",
+  "author": {
+    "name": "Shay Owensby",
+    "email": "shay@highlymarketable.com"
+  },
+  "keywords": [
+    "email",
+    "newsletter",
+    "email-marketing",
+    "mailchimp",
+    "klaviyo",
+    "constant-contact",
+    "omnisend",
+    "moosend",
+    "moego",
+    "copywriting"
+  ]
+}
