@@ -38,11 +38,12 @@ audience:                           # required when delivery.mode: api_draft
   reply_to: "hello@acme.example"
 
 brand:
+  about_file: ABOUT.md              # resolved path (project-root relative) or null → no business-facts source
   soul_file: SOUL.md                # resolved path (project-root relative) or null → degraded voice mode
   design_file: DESIGN.md            # resolved path or null → degraded image styling
-  industry: "Pet grooming salon"
-  audience_description: "Local pet owners, mostly dogs, family-oriented"
-  website: "https://acme.example"
+  industry: "Pet grooming salon"    # derived from ABOUT.md when present; fallback when about_file: null
+  audience_description: "Local pet owners, mostly dogs, family-oriented"  # same derivation/fallback rule
+  website: "https://acme.example"   # same derivation/fallback rule
   topic_hints:                      # 3–5 seed themes the researcher should orbit
     - seasonal coat care
     - new services

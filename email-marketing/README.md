@@ -17,13 +17,14 @@ A brand-agnostic Claude Code plugin that acts as a per-client **email marketing 
 
 ## Quick start (in a client project)
 
-1. Install/enable this plugin, then run **`/setup-email-marketing`** in the client project. The wizard configures: platform + connection (env var names only — secrets live in the client's gitignored `.env`), delivery mode (`api_draft` or `file_only`), recurring sections, brand file locations, industry/topic hints, and image preferences.
+1. Install/enable this plugin, then run **`/setup-email-marketing`** in the client project. The wizard configures: platform + connection (env var names only — secrets live in the client's gitignored `.env`), delivery mode (`api_draft` or `file_only`), recurring sections, brand file locations (`ABOUT.md`, `SOUL.md`, `DESIGN.md`), industry/topic hints, and image preferences.
 2. Run **`/email-newsletter`** each week. It always starts by asking: *"Anything specific to include in this week's email?"*
 
 ## What lands in the client project
 
 ```
 <client>/
+├── ABOUT.md                        # who the client is, what they do (read, never written)
 ├── DESIGN.md                       # brand visual guidelines (read, never written)
 ├── SOUL.md                         # brand voice guidelines (read, never written)
 └── email-marketing/
@@ -39,7 +40,7 @@ A brand-agnostic Claude Code plugin that acts as a per-client **email marketing 
             └── images/
 ```
 
-Brand files are looked up at the client project root (`./DESIGN.md`, `./SOUL.md`) with a fallback to `_configuration/references/`.
+Brand files are looked up at the client project root (`./ABOUT.md`, `./DESIGN.md`, `./SOUL.md`) with a fallback to `_configuration/references/`.
 
 ## Architecture
 
@@ -49,7 +50,7 @@ Brand files are looked up at the client project root (`./DESIGN.md`, `./SOUL.md`
 
 **Agents** (isolated subagent system prompts):
 - `agents/topic-researcher.md` — 1–3 trending topic candidates with rationale + sources; **always** prepends every suggestion to `email-marketing/references/topic-researcher.md` and never repeats a logged topic.
-- `agents/email-copywriter.md` — subject line A/B/C, preview text, and email-client-safe HTML body in the voice of `SOUL.md`.
+- `agents/email-copywriter.md` — subject line A/B/C, preview text, and email-client-safe HTML body grounded in the facts of `ABOUT.md` and written in the voice of `SOUL.md`.
 - `agents/email-qa.md` — adversarial pre-flight: links, spam triggers, rendering pitfalls, size, accessibility, brand compliance.
 - `agents/campaign-analyst.md` — read-only past-campaign stats via the platform API; **always** exports a markdown report to `email-marketing/reports/analytics/`.
 
@@ -58,7 +59,7 @@ Brand files are looked up at the client project root (`./DESIGN.md`, `./SOUL.md`
 - `skills/email-platforms/` — platform API dispatch and draft-only safety rules. References: one verified API doc per platform.
 - `skills/email-html/` — email-client-safe HTML authoring. References: `html-boilerplate.md`, `qa-checklist.md`.
 - `skills/email-topic-research/` — research method, tool ladder (Semrush MCP → WebSearch → WebFetch), semantic dedup rules.
-- `skills/email-images/` — Higgsfield MCP workflow, DESIGN.md-driven prompting, image hosting strategy.
+- `skills/email-images/` — Higgsfield MCP workflow, DESIGN.md-driven style with ABOUT.md-grounded subject matter, image hosting strategy.
 
 ## MCP
 

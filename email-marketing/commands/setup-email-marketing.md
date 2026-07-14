@@ -39,13 +39,13 @@ If **api_draft**: collect `audience.list_id` (offer to fetch the account's lists
 
 ## Step 4 — Brand files
 
-Look for brand files in this order and record the resolved paths:
-1. `./DESIGN.md` and `./SOUL.md` (project root)
-2. `_configuration/references/DESIGN.md` and `_configuration/references/SOUL.md`
+Look for brand files in this order and record the resolved paths. ABOUT.md = what the brand IS, SOUL.md = how it SOUNDS, DESIGN.md = how it LOOKS.
+1. `./ABOUT.md`, `./DESIGN.md`, and `./SOUL.md` (project root)
+2. `_configuration/references/ABOUT.md`, `_configuration/references/DESIGN.md`, and `_configuration/references/SOUL.md`
 
-For each file found, read it briefly and confirm with the user it's the right document. For each file missing (or empty), warn about degraded output (neutral voice / default image styling) and offer:
-- proceed degraded (`brand.soul_file: null` / `brand.design_file: null`), or
-- interview the user now (voice: tone, personality, words to use/avoid, example sentences; design: colors, fonts, imagery style) and draft the file to the project root with their approval.
+For each file found, read it briefly and confirm with the user it's the right document. For each file missing (or empty), warn about degraded output and offer:
+- proceed degraded (`brand.about_file: null` / `brand.soul_file: null` / `brand.design_file: null` — for ABOUT.md this means no business-facts source, so the pipeline falls back to the config `industry`/`audience_description` fields in Step 6 and must not invent products, services, or claims), or
+- interview the user now (about: what the business does, its products/services, who its customers are, what differentiates it, its positioning; voice: tone, personality, words to use/avoid, example sentences; design: colors, fonts, imagery style) and draft the file to the project root with their approval.
 
 ## Step 5 — Recurring sections
 
@@ -58,7 +58,7 @@ Preserve the order they give as the order within each position.
 
 ## Step 6 — Brand context for research
 
-Collect: industry (one line), audience description, website URL, 3–5 `topic_hints` (seed themes for the researcher), timezone, cadence + typical send day (informational only — the plugin never schedules).
+If `brand.about_file` was resolved in Step 4: read it, derive `industry`, `audience_description`, `website`, and 3–5 candidate `topic_hints` from it, then present them to the user to **confirm or correct** — don't re-interview from scratch. If ABOUT.md is absent, ask cold: industry (one line), audience description, website URL, 3–5 `topic_hints` (seed themes for the researcher). Either way, also collect timezone and cadence + typical send day (informational only — the plugin never schedules).
 
 ## Step 7 — Images
 

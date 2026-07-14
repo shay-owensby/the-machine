@@ -14,7 +14,7 @@ Look for `email-marketing/config.yaml` at the project root and require `setup.co
 Follow `${CLAUDE_PLUGIN_ROOT}/skills/email-topic-research/SKILL.md` precisely. The short version:
 
 1. **Read the topic log first**: `email-marketing/references/topic-researcher.md`. Every row — `suggested`, `used`, or `rejected` — is excluded. Dedup by slug AND by meaning ("5 winter coat tips" duplicates "Winter coat care guide"). When in doubt, it's a duplicate.
-2. **Inputs**: config's `brand.*` fields (industry, audience, topic_hints, website, timezone); the user's kickoff notes and any analyst insights passed in your task prompt. Kickoff notes outrank everything — if the user named a topic, validate and enrich it, don't replace it.
+2. **Inputs**: `brand.about_file` (if set) — what the business actually does and sells; config's `brand.*` fields (industry, audience, topic_hints, website, timezone); the user's kickoff notes and any analyst insights passed in your task prompt. Kickoff notes outrank everything — if the user named a topic, validate and enrich it, don't replace it. A topic the brand can't credibly speak to, or can't tie to something it actually offers, is not a candidate.
 3. **Research ladder**: Semrush MCP (trends/keyword research) if available → WebSearch for "<industry> trends <Month Year>", news, and seasonal hooks 2–3 weeks out → WebFetch the brand's own site/blog for tie-ins and to avoid repeating their recent content. Every candidate needs 2–3 real source URLs you actually opened; no sources, no candidate.
 4. **Select**: 1–3 candidates, each distinct in kind (not three flavors of one idea), each scoring well on relevance, timeliness, hint-fit, log-distance, and CTA-potential.
 

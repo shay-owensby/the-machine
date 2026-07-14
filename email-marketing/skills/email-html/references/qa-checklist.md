@@ -57,6 +57,7 @@ Flag (warn) if copy leans on these — one instance is context-dependent, cluste
 
 - [ ] Voice matches SOUL.md (tone, vocabulary, phrases to avoid); if `soul_file: null`, confirm the degraded-voice warning is present
 - [ ] Colors/styling consistent with DESIGN.md mapping
+- [ ] Business-fact claims (services, products, prices, locations, credentials, guarantees) trace to ABOUT.md or the user's kickoff notes; anything in neither is a blocker
 - [ ] All config `sections[]` present, in the right positions and order; dynamic sections show FRESH content (not last issue's)
 - [ ] Factual claims in the copy are supported by the research sources; dates/prices/offers confirmed with the user's kickoff input
 - [ ] No fabricated testimonials, reviews, or statistics (blocker)

@@ -13,7 +13,7 @@ Look for `email-marketing/config.yaml` at the project root; require `version: 1`
 ## 2. Load context
 
 - `email-marketing/config.yaml` (all of it)
-- Brand files at `brand.soul_file` / `brand.design_file` (null → note degraded mode, warn once)
+- Brand files at `brand.about_file` (business facts — what the client actually does/sells) / `brand.soul_file` / `brand.design_file` (null → note degraded mode, warn once)
 - Topic log `email-marketing/references/topic-researcher.md`
 - The 2 most recent `drafts/*/​*.meta.yaml` (avoid repeating last issues' subject patterns and structure)
 - Latest report in `email-marketing/reports/analytics/` if present
@@ -28,7 +28,7 @@ Ask the user: **"Anything specific to include in this week's email?"** — annou
 Launch in a single message, both in the background if long-running:
 
 - **campaign-analyst** (only if `delivery.mode: api_draft` AND `analytics.enabled: true`): pass platform name and env var names. It exports its markdown report to `email-marketing/reports/analytics/YYYY-mm-dd-campaign-analysis.md` and returns a short brief. If it returns "no usable data", continue without it.
-- **topic-researcher** (skip only if the user fully dictated the topic AND asked for no alternatives — even then, the dictated topic must be logged): pass industry/audience/hints/website from config, the user's kickoff notes, and remind it of its two contracts — exclude everything already in the topic log, and prepend ALL candidates to the top of `email-marketing/references/topic-researcher.md` before returning.
+- **topic-researcher** (skip only if the user fully dictated the topic AND asked for no alternatives — even then, the dictated topic must be logged): pass industry/audience/hints/website from config, `brand.about_file`'s path so candidates are grounded in what the business actually offers, the user's kickoff notes, and remind it of its two contracts — exclude everything already in the topic log, and prepend ALL candidates to the top of `email-marketing/references/topic-researcher.md` before returning.
 
 ## 5. Topic selection
 
@@ -40,11 +40,11 @@ If `images.enabled`, follow `${CLAUDE_PLUGIN_ROOT}/skills/email-images/SKILL.md`
 
 ## 7. Copywriting (subagent)
 
-Launch **email-copywriter** with: chosen topic + research notes + sources, the user's kickoff instructions, paths to SOUL.md/DESIGN.md, the full `sections[]` array, final image URLs + alt text, audience description, analyst subject-line insights. It returns four fenced blocks (Subjects yaml / Preview / HTML / Notes). Parse them; write nothing yet.
+Launch **email-copywriter** with: chosen topic + research notes + sources, the user's kickoff instructions, paths to ABOUT.md/SOUL.md/DESIGN.md, the full `sections[]` array, final image URLs + alt text, audience description, analyst subject-line insights. It returns four fenced blocks (Subjects yaml / Preview / HTML / Notes). Parse them; write nothing yet.
 
 ## 8. QA (subagent)
 
-Write the draft to `drafts/YYYY-mm-dd/YYYY-mm-dd.html` and a first `YYYY-mm-dd.meta.yaml` (schema: config-schema.md → meta.yaml section), then launch **email-qa** with the folder path, brand file paths, `sections[]`, and the copywriter's Notes.
+Write the draft to `drafts/YYYY-mm-dd/YYYY-mm-dd.html` and a first `YYYY-mm-dd.meta.yaml` (schema: config-schema.md → meta.yaml section), then launch **email-qa** with the folder path, brand file paths (including `brand.about_file` — the agent uses it to verify factual claims about the client's own business), `sections[]`, and the copywriter's Notes.
 
 - **FAIL** (blockers): content blockers → one revision round back through email-copywriter with the QA findings; mechanical HTML issues → fix directly yourself per the email-html skill. Re-run QA once after fixes.
 - **PASS WITH WARNINGS**: fix cheap warns yourself; surface the rest to the user in step 9.

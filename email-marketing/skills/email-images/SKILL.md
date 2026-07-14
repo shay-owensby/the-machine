@@ -11,7 +11,7 @@ Images are an enhancement, **never a blocker**: if anything in this pipeline fai
 
 Confirm the Higgsfield MCP tools are reachable (e.g. `mcp__claude_ai_Higgsfield__generate_image`; load schemas via ToolSearch if deferred). If absent: tell the user the Higgsfield connector isn't enabled in this session, offer (a) no-image layout or (b) a path/URL to an image they supply. Do not retry endlessly.
 
-## 2. Prompt construction — DESIGN.md is law
+## 2. Prompt construction — DESIGN.md governs style, ABOUT.md governs subject matter
 
 Read the client's `brand.design_file` (path from config). Build the image prompt from:
 - **Palette**: the exact hex values / color names DESIGN.md specifies
@@ -20,6 +20,8 @@ Read the client's `brand.design_file` (path from config). Build the image prompt
 - `images.style_notes` from config (additive only — never contradicting DESIGN.md)
 
 Never invent brand style not in DESIGN.md. If `design_file: null`, use a clean, neutral editorial style, note the degradation to the user.
+
+Check the client's `brand.about_file` before concretizing the subject: the image must depict what the business actually does — never a service, product, setting, or scenario the client doesn't actually offer per ABOUT.md. If `about_file: null`, keep the subject matter generic to the configured `brand.industry` rather than inventing specifics, and note the degradation.
 
 **Text in images**: avoid rendering text entirely if possible (generators misspell; email clients block images). If DESIGN.md's style demands headline text, keep it to 1–4 words, spell them out exactly in the prompt, and proofread the result letter-by-letter before accepting.
 

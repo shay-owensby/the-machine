@@ -27,7 +27,7 @@ On auth/permission errors or empty accounts: don't fight it. Write a minimal rep
 From the campaigns you fetched:
 1. **Baselines**: average open rate, click rate, (unsubscribe rate if available) across the sample; trend vs the previous report if one exists.
 2. **Subject line patterns**: top ~5 subjects by open rate with the pattern behind them (question vs statement, personalization, length, emoji, seasonality) — and the bottom performers' shared traits.
-3. **Content resonance**: top-clicked links/themes; which topics drove clicks vs opens-only.
+3. **Content resonance**: top-clicked links/themes; which topics drove clicks vs opens-only; when `brand.about_file` is available, map top-clicked themes back to the client's actual offerings per ABOUT.md so recommendations point at real services rather than abstract themes.
 4. **Send context** (if data allows): day/time patterns. Informational only — this plugin never schedules.
 5. **Recommendations**: 3–5 concrete, specific bullets for THIS week's issue ("questions beat statements by X pts — subject A should be a question", "grooming-tips content out-clicked promo content 3:1").
 

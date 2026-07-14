@@ -5,7 +5,7 @@ description: Load and validate the email-marketing configuration for the current
 
 # Email Marketing Config
 
-Every email-marketing component reads its client-specific context through this skill. The plugin itself is brand-agnostic: **all** client specifics (platform, credentials, voice, sections, topics) live in the consuming client project.
+Every email-marketing component reads its client-specific context through this skill. The plugin itself is brand-agnostic: **all** client specifics (platform, credentials, identity/facts, voice, sections, topics) live in the consuming client project.
 
 ## Canonical setup-check protocol
 
@@ -21,6 +21,7 @@ Run this before doing ANY email-marketing work. Never proceed with guessed or pa
 ## Config resolution
 
 - Config file: `email-marketing/config.yaml` (schema: [references/config-schema.md](references/config-schema.md))
+- Brand identity/facts: path in `brand.about_file` (setup resolves `./ABOUT.md`, falling back to `_configuration/references/ABOUT.md`)
 - Brand voice: path in `brand.soul_file` (setup resolves `./SOUL.md`, falling back to `_configuration/references/SOUL.md`)
 - Brand visuals: path in `brand.design_file` (same resolution for `DESIGN.md`)
 - Topic suggestion log: `email-marketing/references/topic-researcher.md` (format: [references/topic-log-format.md](references/topic-log-format.md))
@@ -39,6 +40,7 @@ Run this before doing ANY email-marketing work. Never proceed with guessed or pa
 
 ## Degraded modes (warn, don't block)
 
+- `brand.about_file: null` → rely on `brand.industry` / `brand.audience_description` / `brand.website` from config; never invent business specifics (services, offers, credentials); warn once.
 - `brand.soul_file: null` → write in a neutral, professional voice and prefix every produced draft with a visible warning that brand voice guidelines were unavailable.
 - `brand.design_file: null` → skip image generation styling cues; use safe defaults; warn.
 - Higgsfield MCP tools unavailable → produce a no-image layout; never block the pipeline on images.
