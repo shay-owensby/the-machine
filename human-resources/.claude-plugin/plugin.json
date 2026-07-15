@@ -1,0 +1,27 @@
+{
+  "name": "human-resources",
+  "version": "0.1.1",
+  "description": "Per-client HR department — brand-agnostic skills and agents across the full HR lifecycle: recruitment, onboarding, compensation & benefits, performance, training, employee & labor relations, compliance, policy/handbook, health-safety-wellness, DEI, records/HRIS, scheduling, workforce strategy, and offboarding. Produces review-ready drafts and reports into the client project — never legal advice, never sends, never mutates live systems without confirmation.",
+  "author": {
+    "name": "Shay Owensby",
+    "email": "shay@highlymarketable.com"
+  },
+  "keywords": [
+    "human-resources",
+    "hr",
+    "recruitment",
+    "onboarding",
+    "compensation",
+    "benefits",
+    "performance-management",
+    "employee-relations",
+    "compliance",
+    "hr-policy",
+    "employee-handbook",
+    "workplace-safety",
+    "dei",
+    "hris",
+    "workforce-planning",
+    "offboarding"
+  ]
+}
