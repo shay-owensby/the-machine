@@ -1,0 +1,27 @@
+{
+  "name": "human-resources",
+  "version": "0.1.0",
+  "description": "Per-client HR department in a plugin — a brand-agnostic team of skills and agents covering the full HR lifecycle: recruitment, onboarding, compensation & benefits, performance management, training, employee & labor relations, legal compliance, policy/handbook development, health-safety-wellness, DEI, employee records/HRIS, scheduling, workforce strategy, and offboarding. Produces review-ready drafts and reports into the client project — never final legal advice, never sends anything, never touches live employee systems without explicit action.",
+  "author": {
+    "name": "Shay Owensby",
+    "email": "shay@highlymarketable.com"
+  },
+  "keywords": [
+    "human-resources",
+    "hr",
+    "recruitment",
+    "onboarding",
+    "compensation",
+    "benefits",
+    "performance-management",
+    "employee-relations",
+    "compliance",
+    "hr-policy",
+    "employee-handbook",
+    "workplace-safety",
+    "dei",
+    "hris",
+    "workforce-planning",
+    "offboarding"
+  ]
+}

@@ -11,6 +11,12 @@
       "source": "./email-marketing",
       "description": "Per-brand email marketing agent team — weekly newsletter production: trend research with a deduplicated topic log, brand-voiced copywriting (subject + A/B variants, preview text, email-safe HTML body), Higgsfield image generation, adversarial QA, and draft delivery to Mailchimp, Klaviyo, Constant Contact, Omnisend, Moosend, or MoeGo. Drafts only — never sends.",
       "category": "marketing"
+    },
+    {
+      "name": "human-resources",
+      "source": "./human-resources",
+      "description": "Per-client HR department — a brand-agnostic team of skills and agents covering the full HR lifecycle: recruitment, onboarding, compensation & benefits, performance management, training, employee & labor relations, legal compliance, policy/handbook development, health-safety-wellness, DEI, employee records/HRIS, scheduling, workforce strategy, and offboarding. Produces review-ready drafts and reports into the client project — never final legal advice, never sends, never mutates live employee systems without explicit confirmation.",
+      "category": "operations"
     }
   ]
 }
