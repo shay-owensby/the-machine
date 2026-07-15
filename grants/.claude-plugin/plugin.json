@@ -1,0 +1,18 @@
+{
+  "name": "grants",
+  "version": "0.2.0",
+  "description": "Per-client grants department in a plugin — a brand-agnostic team of skills covering the grant lifecycle: funder profiling, opportunity forecasting and research, application tracking, and grant writing. Produces review-ready drafts and trackers into the client project — never submits applications without an explicit action.",
+  "author": {
+    "name": "Shay Owensby",
+    "email": "shay@highlymarketable.com"
+  },
+  "keywords": [
+    "grants",
+    "grant-writing",
+    "grant-research",
+    "funder-research",
+    "grant-tracking",
+    "fundraising",
+    "nonprofit"
+  ]
+}

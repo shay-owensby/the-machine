@@ -1,0 +1,30 @@
+{
+  "skill_name": "grant-researcher",
+  "notes": "Runs against the fixture project at scratchpad/grant-fixture (Riverside Youth Music Project, a 501(c)(3) youth music-education nonprofit in Portland, OR). Subagents run with that fixture as the project root. Today's date for the fixture is set at run time via config.yaml.",
+  "evals": [
+    {
+      "id": 0,
+      "name": "broad-discovery",
+      "prompt": "Can you research some grants we should apply for this year? Give me a ranked shortlist with how good a fit each one is.",
+      "expected_output": "A ranked grant-research report written to grants/reports/research/, only currently-open or upcoming grants (no expired), each scored 0-100 with the five-dimension breakdown and a recommendation, plus an updated research log. Every grant has a real, fetched source URL.",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 1,
+      "name": "targeted-capital-need",
+      "prompt": "We're trying to fund the new East Portland site this year - it's about a $120k capital and program build-out. What grants actually fit that, and how likely are we to win them?",
+      "expected_output": "A report focused on grants whose award size and eligible use fit a ~$120k capital/project need for a Portland youth-arts nonprofit, scored 0-100 with the breakdown (award-size fit and likelihood emphasized), active-only, sourced, and logged. Grants that only fund operating or are too small should score lower on Funding & Award-Size Fit or be noted.",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 2,
+      "name": "likelihood-ranked",
+      "prompt": "Put together a list of foundation and government grants for youth music education in our area, and rank them by how likely we are to actually get the money if we apply.",
+      "expected_output": "A ranked report emphasizing the Award Likelihood / Competitiveness dimension, covering both foundation and government funders relevant to Portland/Oregon youth music education, active-only, each with a verified source and full 0-100 breakdown, plus log update. Local/community funders with better odds should surface above longshot national awards.",
+      "files": [],
+      "assertions": []
+    }
+  ]
+}
