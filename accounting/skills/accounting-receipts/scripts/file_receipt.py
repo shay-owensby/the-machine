@@ -125,6 +125,67 @@ def unique_destination(folder, stem, suffix):
     return dest
 
 
+def ledger_project_root(path):
+    """The client project root a ledger/archive path belongs to: the parent of
+    its `accounting/` folder. None if the path is not inside one."""
+    for parent in Path(path).resolve().parents:
+        if parent.name == "accounting":
+            return parent.parent
+    return None
+
+
+def source_project_root(path):
+    """The client project root a SOURCE file belongs to, but only when it is
+    sitting in a client's receipt folder (`.../accounting/receipts/...`).
+
+    A file in ~/Downloads or on the Desktop belongs to no client and returns
+    None -- that is the ordinary on-demand case and must stay allowed. This
+    only identifies files that are already inside some client's receipts tree.
+    """
+    resolved = Path(path).resolve()
+    for parent in resolved.parents:
+        if parent.name == "receipts" and parent.parent.name == "accounting":
+            return parent.parent.parent
+    return None
+
+
+def check_same_client(src, csv_path, receipts_root):
+    """Refuse to file one client's receipt into another client's books.
+
+Every `accounting/...` path is relative to the working directory, so a task
+    started in the wrong folder -- or an absolute path from another client passed
+    by mistake -- would move the receipt into the wrong archive and append the row
+    to the wrong ledger, silently, because every individual path is valid. This is
+    the check that makes that impossible rather than merely unlikely.
+    """
+    ledger_root = ledger_project_root(csv_path)
+    archive_root = ledger_project_root(receipts_root)
+
+    if ledger_root and archive_root and ledger_root != archive_root:
+        fail(
+            "the ledger and the archive belong to different client projects -- "
+            "refusing to split one receipt across two clients.\n"
+            f"  --csv            -> {ledger_root}\n"
+            f"  --receipts-root  -> {archive_root}\n"
+            "Check the working directory: both paths should be relative to one "
+            "client project root.",
+            code=2,
+        )
+
+    src_root = source_project_root(src)
+    target_root = ledger_root or archive_root
+    if src_root and target_root and src_root != target_root:
+        fail(
+            "this receipt belongs to a different client than the ledger it "
+            "would be written to -- refusing to cross-file it.\n"
+            f"  receipt is in -> {src_root}\n"
+            f"  ledger is in  -> {target_root}\n"
+            "Run from the client project root and use paths relative to it; do "
+            "not pass another client's absolute path.",
+            code=2,
+        )
+
+
 def relative_to_cwd(path):
     try:
         return str(path.resolve().relative_to(Path.cwd().resolve()))
@@ -193,6 +254,8 @@ def main():
     src = Path(args.source).expanduser()
     if not src.is_file():
         fail(f"source file not found: {src}", code=4)
+
+    check_same_client(src, csv_path, receipts_root)
 
     d = parse_date(args.date)
     gross = money(args.gross, "gross")

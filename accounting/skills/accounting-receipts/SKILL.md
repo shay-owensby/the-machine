@@ -1,6 +1,6 @@
 ---
 name: accounting-receipts
-description: Read receipt and invoice images or PDFs, extract the bookkeeping fields (merchant, date, gross total, VAT/tax, receipt number, category, confidence), append one row per receipt to a single expenses.csv ledger, and file the original into accounting/receipts/processed-receipts/YYYYMM_MonthName/. Use this skill whenever the user hands over a receipt, an invoice, a photo of a receipt, a scan, a folder of receipts, or says "process these receipts", "log this expense", "do my expenses", "add this to the books", "what's the VAT on this", "file these for the accountant", "sort out my receipts", "expense this", "bookkeeping", or "record this purchase". Also use it when a receipt arrives as an email attachment or a download and the natural next step is getting it into the expense ledger.
+description: Read receipt and invoice images or PDFs, extract the bookkeeping fields (merchant, date, gross total, VAT/tax, receipt number, category, confidence), append one row per receipt to a single expenses.csv ledger, and file the original into accounting/receipts/processed-receipts/YYYYMM_MonthName/. Also runs unattended as a scheduled task in a client project: it picks up whatever has been dropped into that client's accounting/receipts/ folder, processes it, and posts a one-line summary to their Slack channel from SLACK_CHANNEL_ID in .env. Use this skill whenever the user hands over a receipt, an invoice, a photo of a receipt, a scan, a folder of receipts, or says "process these receipts", "log this expense", "do my expenses", "add this to the books", "what's the VAT on this", "file these for the accountant", "sort out my receipts", "expense this", "bookkeeping", or "record this purchase". Use it too for the scheduled run — "process the receipt inbox", "check the drop folder", "any receipts waiting", "do the nightly receipts". Also use it when a receipt arrives as an email attachment or a download and the natural next step is getting it into the expense ledger.
 ---
 
 # Accounting Receipts
@@ -11,14 +11,39 @@ Turn a pile of receipt images into two things that survive an audit: **one row p
 
 ---
 
+## Two ways this runs
+
+**On demand.** Someone hands you files or a folder. Start at Step 1.
+
+**Scheduled.** Nobody hands you anything and nobody is watching. Files have been
+uploaded into this client's `accounting/receipts/` drop folder and their
+scheduled task has woken you up to deal with them. Start at Step 0 and finish
+with the Slack post in Step 8.
+
+Each client has their own task, running in their own project directory. A
+scheduled run never reaches outside the project root it started in.
+
+The reading of a receipt is identical either way. What changes unattended: the
+drop folder is the only input, you cannot stop and ask, and the client's Slack
+channel hears the result. The full contract for that mode — `.env` handling, what
+to do when a receipt fails, and what to do when the scripts cannot run at all —
+is in `references/scheduled-runs.md`. Read it before your first scheduled run.
+
+---
+
 ## Outputs
 
 Everything is written into the **client project root** — the current working directory:
 
 ```
+.env                                          SLACK_CHANNEL_ID for this client
 accounting/
   expenses.csv                                one flat file, one header row, one row per receipt
-  receipts/
+  needs-review.md                             what a run could not resolve on its own
+  receipts-notified.log                       one JSON line per Slack post
+  receipts/                                   THE DROP FOLDER -- uploads land here
+    IMG_4471.HEIC                             waiting to be processed
+    invoice-march.pdf
     processed-receipts/
       202603_March/
         2026-03-14_shell-service-station_48.20.jpg
@@ -26,6 +51,12 @@ accounting/
       202604_April/
         ...
 ```
+
+Loose files in `accounting/receipts/` are the **inbox**; everything under
+`processed-receipts/` is **done**. Processing moves a file from the first to the
+second, which is the only state a scheduled run needs — an empty inbox means
+there is no work, so a nightly run on a quiet week does nothing and says
+nothing.
 
 Two path roots are in play throughout, and mixing them up is the one mechanical
 error that will bite: `scripts/` and `references/` are relative to **this skill's
@@ -38,12 +69,39 @@ absolute paths for the scripts if there is any doubt.
 
 ## The pipeline
 
+### Step 0 — Check the inbox (scheduled runs only)
+
+Work from the **client project root**. Every `accounting/…` path below is
+relative to it, and `file_receipt.py` records `file_path` relative to the working
+directory, so staying put is what keeps the ledger pointing at its own files.
+
+```bash
+python3 scripts/check_inbox.py
+```
+
+The receipts waiting, anything in the folder that is not a receipt, and the
+`SLACK_CHANNEL_ID` from this client's `.env`. Exit code `1` means the inbox is
+empty — a normal, quiet night. Say so in one line and stop; do not go looking for
+work elsewhere.
+
+Mark the start of the run before processing anything; Step 8 needs it:
+
+```bash
+START=$(python3 scripts/run_report.py --mark-start)
+```
+
 ### Step 1 — Gather and prepare the inputs
 
 Run the prep script over whatever the user pointed you at — a single file, several files, or a folder:
 
 ```bash
 python3 scripts/prepare_receipts.py <paths...> --workdir "$SCRATCHPAD/receipt-prep"
+```
+
+On a scheduled run there is nothing to point at but the drop folder:
+
+```bash
+python3 scripts/prepare_receipts.py accounting/receipts --workdir "$SCRATCHPAD/receipt-prep"
 ```
 
 It walks the inputs, skips anything already sitting under `processed-receipts/`, converts HEIC/WEBP/TIFF to JPEG, downscales oversized photos so fine print survives the read, counts PDF pages, and writes a manifest listing every receipt to be processed.
@@ -112,12 +170,48 @@ python3 scripts/file_receipt.py --audit --csv accounting/expenses.csv --receipts
 
 The audit catches rows pointing at files that are not there and filed files that never made it into the ledger. Fix anything it finds before reporting.
 
+Then read the run back out of the ledger — never off your own tally of the session, which will happily count a receipt that failed to commit:
+
+```bash
+python3 scripts/run_report.py --csv accounting/expenses.csv --since "$START" \
+  --client "<client name>" --review-file accounting/needs-review.md
+```
+
+It returns the count, the totals by currency, the flagged rows, and the exact message for Step 8. Exit code `1` means nothing was logged. Set `$START` at the top of an on-demand run too (`--mark-start`) if you want the same read-back.
+
 Then tell the user, in prose:
 
 - How many receipts were processed, and the total gross and total tax by currency.
 - The month folders that were written to.
 - **The review list** — every `needs_review` row, with the specific reason and what you need from them to close it. This is the part they act on, so lead the summary with the count and put the detail here.
 - Anything skipped, and why (unreadable, not a receipt, already in the ledger).
+- Whether the Slack summary went out, and if not, why.
+
+### Step 8 — Post the summary to the client's Slack channel
+
+One message, one line, to the channel ID in **that client's own** `.env`:
+
+```
+mcp__claude_ai_Slack__slack_send_message
+  channel_id: <SLACK_CHANNEL_ID from check_inbox.py>
+  text:       <the slack_message string from run_report.py, verbatim>
+```
+
+```
+2 receipts processed and logged — £48.20 and $12.40 total.
+```
+
+Counts and a tax-inclusive total. **No tax line, no merchant list, no review flags** — flagged rows are your problem to close, and they belong in `needs-review.md`, not in the client's channel. Nothing was logged? Post nothing; silence on a quiet night is correct.
+
+Then record what went out:
+
+```bash
+python3 scripts/run_report.py --csv accounting/expenses.csv --since "$START" \
+  --client "<client name>" --channel "<channel id>" \
+  --log accounting/receipts-notified.log --posted
+```
+
+Message rules, the missing-channel case, and what never goes in a client channel: `references/slack-summary.md`.
 
 ---
 
@@ -129,6 +223,10 @@ Then tell the user, in prose:
 4. **Never delete an original receipt.** Processing means *moving* it into the archive. If a move fails, the file stays where it is and the row does not get written.
 5. **Never double-book.** Check the ledger before adding; a suspected duplicate stops the run for that receipt.
 6. **Do not silently drop a file.** Anything in the input that did not become a row gets named in the final report.
+7. **Never post a number you did not read back out of the ledger.** The Slack total comes from `run_report.py`, not from your own count of the session.
+8. **Never post to a channel you did not read out of this client's `.env`.** No guessing from the client's name, no searching Slack for a likely match.
+9. **Never write a row when the scripts cannot run.** A row claims the original is filed at `file_path`. If `file_receipt.py` cannot execute, that claim would be false — leave the receipts in the drop folder and report the blocker. Never hand-write the CSV and never move receipts with `mv`.
+10. **Never `--force` past a duplicate unattended.** On demand you would open both images and decide; on a scheduled run you cannot, so the file stays in the drop folder for a human.
 
 ## When to stop and ask
 
@@ -137,3 +235,5 @@ Keep going without asking for ordinary judgement calls — an uncertain category
 - A receipt appears to already be in the ledger and it is not obvious whether it is a genuine second purchase.
 - The input contains documents that are not business expenses (a personal purchase, a bank statement, a contract) — name them and ask before filing anything.
 - The user's `accounting/` folder already contains an `expenses.csv` with a **different column schema**. Do not migrate it unilaterally; show them the mismatch.
+
+On a scheduled run there is nobody to ask. Every one of those becomes *leave the file in the drop folder, flag it in `needs-review.md`, name it in the report* — and the run carries on with the remaining receipts. Never resolve a stop-and-ask by guessing just because the question cannot be asked.
