@@ -82,8 +82,10 @@ def collect(inputs, include_processed):
             q = q.resolve()
             if q in seen or q.name.startswith("."):
                 continue
-            if q.suffix.lower() not in READABLE | NEEDS_CONVERT | PDF:
-                continue
+            # No extension filter. Every file handed in gets an entry, even one
+            # in a format nothing here recognises -- it is reported as such and
+            # accounted for, never dropped on the floor. Silently skipping a file
+            # is how a receipt goes missing without anyone noticing.
             if not include_processed and "processed-receipts" in q.parts:
                 continue
             seen.add(q)
@@ -111,6 +113,15 @@ def prepare_one(src, outdir, index):
             entry["warnings"].append(
                 f"{entry['pages']} pages -- may be one multi-page invoice or several receipts"
             )
+        return entry
+
+    if ext not in READABLE | NEEDS_CONVERT | PDF:
+        entry["kind"] = "unknown"
+        entry["actions"].append("unrecognised extension -- try the Read tool on it directly")
+        entry["warnings"].append(
+            f"unrecognised format {ext or '(no extension)'} -- this is still a file "
+            "that must be accounted for: read it if you can, flag it if you cannot"
+        )
         return entry
 
     if ext in NEEDS_CONVERT:
@@ -160,7 +171,11 @@ def main():
         "found": len(entries),
         "missing_inputs": missing,
         "unreadable": [e["source"] for e in entries if not e["view_path"]],
+        "unrecognised_format": [e["source"] for e in entries if e["kind"] == "unknown"],
         "receipts": entries,
+        "note": (f"{len(entries)} file(s) found. Every one must end the run either "
+                 "written to the ledger or named in the report with a reason. "
+                 "Nothing here was filtered by filename."),
     }
     (outdir / "manifest.json").write_text(json.dumps(result, indent=2))
     print(json.dumps(result, indent=2))

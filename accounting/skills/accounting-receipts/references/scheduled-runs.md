@@ -36,8 +36,15 @@ beside it.
         202603_March/                         <- filed originals land here
 ```
 
-**Loose files in `accounting/receipts/` are the inbox.** Anything under
-`processed-receipts/` has already been done and is invisible to the next run.
+**Loose files in `accounting/receipts/` are the inbox — all of them.** Anything
+under `processed-receipts/` has already been done and is invisible to the next
+run. That subfolder is the *only* thing in there that is not work.
+
+So the folder is the filter, and nothing else gets a vote. Do not glob for
+`*receipt*`, do not judge a file by its extension, do not skip `08capcut.pdf`
+because it does not look like a receipt — it is in the folder, so it is a
+receipt. Take the list from `check_inbox.py` rather than listing the directory
+yourself, and reconcile against its `pending_count` at the end of the run.
 
 This is what makes the task safe to run every night: processing a receipt *moves*
 it out of the inbox, so the next run finds nothing and does nothing. There is no

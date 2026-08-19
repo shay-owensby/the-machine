@@ -25,12 +25,12 @@ import re
 import sys
 from pathlib import Path
 
-# Same set prepare_receipts.py will accept; anything else in the drop folder is
-# reported as ignored rather than silently swallowed.
-RECEIPT_EXTS = {
-    ".jpg", ".jpeg", ".png", ".gif", ".pdf",
-    ".heic", ".heif", ".webp", ".tif", ".tiff", ".bmp",
-}
+# EVERY file in the drop folder is a receipt. These sets do not decide what gets
+# processed -- they only say how a file will need to be opened. A format nobody
+# recognises is still a receipt waiting to be read, not a file to skip.
+DIRECTLY_READABLE = {".jpg", ".jpeg", ".png", ".gif"}
+NEEDS_CONVERSION = {".heic", ".heif", ".webp", ".tif", ".tiff", ".bmp"}
+PDF = {".pdf"}
 
 CHANNEL_KEYS = ("SLACK_CHANNEL_ID", "SLACK_CHANNEL")
 CHANNEL_RE = re.compile(r"^[CGD][A-Z0-9]{6,}$")
@@ -73,18 +73,40 @@ def read_channel(env_path):
     return None, None, f"none of {'/'.join(CHANNEL_KEYS)} set in .env"
 
 
+def classify(path):
+    """How this file will need to be opened. Never whether to open it."""
+    ext = path.suffix.lower()
+    if ext in PDF:
+        return "pdf"
+    if ext in DIRECTLY_READABLE:
+        return "image"
+    if ext in NEEDS_CONVERSION:
+        return "needs conversion"
+    return "unrecognised format -- still a receipt, still must be read"
+
+
 def pending_files(inbox):
-    """Loose receipts in the drop folder, plus anything there that is not one."""
-    receipts, ignored = [], []
+    """EVERY file in the drop folder. No filtering by name, extension or anything
+    else: the folder is the filter, and the only thing in it that is not a
+    receipt awaiting processing is the processed-receipts/ subfolder.
+
+    Hidden files (.DS_Store and friends) are OS clutter, not uploads, so they are
+    listed separately rather than counted as receipts -- but they are still
+    listed, because nothing here disappears without being named.
+    """
+    receipts, hidden = [], []
     if not inbox.is_dir():
-        return receipts, ignored
+        return receipts, hidden
     for p in sorted(inbox.rglob("*")):
-        if not p.is_file() or p.name.startswith("."):
+        if not p.is_file():
             continue
         if "processed-receipts" in p.relative_to(inbox).parts:
             continue
-        (receipts if p.suffix.lower() in RECEIPT_EXTS else ignored).append(str(p))
-    return receipts, ignored
+        if p.name.startswith("."):
+            hidden.append(str(p))
+            continue
+        receipts.append({"path": str(p), "name": p.name, "open_as": classify(p)})
+    return receipts, hidden
 
 
 def main():
@@ -99,7 +121,7 @@ def main():
         return 2
 
     inbox = root / "accounting" / "receipts"
-    receipts, ignored = pending_files(inbox)
+    receipts, hidden = pending_files(inbox)
     channel, key, note = read_channel(root / ".env")
 
     result = {
@@ -109,10 +131,12 @@ def main():
         "inbox_exists": inbox.is_dir(),
         "pending_count": len(receipts),
         "pending_files": receipts,
-        "ignored_files": ignored,
+        "hidden_files_ignored": hidden,
         "slack_channel_id": channel,
         "slack_channel_key": key,
         "slack_note": note,
+        "note": (f"All {len(receipts)} file(s) are receipts to process. This count "
+                 "is the number to reconcile against at the end of the run."),
     }
     print(json.dumps(result, indent=2))
 

@@ -20,6 +20,11 @@ uploaded into this client's `accounting/receipts/` drop folder and their
 scheduled task has woken you up to deal with them. Start at Step 0 and finish
 with the Slack post in Step 8.
 
+**Definition of done for a scheduled run:** every file that was in the drop
+folder is either a ledger row or a named exception in the report, *and* the
+summary has been posted to the client's Slack channel (or its failure reported).
+Both halves, every time.
+
 Each client has their own task, running in their own project directory. A
 scheduled run never reaches outside the project root it started in.
 
@@ -79,10 +84,28 @@ directory, so staying put is what keeps the ledger pointing at its own files.
 python3 scripts/check_inbox.py
 ```
 
-The receipts waiting, anything in the folder that is not a receipt, and the
+Every file waiting, how each one will need to be opened, and the
 `SLACK_CHANNEL_ID` from this client's `.env`. Exit code `1` means the inbox is
 empty — a normal, quiet night. Say so in one line and stop; do not go looking for
 work elsewhere.
+
+**The folder is the filter.** Every loose file in `accounting/receipts/` is a
+receipt to process — the only other thing that lives there is the
+`processed-receipts/` subfolder. Nothing else about a file decides whether it
+counts:
+
+- **Never filter by filename.** Do not `ls *receipt*`, do not glob, do not grep
+  the folder, do not skip a file because its name looks like something else.
+  `08capcut.pdf` is a receipt. `IMG_4471.HEIC` is a receipt. `invoice_final`
+  with no extension at all is a receipt.
+- **Never filter by extension.** An unrecognised format is a receipt you have to
+  work harder to open, not a file to pass over.
+- **Take the file list from `check_inbox.py`**, not from your own listing of the
+  directory. It reports every file and it is the count you reconcile against.
+
+`pending_count` is a contract: when the run ends, that many files must each be
+either written to the ledger or named in the report with a reason. A receipt that
+is neither is a receipt that went missing.
 
 Mark the start of the run before processing anything; Step 8 needs it:
 
@@ -107,6 +130,8 @@ python3 scripts/prepare_receipts.py accounting/receipts --workdir "$SCRATCHPAD/r
 It walks the inputs, skips anything already sitting under `processed-receipts/`, converts HEIC/WEBP/TIFF to JPEG, downscales oversized photos so fine print survives the read, counts PDF pages, and writes a manifest listing every receipt to be processed.
 
 Read the manifest before going further. If it found nothing, say so rather than inventing work. If it found far more or far fewer files than the user implied, mention the count before you start.
+
+The prep script does not filter by filename or extension either — a format it does not recognise gets an entry with a warning, never a silent skip. **Check `found` against Step 0's `pending_count`.** If they disagree, stop and work out why before processing anything; the difference is a file about to be lost.
 
 ### Step 2 — View every receipt, one at a time
 
@@ -170,6 +195,14 @@ python3 scripts/file_receipt.py --audit --csv accounting/expenses.csv --receipts
 
 The audit catches rows pointing at files that are not there and filed files that never made it into the ledger. Fix anything it finds before reporting.
 
+Then close the loop on the inbox:
+
+```bash
+python3 scripts/check_inbox.py
+```
+
+Whatever is still sitting in the drop folder is what this run did *not* process. Every one of those files must appear in the report with a reason — unreadable, suspected duplicate, not a business expense. An empty inbox and a clean audit together mean nothing was lost.
+
 Then read the run back out of the ledger — never off your own tally of the session, which will happily count a receipt that failed to commit:
 
 ```bash
@@ -187,9 +220,22 @@ Then tell the user, in prose:
 - Anything skipped, and why (unreadable, not a receipt, already in the ledger).
 - Whether the Slack summary went out, and if not, why.
 
-### Step 8 — Post the summary to the client's Slack channel
+### Step 8 — Post the summary to the client's Slack channel (required)
 
-One message, one line, to the channel ID in **that client's own** `.env`:
+**This step is part of the job, not an optional extra.** A run that filed the
+receipts and wrote the ledger but never posted is an **incomplete run**, and the
+person who scheduled it has no way to know it happened. The run is done when the
+summary has been posted — or when its failure has been reported with a reason.
+
+The channel ID always comes from `SLACK_CHANNEL_ID` in the `.env` at the **client
+project root** — the same folder holding `accounting/`. `check_inbox.py` returned
+it back in Step 0; if you no longer have it to hand, read it again:
+
+```bash
+grep -E '^(export )?SLACK_CHANNEL_ID=' .env | head -1
+```
+
+One message, one line, to that channel:
 
 ```
 mcp__claude_ai_Slack__slack_send_message
@@ -222,11 +268,12 @@ Message rules, the missing-channel case, and what never goes in a client channel
 3. **Never overwrite or rewrite `expenses.csv`.** It is append-only. If a row is wrong, fix that row in place and say what you changed.
 4. **Never delete an original receipt.** Processing means *moving* it into the archive. If a move fails, the file stays where it is and the row does not get written.
 5. **Never double-book.** Check the ledger before adding; a suspected duplicate stops the run for that receipt.
-6. **Do not silently drop a file.** Anything in the input that did not become a row gets named in the final report.
+6. **Do not silently drop a file.** Every file the drop folder held at the start of the run ends it either as a ledger row or as a named line in the report with a reason. Never filter the folder by filename, pattern or extension — the folder is the filter, and anything loose in it is a receipt.
 7. **Never post a number you did not read back out of the ledger.** The Slack total comes from `run_report.py`, not from your own count of the session.
 8. **Never post to a channel you did not read out of this client's `.env`.** No guessing from the client's name, no searching Slack for a likely match.
-9. **Never write a row when the scripts cannot run.** A row claims the original is filed at `file_path`. If `file_receipt.py` cannot execute, that claim would be false — leave the receipts in the drop folder and report the blocker. Never hand-write the CSV and never move receipts with `mv`.
-10. **Never `--force` past a duplicate unattended.** On demand you would open both images and decide; on a scheduled run you cannot, so the file stays in the drop folder for a human.
+9. **The run is not finished until the summary is posted.** Filing the receipts and writing the ledger is most of the work but not all of it. Post it, or report exactly why you could not — never end a run silently having skipped it.
+10. **Never write a row when the scripts cannot run.** A row claims the original is filed at `file_path`. If `file_receipt.py` cannot execute, that claim would be false — leave the receipts in the drop folder and report the blocker. Never hand-write the CSV and never move receipts with `mv`.
+11. **Never `--force` past a duplicate unattended.** On demand you would open both images and decide; on a scheduled run you cannot, so the file stays in the drop folder for a human.
 
 ## When to stop and ask
 

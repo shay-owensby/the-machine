@@ -12,7 +12,7 @@
       "displayName": "Accounting",
       "source": "./accounting",
       "description": "Receipt and invoice processing, expense ledgers, VAT and tax extraction, and audit-ready filing for the books.",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "author": {
         "name": "Shay Owensby",
         "email": "shay@unchainedaisolutions.com"
