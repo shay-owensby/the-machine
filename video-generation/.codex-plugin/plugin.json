@@ -1,0 +1,25 @@
+{
+  "name": "video-generation",
+  "version": "0.1.0",
+  "description": "Generate, edit, and repurpose video \u2014 scripts, shorts, social cuts, captions, and B-roll.",
+  "author": {
+    "name": "Shay Owensby",
+    "email": "shay@unchainedaisolutions.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "video",
+    "generation",
+    "shorts",
+    "editing",
+    "scripts"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Video Generation",
+    "shortDescription": "Scripts, shorts, cuts, and captions",
+    "longDescription": "Generate, edit, and repurpose video \u2014 scripts, shorts, social cuts, captions, and B-roll.",
+    "developerName": "Shay Owensby",
+    "category": "Design"
+  }
+}

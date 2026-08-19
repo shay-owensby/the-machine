@@ -1,0 +1,25 @@
+{
+  "name": "personal-assistant",
+  "version": "0.1.0",
+  "description": "Calendar, inbox, travel, reminders, and the day-to-day personal operations that eat a working week.",
+  "author": {
+    "name": "Shay Owensby",
+    "email": "shay@unchainedaisolutions.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "assistant",
+    "calendar",
+    "inbox",
+    "scheduling",
+    "tasks"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Personal Assistant",
+    "shortDescription": "Calendar, inbox, travel, and daily ops",
+    "longDescription": "Calendar, inbox, travel, reminders, and the day-to-day personal operations that eat a working week.",
+    "developerName": "Shay Owensby",
+    "category": "Productivity"
+  }
+}

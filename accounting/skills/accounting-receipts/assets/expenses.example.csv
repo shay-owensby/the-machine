@@ -1,0 +1,6 @@
+merchant,purchase_date,currency,gross_amount,tax_amount,net_amount,receipt_number,category,confidence,needs_review,review_notes,file_path,processed_at
+Shell Service Station,2026-03-14,GBP,48.20,8.03,40.17,A-99231,Fuel & Mileage,0.96,no,,accounting/receipts/processed-receipts/202603_March/2026-03-14_shell-service-station_48.20.jpg,2026-03-31T09:12:04
+Amazon Business,2026-03-22,GBP,129.99,21.67,108.32,INV-0042177,IT Equipment,0.98,no,,accounting/receipts/processed-receipts/202603_March/2026-03-22_amazon-business_129.99.pdf,2026-03-31T09:12:09
+"Nando's, Cardiff Bay",2026-03-22,GBP,64.50,10.75,53.75,,Client Entertainment,0.88,no,Cover count of 4; assumed client meal from the booking name,accounting/receipts/processed-receipts/202603_March/2026-03-22_nandos-cardiff-bay_64.50.jpg,2026-03-31T09:12:14
+Bahnhof Kaffee,2026-04-03,EUR,7.40,0.49,6.91,,Meals & Subsistence,0.72,yes,Foreign currency — confirm the exchange rate to apply. Date read as 3 April from the EUR locale,accounting/receipts/processed-receipts/202604_April/2026-04-03_bahnhof-kaffee_7.40.jpg,2026-04-30T16:40:22
+Tesco,2026-04-11,GBP,38.16,2.94,35.22,,Uncategorised,0.61,yes,Mixed grocery basket — confirm the business purpose before claiming; VAT summed from the A/Z rate codes,accounting/receipts/processed-receipts/202604_April/2026-04-11_tesco_38.16.jpg,2026-04-30T16:40:31

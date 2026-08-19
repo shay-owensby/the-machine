@@ -1,0 +1,203 @@
+{
+  "name": "the-machine",
+  "interface": {
+    "displayName": "The Machine"
+  },
+  "plugins": [
+    {
+      "name": "accounting",
+      "description": "Receipt and invoice processing, expense ledgers, VAT and tax extraction, and audit-ready filing for the books.",
+      "source": {
+        "source": "local",
+        "path": "./accounting"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Finance"
+    },
+    {
+      "name": "administrative",
+      "description": "Back-office operations \u2014 document handling, filing, forms, meeting notes, and internal process paperwork.",
+      "source": {
+        "source": "local",
+        "path": "./administrative"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "analytics-insights",
+      "description": "Turn raw marketing and business data into reports, dashboards, and plain-language insight someone can act on.",
+      "source": {
+        "source": "local",
+        "path": "./analytics-insights"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Analytics"
+    },
+    {
+      "name": "copywriter",
+      "description": "Long- and short-form copy \u2014 landing pages, sales pages, ads, emails, and brand messaging in a consistent voice.",
+      "source": {
+        "source": "local",
+        "path": "./copywriter"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Writing"
+    },
+    {
+      "name": "email-marketing",
+      "description": "Campaign and lifecycle email \u2014 sequences, broadcasts, segmentation, subject-line testing, and deliverability.",
+      "source": {
+        "source": "local",
+        "path": "./email-marketing"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Marketing"
+    },
+    {
+      "name": "google-ads",
+      "description": "Google Ads campaign build and management \u2014 keyword research, ad copy, negative lists, and performance review.",
+      "source": {
+        "source": "local",
+        "path": "./google-ads"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Marketing"
+    },
+    {
+      "name": "grants",
+      "description": "Grant discovery, eligibility screening, application and narrative writing, budgets, and funder reporting.",
+      "source": {
+        "source": "local",
+        "path": "./grants"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Writing"
+    },
+    {
+      "name": "graphic-design",
+      "description": "Brand-consistent design work \u2014 layouts, print pieces, social graphics, presentations, and design systems.",
+      "source": {
+        "source": "local",
+        "path": "./graphic-design"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Design"
+    },
+    {
+      "name": "image-generation",
+      "description": "Generate and edit images \u2014 product shots, brand imagery, ad creative, and supporting visual assets.",
+      "source": {
+        "source": "local",
+        "path": "./image-generation"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Design"
+    },
+    {
+      "name": "lead-generation",
+      "description": "Prospect research, list building, outreach sequences, enrichment, and pipeline qualification.",
+      "source": {
+        "source": "local",
+        "path": "./lead-generation"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Sales"
+    },
+    {
+      "name": "personal-assistant",
+      "description": "Calendar, inbox, travel, reminders, and the day-to-day personal operations that eat a working week.",
+      "source": {
+        "source": "local",
+        "path": "./personal-assistant"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "public-relations",
+      "description": "Press releases, media lists, pitch angles, spokesperson prep, and reputation management.",
+      "source": {
+        "source": "local",
+        "path": "./public-relations"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Marketing"
+    },
+    {
+      "name": "seo-aeo",
+      "description": "Search and answer-engine optimization \u2014 technical audits, keyword and entity research, and content briefs.",
+      "source": {
+        "source": "local",
+        "path": "./seo-aeo"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Marketing"
+    },
+    {
+      "name": "social-media",
+      "description": "Content calendars, platform-native posts, community management, and channel performance reporting.",
+      "source": {
+        "source": "local",
+        "path": "./social-media"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Marketing"
+    },
+    {
+      "name": "video-generation",
+      "description": "Generate, edit, and repurpose video \u2014 scripts, shorts, social cuts, captions, and B-roll.",
+      "source": {
+        "source": "local",
+        "path": "./video-generation"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Design"
+    }
+  ]
+}

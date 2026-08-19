@@ -1,0 +1,25 @@
+{
+  "name": "lead-generation",
+  "version": "0.1.0",
+  "description": "Prospect research, list building, outreach sequences, enrichment, and pipeline qualification.",
+  "author": {
+    "name": "Shay Owensby",
+    "email": "shay@unchainedaisolutions.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "leads",
+    "prospecting",
+    "outreach",
+    "pipeline",
+    "crm"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Lead Generation",
+    "shortDescription": "Prospecting, lists, outreach, and pipeline",
+    "longDescription": "Prospect research, list building, outreach sequences, enrichment, and pipeline qualification.",
+    "developerName": "Shay Owensby",
+    "category": "Sales"
+  }
+}

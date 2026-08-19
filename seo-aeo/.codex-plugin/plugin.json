@@ -1,0 +1,26 @@
+{
+  "name": "seo-aeo",
+  "version": "0.1.0",
+  "description": "Search and answer-engine optimization \u2014 technical audits, keyword and entity research, and content briefs.",
+  "author": {
+    "name": "Shay Owensby",
+    "email": "shay@unchainedaisolutions.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "seo",
+    "aeo",
+    "search",
+    "keywords",
+    "content-briefs",
+    "technical-audit"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "SEO & AEO",
+    "shortDescription": "Search and answer-engine optimization",
+    "longDescription": "Search and answer-engine optimization \u2014 technical audits, keyword and entity research, and content briefs.",
+    "developerName": "Shay Owensby",
+    "category": "Marketing"
+  }
+}

@@ -1,0 +1,139 @@
+---
+name: accounting-receipts
+description: Read receipt and invoice images or PDFs, extract the bookkeeping fields (merchant, date, gross total, VAT/tax, receipt number, category, confidence), append one row per receipt to a single expenses.csv ledger, and file the original into accounting/receipts/processed-receipts/YYYYMM_MonthName/. Use this skill whenever the user hands over a receipt, an invoice, a photo of a receipt, a scan, a folder of receipts, or says "process these receipts", "log this expense", "do my expenses", "add this to the books", "what's the VAT on this", "file these for the accountant", "sort out my receipts", "expense this", "bookkeeping", or "record this purchase". Also use it when a receipt arrives as an email attachment or a download and the natural next step is getting it into the expense ledger.
+---
+
+# Accounting Receipts
+
+Turn a pile of receipt images into two things that survive an audit: **one row per receipt in a single CSV ledger**, and **the original image filed by month** where an accountant can find it in seconds.
+
+**The core discipline: read the image, do not infer the receipt.** Every number in the ledger must be one you actually saw on the page. A confidently wrong figure is far worse than a blank cell with a review flag — the blank gets fixed in ten seconds, the wrong figure gets filed with a tax return. When you cannot read something, say so and flag it. Never guess a total, never invent a receipt number, never assume a date format.
+
+---
+
+## Outputs
+
+Everything is written into the **client project root** — the current working directory:
+
+```
+accounting/
+  expenses.csv                                one flat file, one header row, one row per receipt
+  receipts/
+    processed-receipts/
+      202603_March/
+        2026-03-14_shell-service-station_48.20.jpg
+        2026-03-22_amazon-business_129.99.pdf
+      202604_April/
+        ...
+```
+
+Two path roots are in play throughout, and mixing them up is the one mechanical
+error that will bite: `scripts/` and `references/` are relative to **this skill's
+directory**, while `accounting/` is relative to the **client project root**. Use
+absolute paths for the scripts if there is any doubt.
+
+`expenses.csv` is a **running ledger, appended to** — never overwritten, never re-created from scratch. It opens in Excel or Google Sheets as a single sheet. Column schema and filing rules: `references/csv-and-filing.md`.
+
+---
+
+## The pipeline
+
+### Step 1 — Gather and prepare the inputs
+
+Run the prep script over whatever the user pointed you at — a single file, several files, or a folder:
+
+```bash
+python3 scripts/prepare_receipts.py <paths...> --workdir "$SCRATCHPAD/receipt-prep"
+```
+
+It walks the inputs, skips anything already sitting under `processed-receipts/`, converts HEIC/WEBP/TIFF to JPEG, downscales oversized photos so fine print survives the read, counts PDF pages, and writes a manifest listing every receipt to be processed.
+
+Read the manifest before going further. If it found nothing, say so rather than inventing work. If it found far more or far fewer files than the user implied, mention the count before you start.
+
+### Step 2 — View every receipt, one at a time
+
+**Use the Read tool on each `view_path` in the manifest.** This is the one part of the job Bash cannot do — you have to actually look at the image. For PDFs, Read the file with the `pages` parameter.
+
+Non-negotiable: **never write a row for a receipt you have not viewed.** Do not extrapolate one receipt's fields from another, do not process a file based on its filename, and do not batch-assume a run of receipts from the same merchant are identical.
+
+Look at each image properly before extracting:
+
+- Read the whole page, top to bottom, including the small print under the total — VAT summaries and invoice numbers hide there.
+- Zoom mentally on the total block. Distinguish **Total / Amount Due / Balance** (what was charged) from **Subtotal**, **Cash Tendered**, **Change**, **Tip**, and **Card pre-auth**.
+- Check whether one image contains **more than one receipt**, and whether a multi-page PDF is one invoice or several. One row per *receipt*, not per page or per file.
+- If the image is blurred, cropped, glare-blown or upside down, say which fields you genuinely cannot read. That is a real answer.
+
+Field-by-field extraction rules, and the traps that produce wrong numbers, are in `references/extraction-fields.md`. Read it before your first extraction of a session — especially the date-ambiguity and VAT-from-rate sections.
+
+### Step 3 — Normalise and check the arithmetic
+
+For every receipt, before it goes anywhere near the ledger:
+
+- **Dates** become `YYYY-MM-DD`. `03/04/2026` is not a date until you know the locale — resolve it, or flag it.
+- **Money** becomes a bare decimal with two places, no symbol, no thousands separator. The currency goes in its own column.
+- **`gross − tax = net`** must reconcile to within one cent. If it does not, you have misread one of the three. Go back to the image; do not paper over it with arithmetic.
+- If only a VAT *rate* is shown on a VAT-inclusive total, the tax is `gross × rate ÷ (100 + rate)` — **not** `gross × rate ÷ 100`. This is the single most common extraction error.
+
+### Step 4 — Categorise
+
+Pick exactly one category from the fixed taxonomy in `references/categories.md`. The list is fixed so the ledger stays filterable — do not invent new category names. When nothing fits or the business purpose is genuinely unclear, use `Uncategorised` and flag for review rather than forcing a bad fit.
+
+### Step 5 — Score confidence and flag for review
+
+Give every row a confidence between `0.00` and `1.00`, plus a `needs_review` flag with a short reason. The scoring bands and the conditions that force a review flag regardless of score — unreadable total, ambiguous date, VAT that will not reconcile, foreign currency, suspected duplicate, apparently personal spending — are in `references/confidence-and-review.md`.
+
+Be honest here. Confidence is what tells the user which rows they can trust without re-opening the image, so an inflated score destroys the whole point of the column.
+
+### Step 6 — Commit: write the row, then file the image
+
+One call per receipt:
+
+```bash
+python3 scripts/file_receipt.py \
+  --csv accounting/expenses.csv \
+  --receipts-root accounting/receipts/processed-receipts \
+  --source "/path/to/original/IMG_1234.jpg" \
+  --merchant "Shell Service Station" --date 2026-03-14 --currency GBP \
+  --gross 48.20 --tax 8.03 --receipt-number "A-99231" \
+  --category "Fuel & Mileage" --confidence 0.94
+```
+
+The script owns everything that must be deterministic: it re-checks the arithmetic, refuses suspected duplicates, works out the `YYYYMM_MonthName` folder, moves the original in under a collision-safe name, and appends the row with the **post-move path** in `file_path`. Run it with `--dry-run` first if you want to see the destination before anything moves.
+
+Move the **original** file, not the converted or downscaled copy from the prep workdir. The archive should hold the highest-fidelity version that came in.
+
+Exit code `3` means "suspected duplicate". Do not reflexively re-run with `--force` — go look. An itemised receipt and its card slip are two images of one expense and belong in the ledger once. Full duplicate policy: `references/csv-and-filing.md`.
+
+### Step 7 — Reconcile and report
+
+```bash
+python3 scripts/file_receipt.py --audit --csv accounting/expenses.csv --receipts-root accounting/receipts/processed-receipts
+```
+
+The audit catches rows pointing at files that are not there and filed files that never made it into the ledger. Fix anything it finds before reporting.
+
+Then tell the user, in prose:
+
+- How many receipts were processed, and the total gross and total tax by currency.
+- The month folders that were written to.
+- **The review list** — every `needs_review` row, with the specific reason and what you need from them to close it. This is the part they act on, so lead the summary with the count and put the detail here.
+- Anything skipped, and why (unreadable, not a receipt, already in the ledger).
+
+---
+
+## Rules that are not negotiable
+
+1. **Never invent a value.** A field that is not on the receipt is empty and flagged, not filled in from context.
+2. **Never write a row for an image you have not viewed.**
+3. **Never overwrite or rewrite `expenses.csv`.** It is append-only. If a row is wrong, fix that row in place and say what you changed.
+4. **Never delete an original receipt.** Processing means *moving* it into the archive. If a move fails, the file stays where it is and the row does not get written.
+5. **Never double-book.** Check the ledger before adding; a suspected duplicate stops the run for that receipt.
+6. **Do not silently drop a file.** Anything in the input that did not become a row gets named in the final report.
+
+## When to stop and ask
+
+Keep going without asking for ordinary judgement calls — an uncertain category or a slightly ambiguous merchant name is what the confidence score and review flag exist for. Stop and ask only when:
+
+- A receipt appears to already be in the ledger and it is not obvious whether it is a genuine second purchase.
+- The input contains documents that are not business expenses (a personal purchase, a bank statement, a contract) — name them and ask before filing anything.
+- The user's `accounting/` folder already contains an `expenses.csv` with a **different column schema**. Do not migrate it unilaterally; show them the mismatch.

@@ -1,0 +1,25 @@
+{
+  "name": "image-generation",
+  "version": "0.1.0",
+  "description": "Generate and edit images \u2014 product shots, brand imagery, ad creative, and supporting visual assets.",
+  "author": {
+    "name": "Shay Owensby",
+    "email": "shay@unchainedaisolutions.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "images",
+    "generation",
+    "creative",
+    "visuals",
+    "ai-art"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Image Generation",
+    "shortDescription": "Generated and edited brand imagery",
+    "longDescription": "Generate and edit images \u2014 product shots, brand imagery, ad creative, and supporting visual assets.",
+    "developerName": "Shay Owensby",
+    "category": "Design"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "graphic-design",
+  "version": "0.1.0",
+  "description": "Brand-consistent design work \u2014 layouts, print pieces, social graphics, presentations, and design systems.",
+  "author": {
+    "name": "Shay Owensby",
+    "email": "shay@unchainedaisolutions.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "design",
+    "branding",
+    "layout",
+    "print",
+    "design-systems"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Graphic Design",
+    "shortDescription": "On-brand layouts, graphics, and design systems",
+    "longDescription": "Brand-consistent design work \u2014 layouts, print pieces, social graphics, presentations, and design systems.",
+    "developerName": "Shay Owensby",
+    "category": "Design"
+  }
+}

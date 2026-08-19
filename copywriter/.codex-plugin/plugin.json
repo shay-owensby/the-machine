@@ -1,0 +1,25 @@
+{
+  "name": "copywriter",
+  "version": "0.1.0",
+  "description": "Long- and short-form copy \u2014 landing pages, sales pages, ads, emails, and brand messaging in a consistent voice.",
+  "author": {
+    "name": "Shay Owensby",
+    "email": "shay@unchainedaisolutions.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "copywriting",
+    "content",
+    "messaging",
+    "landing-pages",
+    "brand-voice"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Copywriter",
+    "shortDescription": "Sales, ad, and brand copy in one voice",
+    "longDescription": "Long- and short-form copy \u2014 landing pages, sales pages, ads, emails, and brand messaging in a consistent voice.",
+    "developerName": "Shay Owensby",
+    "category": "Writing"
+  }
+}

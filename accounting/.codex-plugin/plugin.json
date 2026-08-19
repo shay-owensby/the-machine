@@ -1,0 +1,26 @@
+{
+  "name": "accounting",
+  "version": "0.1.0",
+  "description": "Receipt and invoice processing, expense ledgers, VAT and tax extraction, and audit-ready filing for the books.",
+  "author": {
+    "name": "Shay Owensby",
+    "email": "shay@unchainedaisolutions.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "accounting",
+    "bookkeeping",
+    "receipts",
+    "expenses",
+    "vat",
+    "tax"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Accounting",
+    "shortDescription": "Receipts, expenses, and audit-ready books",
+    "longDescription": "Receipt and invoice processing, expense ledgers, VAT and tax extraction, and audit-ready filing for the books.",
+    "developerName": "Shay Owensby",
+    "category": "Finance"
+  }
+}

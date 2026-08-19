@@ -1,0 +1,25 @@
+{
+  "name": "administrative",
+  "version": "0.1.0",
+  "description": "Back-office operations \u2014 document handling, filing, forms, meeting notes, and internal process paperwork.",
+  "author": {
+    "name": "Shay Owensby",
+    "email": "shay@unchainedaisolutions.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "admin",
+    "operations",
+    "documents",
+    "filing",
+    "process"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Administrative",
+    "shortDescription": "Back-office documents and internal process",
+    "longDescription": "Back-office operations \u2014 document handling, filing, forms, meeting notes, and internal process paperwork.",
+    "developerName": "Shay Owensby",
+    "category": "Productivity"
+  }
+}

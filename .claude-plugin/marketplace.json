@@ -1,0 +1,480 @@
+{
+  "name": "the-machine",
+  "description": "An agency in a box \u2014 one installable department per discipline, from bookkeeping to paid search to video.",
+  "version": "0.1.0",
+  "owner": {
+    "name": "Shay Owensby",
+    "email": "shay@unchainedaisolutions.com"
+  },
+  "plugins": [
+    {
+      "name": "accounting",
+      "displayName": "Accounting",
+      "source": "./accounting",
+      "description": "Receipt and invoice processing, expense ledgers, VAT and tax extraction, and audit-ready filing for the books.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Shay Owensby",
+        "email": "shay@unchainedaisolutions.com"
+      },
+      "license": "MIT",
+      "category": "finance",
+      "keywords": [
+        "accounting",
+        "bookkeeping",
+        "receipts",
+        "expenses",
+        "vat",
+        "tax"
+      ],
+      "tags": [
+        "accounting",
+        "bookkeeping",
+        "receipts",
+        "expenses",
+        "vat",
+        "tax"
+      ],
+      "skills": [
+        "./skills/"
+      ],
+      "strict": false
+    },
+    {
+      "name": "administrative",
+      "displayName": "Administrative",
+      "source": "./administrative",
+      "description": "Back-office operations \u2014 document handling, filing, forms, meeting notes, and internal process paperwork.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Shay Owensby",
+        "email": "shay@unchainedaisolutions.com"
+      },
+      "license": "MIT",
+      "category": "operations",
+      "keywords": [
+        "admin",
+        "operations",
+        "documents",
+        "filing",
+        "process"
+      ],
+      "tags": [
+        "admin",
+        "operations",
+        "documents",
+        "filing",
+        "process"
+      ],
+      "skills": [
+        "./skills/"
+      ],
+      "strict": false
+    },
+    {
+      "name": "analytics-insights",
+      "displayName": "Analytics & Insights",
+      "source": "./analytics-insights",
+      "description": "Turn raw marketing and business data into reports, dashboards, and plain-language insight someone can act on.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Shay Owensby",
+        "email": "shay@unchainedaisolutions.com"
+      },
+      "license": "MIT",
+      "category": "analytics",
+      "keywords": [
+        "analytics",
+        "reporting",
+        "dashboards",
+        "insights",
+        "data"
+      ],
+      "tags": [
+        "analytics",
+        "reporting",
+        "dashboards",
+        "insights",
+        "data"
+      ],
+      "skills": [
+        "./skills/"
+      ],
+      "strict": false
+    },
+    {
+      "name": "copywriter",
+      "displayName": "Copywriter",
+      "source": "./copywriter",
+      "description": "Long- and short-form copy \u2014 landing pages, sales pages, ads, emails, and brand messaging in a consistent voice.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Shay Owensby",
+        "email": "shay@unchainedaisolutions.com"
+      },
+      "license": "MIT",
+      "category": "marketing",
+      "keywords": [
+        "copywriting",
+        "content",
+        "messaging",
+        "landing-pages",
+        "brand-voice"
+      ],
+      "tags": [
+        "copywriting",
+        "content",
+        "messaging",
+        "landing-pages",
+        "brand-voice"
+      ],
+      "skills": [
+        "./skills/"
+      ],
+      "strict": false
+    },
+    {
+      "name": "email-marketing",
+      "displayName": "Email Marketing",
+      "source": "./email-marketing",
+      "description": "Campaign and lifecycle email \u2014 sequences, broadcasts, segmentation, subject-line testing, and deliverability.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Shay Owensby",
+        "email": "shay@unchainedaisolutions.com"
+      },
+      "license": "MIT",
+      "category": "marketing",
+      "keywords": [
+        "email",
+        "campaigns",
+        "sequences",
+        "lifecycle",
+        "deliverability"
+      ],
+      "tags": [
+        "email",
+        "campaigns",
+        "sequences",
+        "lifecycle",
+        "deliverability"
+      ],
+      "skills": [
+        "./skills/"
+      ],
+      "strict": false
+    },
+    {
+      "name": "google-ads",
+      "displayName": "Google Ads",
+      "source": "./google-ads",
+      "description": "Google Ads campaign build and management \u2014 keyword research, ad copy, negative lists, and performance review.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Shay Owensby",
+        "email": "shay@unchainedaisolutions.com"
+      },
+      "license": "MIT",
+      "category": "marketing",
+      "keywords": [
+        "google-ads",
+        "ppc",
+        "sem",
+        "keywords",
+        "paid-search"
+      ],
+      "tags": [
+        "google-ads",
+        "ppc",
+        "sem",
+        "keywords",
+        "paid-search"
+      ],
+      "skills": [
+        "./skills/"
+      ],
+      "strict": false
+    },
+    {
+      "name": "grants",
+      "displayName": "Grants",
+      "source": "./grants",
+      "description": "Grant discovery, eligibility screening, application and narrative writing, budgets, and funder reporting.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Shay Owensby",
+        "email": "shay@unchainedaisolutions.com"
+      },
+      "license": "MIT",
+      "category": "operations",
+      "keywords": [
+        "grants",
+        "funding",
+        "applications",
+        "nonprofit",
+        "proposals"
+      ],
+      "tags": [
+        "grants",
+        "funding",
+        "applications",
+        "nonprofit",
+        "proposals"
+      ],
+      "skills": [
+        "./skills/"
+      ],
+      "strict": false
+    },
+    {
+      "name": "graphic-design",
+      "displayName": "Graphic Design",
+      "source": "./graphic-design",
+      "description": "Brand-consistent design work \u2014 layouts, print pieces, social graphics, presentations, and design systems.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Shay Owensby",
+        "email": "shay@unchainedaisolutions.com"
+      },
+      "license": "MIT",
+      "category": "creative",
+      "keywords": [
+        "design",
+        "branding",
+        "layout",
+        "print",
+        "design-systems"
+      ],
+      "tags": [
+        "design",
+        "branding",
+        "layout",
+        "print",
+        "design-systems"
+      ],
+      "skills": [
+        "./skills/"
+      ],
+      "strict": false
+    },
+    {
+      "name": "image-generation",
+      "displayName": "Image Generation",
+      "source": "./image-generation",
+      "description": "Generate and edit images \u2014 product shots, brand imagery, ad creative, and supporting visual assets.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Shay Owensby",
+        "email": "shay@unchainedaisolutions.com"
+      },
+      "license": "MIT",
+      "category": "creative",
+      "keywords": [
+        "images",
+        "generation",
+        "creative",
+        "visuals",
+        "ai-art"
+      ],
+      "tags": [
+        "images",
+        "generation",
+        "creative",
+        "visuals",
+        "ai-art"
+      ],
+      "skills": [
+        "./skills/"
+      ],
+      "strict": false
+    },
+    {
+      "name": "lead-generation",
+      "displayName": "Lead Generation",
+      "source": "./lead-generation",
+      "description": "Prospect research, list building, outreach sequences, enrichment, and pipeline qualification.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Shay Owensby",
+        "email": "shay@unchainedaisolutions.com"
+      },
+      "license": "MIT",
+      "category": "sales",
+      "keywords": [
+        "leads",
+        "prospecting",
+        "outreach",
+        "pipeline",
+        "crm"
+      ],
+      "tags": [
+        "leads",
+        "prospecting",
+        "outreach",
+        "pipeline",
+        "crm"
+      ],
+      "skills": [
+        "./skills/"
+      ],
+      "strict": false
+    },
+    {
+      "name": "personal-assistant",
+      "displayName": "Personal Assistant",
+      "source": "./personal-assistant",
+      "description": "Calendar, inbox, travel, reminders, and the day-to-day personal operations that eat a working week.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Shay Owensby",
+        "email": "shay@unchainedaisolutions.com"
+      },
+      "license": "MIT",
+      "category": "productivity",
+      "keywords": [
+        "assistant",
+        "calendar",
+        "inbox",
+        "scheduling",
+        "tasks"
+      ],
+      "tags": [
+        "assistant",
+        "calendar",
+        "inbox",
+        "scheduling",
+        "tasks"
+      ],
+      "skills": [
+        "./skills/"
+      ],
+      "strict": false
+    },
+    {
+      "name": "public-relations",
+      "displayName": "Public Relations",
+      "source": "./public-relations",
+      "description": "Press releases, media lists, pitch angles, spokesperson prep, and reputation management.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Shay Owensby",
+        "email": "shay@unchainedaisolutions.com"
+      },
+      "license": "MIT",
+      "category": "marketing",
+      "keywords": [
+        "pr",
+        "press",
+        "media",
+        "publicity",
+        "reputation"
+      ],
+      "tags": [
+        "pr",
+        "press",
+        "media",
+        "publicity",
+        "reputation"
+      ],
+      "skills": [
+        "./skills/"
+      ],
+      "strict": false
+    },
+    {
+      "name": "seo-aeo",
+      "displayName": "SEO & AEO",
+      "source": "./seo-aeo",
+      "description": "Search and answer-engine optimization \u2014 technical audits, keyword and entity research, and content briefs.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Shay Owensby",
+        "email": "shay@unchainedaisolutions.com"
+      },
+      "license": "MIT",
+      "category": "marketing",
+      "keywords": [
+        "seo",
+        "aeo",
+        "search",
+        "keywords",
+        "content-briefs",
+        "technical-audit"
+      ],
+      "tags": [
+        "seo",
+        "aeo",
+        "search",
+        "keywords",
+        "content-briefs",
+        "technical-audit"
+      ],
+      "skills": [
+        "./skills/"
+      ],
+      "strict": false
+    },
+    {
+      "name": "social-media",
+      "displayName": "Social Media",
+      "source": "./social-media",
+      "description": "Content calendars, platform-native posts, community management, and channel performance reporting.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Shay Owensby",
+        "email": "shay@unchainedaisolutions.com"
+      },
+      "license": "MIT",
+      "category": "marketing",
+      "keywords": [
+        "social",
+        "content-calendar",
+        "community",
+        "posts",
+        "engagement"
+      ],
+      "tags": [
+        "social",
+        "content-calendar",
+        "community",
+        "posts",
+        "engagement"
+      ],
+      "skills": [
+        "./skills/"
+      ],
+      "strict": false
+    },
+    {
+      "name": "video-generation",
+      "displayName": "Video Generation",
+      "source": "./video-generation",
+      "description": "Generate, edit, and repurpose video \u2014 scripts, shorts, social cuts, captions, and B-roll.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Shay Owensby",
+        "email": "shay@unchainedaisolutions.com"
+      },
+      "license": "MIT",
+      "category": "creative",
+      "keywords": [
+        "video",
+        "generation",
+        "shorts",
+        "editing",
+        "scripts"
+      ],
+      "tags": [
+        "video",
+        "generation",
+        "shorts",
+        "editing",
+        "scripts"
+      ],
+      "skills": [
+        "./skills/"
+      ],
+      "strict": false
+    }
+  ]
+}

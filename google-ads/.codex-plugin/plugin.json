@@ -1,0 +1,25 @@
+{
+  "name": "google-ads",
+  "version": "0.1.0",
+  "description": "Google Ads campaign build and management \u2014 keyword research, ad copy, negative lists, and performance review.",
+  "author": {
+    "name": "Shay Owensby",
+    "email": "shay@unchainedaisolutions.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "google-ads",
+    "ppc",
+    "sem",
+    "keywords",
+    "paid-search"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Google Ads",
+    "shortDescription": "Paid search build, copy, and optimization",
+    "longDescription": "Google Ads campaign build and management \u2014 keyword research, ad copy, negative lists, and performance review.",
+    "developerName": "Shay Owensby",
+    "category": "Marketing"
+  }
+}

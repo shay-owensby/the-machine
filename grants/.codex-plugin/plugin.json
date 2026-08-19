@@ -1,0 +1,25 @@
+{
+  "name": "grants",
+  "version": "0.1.0",
+  "description": "Grant discovery, eligibility screening, application and narrative writing, budgets, and funder reporting.",
+  "author": {
+    "name": "Shay Owensby",
+    "email": "shay@unchainedaisolutions.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "grants",
+    "funding",
+    "applications",
+    "nonprofit",
+    "proposals"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Grants",
+    "shortDescription": "Grant discovery, applications, and reporting",
+    "longDescription": "Grant discovery, eligibility screening, application and narrative writing, budgets, and funder reporting.",
+    "developerName": "Shay Owensby",
+    "category": "Writing"
+  }
+}

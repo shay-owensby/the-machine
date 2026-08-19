@@ -1,0 +1,25 @@
+{
+  "name": "email-marketing",
+  "version": "0.1.0",
+  "description": "Campaign and lifecycle email \u2014 sequences, broadcasts, segmentation, subject-line testing, and deliverability.",
+  "author": {
+    "name": "Shay Owensby",
+    "email": "shay@unchainedaisolutions.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "email",
+    "campaigns",
+    "sequences",
+    "lifecycle",
+    "deliverability"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Email Marketing",
+    "shortDescription": "Campaigns, sequences, and lifecycle email",
+    "longDescription": "Campaign and lifecycle email \u2014 sequences, broadcasts, segmentation, subject-line testing, and deliverability.",
+    "developerName": "Shay Owensby",
+    "category": "Marketing"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "analytics-insights",
+  "version": "0.1.0",
+  "description": "Turn raw marketing and business data into reports, dashboards, and plain-language insight someone can act on.",
+  "author": {
+    "name": "Shay Owensby",
+    "email": "shay@unchainedaisolutions.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "analytics",
+    "reporting",
+    "dashboards",
+    "insights",
+    "data"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Analytics & Insights",
+    "shortDescription": "Reports, dashboards, and actionable insight",
+    "longDescription": "Turn raw marketing and business data into reports, dashboards, and plain-language insight someone can act on.",
+    "developerName": "Shay Owensby",
+    "category": "Analytics"
+  }
+}
