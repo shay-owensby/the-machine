@@ -6,7 +6,7 @@ Inventory and prepare receipt files so every one of them can be viewed.
     python3 prepare_receipts.py a.heic b.pdf c.jpg --workdir /tmp/receipt-prep
 
 Walks the given files and folders, skips anything already filed under
-processed-receipts/, converts formats the Read tool cannot open, downscales
+_processed-receipts/, converts formats the Read tool cannot open, downscales
 oversized photos so the small print survives, counts PDF pages, and writes a
 manifest.
 
@@ -86,7 +86,7 @@ def collect(inputs, include_processed):
             # in a format nothing here recognises -- it is reported as such and
             # accounted for, never dropped on the floor. Silently skipping a file
             # is how a receipt goes missing without anyone noticing.
-            if not include_processed and "processed-receipts" in q.parts:
+            if not include_processed and "_processed-receipts" in q.parts:
                 continue
             seen.add(q)
             files.append(q)
@@ -157,7 +157,7 @@ def main():
     ap.add_argument("inputs", nargs="+", help="Receipt files and/or folders")
     ap.add_argument("--workdir", help="Where converted copies go (default: a temp dir)")
     ap.add_argument("--include-processed", action="store_true",
-                    help="Do not skip files already under processed-receipts/")
+                    help="Do not skip files already under _processed-receipts/")
     args = ap.parse_args()
 
     outdir = Path(args.workdir).expanduser() if args.workdir else Path(tempfile.mkdtemp(prefix="receipt-prep-"))

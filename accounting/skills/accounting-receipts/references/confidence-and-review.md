@@ -54,6 +54,76 @@ Regardless of how high the confidence is:
 12. **A round-number total with no itemisation** above a material amount — worth a
     human glance before it goes in the books.
 
+## The client's vendor whitelist
+
+`accounting/_references/whitelist.md` in the client project lists vendors this
+client has already approved. **A whitelisted vendor never appears in
+`needs-review.md`.** The client has settled the question of whether that supplier
+is legitimate and whether their spend is a business expense, and asking again
+every month is exactly what the file exists to stop.
+
+Read it alongside `receipts.md` and `categories.md`, before extracting anything.
+There is no fixed format — a list of vendor names is enough, and prose around it
+is fine.
+
+### What the whitelist answers, and what it does not
+
+The whitelist answers **"is this vendor approved, and is this spend legitimate?"**
+It does not answer **"did I read this receipt correctly?"** — no client can
+pre-approve a figure nobody has read yet.
+
+So a whitelisted vendor **clears** these, and the row goes in at
+`needs_review = no`:
+
+- 6 — apparently personal spending, or an unclear business purpose
+- 9 — VAT claimed with no VAT number printed
+- 12 — a round-number total with no itemisation
+- any softer unease about the merchant being unfamiliar or the spend unusual
+
+A whitelisted vendor **does not clear** these, and the row still flags:
+
+- 1 — no legible gross amount
+- 2 — no date, or a date you could not disambiguate
+- 3 — the arithmetic will not reconcile
+- 4 — foreign currency
+- 5 — suspected duplicate
+- 7 — category is `Uncategorised`
+- 8 — the document is not a simple receipt (a statement, a credit note, a
+  proforma, a part-payment)
+- 10 — handwritten, or a total altered by hand
+- 11 — more than one receipt in the image
+
+Every one of those is a hole in the data rather than a question about the
+supplier. An approved vendor with an unreadable total is still an unreadable
+total, and booking it unflagged would put a number in the accounts that nobody
+ever saw.
+
+### Matching a merchant to the list
+
+Match on the distinctive part of the name, tolerantly: case does not matter,
+punctuation and corporate suffixes (`Inc`, `Inc.`, `Ltd`, `LLC`) do not matter,
+and a card descriptor counts — `SEMRUSH*SUBSCRIPTION` is `SEMRush Inc`, and
+`CANVA* I04321` is `Canva US Inc.`
+
+**If you are not sure the merchant is the whitelisted one, it is not.** A wrong
+match waves through a vendor the client never approved, and it does it silently.
+A missed match costs one review line the client can wave off in a second.
+
+### Recording it
+
+When the whitelist is what kept a row off the review list, say so in
+`review_notes` even though `needs_review` is `no`:
+
+```
+Whitelisted vendor — approved without review.
+```
+
+The flag is gone; the reason it is gone is still in the ledger, where an auditor
+can see the decision was made deliberately.
+
+**The whitelist never touches `confidence`.** Approving a vendor does not make a
+blurred photo sharper. Score what you could actually read, as always.
+
 ## Writing the review note
 
 One sentence, specific, and actionable. It should tell the user what to do, not what

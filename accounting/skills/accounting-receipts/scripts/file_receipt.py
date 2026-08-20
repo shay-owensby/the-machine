@@ -5,7 +5,7 @@ append its row to the expense ledger.
 
     python3 file_receipt.py \
       --csv accounting/expenses.csv \
-      --receipts-root accounting/receipts/processed-receipts \
+      --receipts-root accounting/receipts/_processed-receipts \
       --source ~/Downloads/IMG_1234.jpg \
       --merchant "Shell Service Station" --date 2026-03-14 --currency GBP \
       --gross 48.20 --tax 8.03 --receipt-number "A-99231" \
@@ -193,6 +193,17 @@ def relative_to_cwd(path):
         return str(path.resolve())
 
 
+# The run's own bookkeeping lives at the top of the archive folder, alongside the
+# month folders. It is not a receipt and it has no ledger row, so the orphan scan
+# has to know to walk past it -- otherwise every audit reports two orphans and
+# tells whoever reads it to go and book a log file into the accounts.
+RUN_ARTEFACTS = {"needs-review.md", "receipts-notified.log"}
+
+
+def is_run_artefact(path, receipts_root):
+    return path.name in RUN_ARTEFACTS and path.parent == receipts_root
+
+
 def audit(csv_path, receipts_root):
     rows = read_rows(csv_path)
     missing = [
@@ -205,7 +216,9 @@ def audit(csv_path, receipts_root):
     if receipts_root.exists():
         orphans = [
             str(p) for p in sorted(receipts_root.rglob("*"))
-            if p.is_file() and not p.name.startswith(".") and p.resolve() not in booked
+            if p.is_file() and not p.name.startswith(".")
+            and not is_run_artefact(p, receipts_root)
+            and p.resolve() not in booked
         ]
     result = {
         "rows": len(rows),

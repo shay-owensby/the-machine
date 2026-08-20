@@ -5,11 +5,11 @@ Summarise what one run actually logged, and build the Slack message from it.
     START=$(python3 run_report.py --mark-start)
     ... process the receipts ...
     python3 run_report.py --csv accounting/expenses.csv --since "$START" \
-        --review-file accounting/receipts/needs-review.md
+        --review-file accounting/receipts/_processed-receipts/needs-review.md
 
     # after the Slack post has gone out:
     python3 run_report.py --csv accounting/expenses.csv --since "$START" \
-        --log accounting/receipts/notified.log --channel C0123ABCDEF --posted
+        --log accounting/receipts/_processed-receipts/receipts-notified.log --channel C0123ABCDEF --posted
 
 The numbers in the Slack message come out of the ledger, never out of the
 model's memory of the run. If a receipt failed to commit it is not in the CSV,

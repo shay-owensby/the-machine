@@ -1,9 +1,30 @@
+# Expense categories — seed template
+
+**This file is not read by a run.** It is the starting list copied into a client
+project the first time `check_inbox.py` finds no `accounting/_references/categories.md`
+there. Once copied, the client's file is the authority and this template is never
+consulted again.
+
+Editing this changes what *new* clients start with. It changes nothing for a client
+who already has their own file. Everything above the marker below is guidance for
+whoever maintains the skill and is stripped out when the file is seeded; everything
+below it is what the client actually receives.
+
+<!-- seed-from-here -->
+
 # Expense categories
 
-A **fixed** taxonomy. Write one of these strings into the `category` column exactly as
-spelled here. Do not invent new categories, do not pluralise differently, do not add a
-sub-category with a slash — a ledger with `Travel`, `travel` and `Travel/Transport` in
-it cannot be filtered, which defeats the purpose of the column.
+The expense taxonomy for **this client**. Add to it, remove from it, rename things in
+it — it is theirs, and other clients keep their own separate lists.
+
+This list is **closed at run time**. Write one of these strings into the `category`
+column exactly as spelled here. Do not invent a new category mid-run, do not
+pluralise differently, do not add a sub-category with a slash — a ledger with
+`Travel`, `travel` and `Travel/Transport` in it cannot be filtered, which defeats
+the purpose of the column.
+
+A category that is genuinely missing is a change to *this file*, made deliberately
+and mentioned in the report — not a string typed once into one row.
 
 | Category | What lands here |
 |---|---|
@@ -55,6 +76,9 @@ These four pairs account for nearly every miscategorisation:
 3. **Match the ledger's history.** Before categorising, glance at how the same
    merchant was categorised previously in `expenses.csv` and stay consistent unless
    the earlier call was clearly wrong.
-4. **Personal-looking spending is not a category problem.** Do not bury a personal
-   purchase under a plausible business heading. Flag it — see
-   `confidence-and-review.md`.
+4. **A new category is a file change, not a row change.** If this client keeps
+   needing a category that is not listed above, add it here and say so in the
+   report. Never write a category string that is not in this file — that is how
+   the column stops being filterable.
+5. **Personal-looking spending is not a category problem.** Do not bury a personal
+   purchase under a plausible business heading. Flag it for review instead.

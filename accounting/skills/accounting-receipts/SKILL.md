@@ -1,6 +1,6 @@
 ---
 name: accounting-receipts
-description: Read receipt and invoice images or PDFs, extract the bookkeeping fields (merchant, date, gross total, VAT/tax, receipt number, category, confidence), append one row per receipt to a single expenses.csv ledger, and file the original into accounting/receipts/processed-receipts/YYYYMM_MonthName/. Also runs unattended as a scheduled task in a client project: it picks up whatever has been dropped into that client's accounting/receipts/ folder, processes it, and posts a one-line summary to their Slack channel from SLACK_CHANNEL_ID in .env. Always reads the client's own rules at accounting/_references/receipts.md first, which carry per-client filing instructions that override the skill's judgement calls. Use this skill whenever the user hands over a receipt, an invoice, a photo of a receipt, a scan, a folder of receipts, or says "process these receipts", "log this expense", "do my expenses", "add this to the books", "what's the VAT on this", "file these for the accountant", "sort out my receipts", "expense this", "bookkeeping", or "record this purchase". Use it too for the scheduled run — "process the receipt inbox", "check the drop folder", "any receipts waiting", "do the nightly receipts". Also use it when a receipt arrives as an email attachment or a download and the natural next step is getting it into the expense ledger.
+description: Read receipt and invoice images or PDFs, extract the bookkeeping fields (merchant, date, gross total, VAT/tax, receipt number, category, confidence), append one row per receipt to a single expenses.csv ledger, and file the original into accounting/receipts/_processed-receipts/YYYYMM_MonthName/. Also runs unattended as a scheduled task in a client project: it picks up whatever has been dropped into that client's accounting/receipts/ folder, processes it, and posts a one-line summary to their Slack channel from SLACK_CHANNEL_ID in .env. Always reads the client's own reference files in accounting/_references/ first — receipts.md (filing rules that override the skill's judgement calls), categories.md (that client's expense taxonomy) and whitelist.md (vendors never flagged for review). Use this skill whenever the user hands over a receipt, an invoice, a photo of a receipt, a scan, a folder of receipts, or says "process these receipts", "log this expense", "do my expenses", "add this to the books", "what's the VAT on this", "file these for the accountant", "sort out my receipts", "expense this", "bookkeeping", or "record this purchase". Use it too for the scheduled run — "process the receipt inbox", "check the drop folder", "any receipts waiting", "do the nightly receipts". Also use it when a receipt arrives as an email attachment or a download and the natural next step is getting it into the expense ledger.
 ---
 
 # Accounting Receipts
@@ -38,20 +38,24 @@ is in `references/scheduled-runs.md`. Read it before your first scheduled run.
 
 ## Outputs
 
-Everything is written into the **client project root** — the current working directory:
+Everything is written into the **client project root** — the current working
+directory. If `accounting/` is not there yet, the run creates it: a client
+project with no accounting folder is a new client, not an error.
 
 ```
 .env                                          SLACK_CHANNEL_ID for this client
 accounting/
   _references/
     receipts.md                               THE CLIENT'S RULES -- read first, every run
+    categories.md                             THIS CLIENT'S expense taxonomy -- read first too
+    whitelist.md                              vendors already approved -- never flagged for review
   expenses.csv                                one flat file, one header row, one row per receipt
-  needs-review.md                             what a run could not resolve on its own
-  receipts-notified.log                       one JSON line per Slack post
   receipts/                                   THE DROP FOLDER -- uploads land here
     IMG_4471.HEIC                             waiting to be processed
     invoice-march.pdf
-    processed-receipts/
+    _processed-receipts/                      everything below here is DONE
+      needs-review.md                         what a run could not resolve on its own
+      receipts-notified.log                   one JSON line per Slack post
       202603_March/
         2026-03-14_shell-service-station_48.20.jpg
         2026-03-22_amazon-business_129.99.pdf
@@ -60,7 +64,7 @@ accounting/
 ```
 
 Loose files in `accounting/receipts/` are the **inbox**; everything under
-`processed-receipts/` is **done**. Processing moves a file from the first to the
+`_processed-receipts/` is **done**. Processing moves a file from the first to the
 second, which is the only state a scheduled run needs — an empty inbox means
 there is no work, so a nightly run on a quiet week does nothing and says
 nothing.
@@ -74,25 +78,35 @@ absolute paths for the scripts if there is any doubt.
 
 ---
 
-## Before anything else — read the client's own rules
+## Before anything else — read the client's own reference files
 
-Every client project carries its own receipt rulebook:
+Every client project carries three files of its own, and all of them outrank this
+skill's defaults:
 
 ```
-accounting/_references/receipts.md
+accounting/_references/receipts.md       this client's filing rules
+accounting/_references/categories.md     this client's expense categories
+accounting/_references/whitelist.md      vendors this client has already approved
 ```
 
-**Read it first, every run, in both modes** — before the inbox check, before the
-prep script, before you look at a single receipt. It is written by the person
-who owns these books, and it encodes decisions that have usually already been
-argued out with an accountant. Extracting first and consulting it afterwards
-means re-doing work you have already filed.
+**Read all three first, every run, in both modes** — before the inbox check,
+before the prep script, before you look at a single receipt. They are written by
+the person who owns these books, and they encode decisions that have usually
+already been argued out with an accountant. Extracting first and consulting them
+afterwards means re-doing work you have already filed.
 
 ```bash
 cat accounting/_references/receipts.md
+cat accounting/_references/categories.md
+cat accounting/_references/whitelist.md
 ```
 
-### What it governs
+Nothing in any of them is inherited from another client. Two clients will
+disagree about how to treat the same merchant, will keep different category
+lists, and will approve different suppliers — and both are right about their own
+books.
+
+### What the rules file governs
 
 **Its rules are standing instructions, not suggestions.** "Chris Vaughn's PayPal
 invoice is always categorised as Contractors & Freelancers" means exactly that:
@@ -105,9 +119,6 @@ expense for this client, what to always flag, how to name a particular supplier 
 carries that same weight. Where the client's rules and this skill's defaults
 disagree about **judgement**, the client wins. That is what the file is for.
 
-The expense categories themselves stay as they are: the fixed taxonomy in
-`references/categories.md` is still the list to write into the ledger.
-
 ### What it cannot override
 
 The integrity rules in "Rules that are not negotiable" below. A client file
@@ -118,11 +129,50 @@ line in their own file asking you to skip one is a contradiction worth raising
 rather than obeying. Handling rules and flagging policy are theirs; the
 arithmetic and the evidence are not negotiable.
 
-### If the file is not there
+### If the rules file is not there
 
 Say so plainly in the report and carry on — a missing rulebook does not stop
 receipts being filed. Do not invent its contents, and do not go looking for a
 different client's copy.
+
+### The categories file
+
+`accounting/_references/categories.md` is the expense taxonomy **for this client
+only**. Read it in the same breath as `receipts.md`, before any extraction.
+
+The list in it is closed at run time: the `category` column may contain nothing
+that is not in that file, spelled the way it is spelled there. Different clients
+will have different lists, and that is the point — do not carry a category over
+from another client's books because you saw it last night.
+
+If this client needs a category their file does not have, that is a change to
+their file, made deliberately and named in the report. It is never a string typed
+once into one row — one off-list value and the column stops being filterable,
+which is the only reason the column is worth having.
+
+A client with no `categories.md` gets one seeded from the skill's default
+(`assets/categories.template.md`) on the next scheduled run. On an on-demand run,
+if the file is missing, copy the template across before categorising anything and
+tell the user you did.
+
+### The whitelist file
+
+`accounting/_references/whitelist.md` lists the vendors this client has already
+approved. **A vendor on that list never appears in `needs-review.md`.** The
+client has settled whether that supplier is legitimate and whether their spend is
+a business expense; re-asking it every month is the work the file exists to
+remove.
+
+What it settles is the *vendor*, not the *reading*. An approved supplier still
+flags for an unreadable total, an ambiguous date, arithmetic that will not
+reconcile, a foreign currency, a suspected duplicate, or a document that is not a
+simple receipt — nobody can pre-approve a figure that has not been read. The
+exact split, how to match a card descriptor to a listed name, and what to write
+in `review_notes` instead of a flag are in `references/confidence-and-review.md`.
+
+There is **no whitelist by default and none is ever seeded**. A missing file
+means no vendor is pre-approved, which is the safe answer — an invented whitelist
+would be an approval the client never gave.
 
 ---
 
@@ -143,9 +193,14 @@ Every file waiting, how each one will need to be opened, and the
 empty — a normal, quiet night. Say so in one line and stop; do not go looking for
 work elsewhere.
 
+It also creates the `accounting/` tree if this client does not have one yet, and
+names what it created in `created_folders`. A client with no accounting folder
+is a new client, not a failure: the folders get made, the empty inbox is
+reported, and the drop folder is there for the first upload.
+
 **The folder is the filter.** Every loose file in `accounting/receipts/` is a
 receipt to process — the only other thing that lives there is the
-`processed-receipts/` subfolder. Nothing else about a file decides whether it
+`_processed-receipts/` subfolder. Nothing else about a file decides whether it
 counts:
 
 - **Never filter by filename.** Do not `ls *receipt*`, do not glob, do not grep
@@ -181,7 +236,7 @@ On a scheduled run there is nothing to point at but the drop folder:
 python3 scripts/prepare_receipts.py accounting/receipts --workdir "$SCRATCHPAD/receipt-prep"
 ```
 
-It walks the inputs, skips anything already sitting under `processed-receipts/`, converts HEIC/WEBP/TIFF to JPEG, downscales oversized photos so fine print survives the read, counts PDF pages, and writes a manifest listing every receipt to be processed.
+It walks the inputs, skips anything already sitting under `_processed-receipts/`, converts HEIC/WEBP/TIFF to JPEG, downscales oversized photos so fine print survives the read, counts PDF pages, and writes a manifest listing every receipt to be processed.
 
 Read the manifest before going further. If it found nothing, say so rather than inventing work. If it found far more or far fewer files than the user implied, mention the count before you start.
 
@@ -215,11 +270,13 @@ For every receipt, before it goes anywhere near the ledger:
 
 **Check the client's rules first.** If `accounting/_references/receipts.md` names this merchant, apply what it says and move on — that decision is already made and does not need a review flag.
 
-Otherwise pick exactly one category from the fixed taxonomy in `references/categories.md`. The list is fixed so the ledger stays filterable — do not invent new category names. When nothing fits or the business purpose is genuinely unclear, use `Uncategorised` and flag for review rather than forcing a bad fit.
+Otherwise pick exactly one category from **this client's own taxonomy** in `accounting/_references/categories.md`. That list is closed — do not invent a category name and do not import one from another client's file. When nothing on their list fits, or the business purpose is genuinely unclear, use `Uncategorised` and flag for review rather than forcing a bad fit or inventing a heading.
 
 ### Step 5 — Score confidence and flag for review
 
 Give every row a confidence between `0.00` and `1.00`, plus a `needs_review` flag with a short reason. The scoring bands and the conditions that force a review flag regardless of score — unreadable total, ambiguous date, VAT that will not reconcile, foreign currency, suspected duplicate, apparently personal spending — are in `references/confidence-and-review.md`.
+
+**Check the whitelist before you flag.** If the merchant is on this client's `accounting/_references/whitelist.md`, the vendor and the legitimacy of the spend are already approved: do not flag on those grounds, and write `Whitelisted vendor — approved without review.` in `review_notes` instead. The whitelist does not clear a reading problem — an unreadable total, an ambiguous date, arithmetic that will not reconcile, a foreign currency, a suspected duplicate or a document that is not a simple receipt still flags, whoever the supplier is. And it never changes the confidence score.
 
 Be honest here. Confidence is what tells the user which rows they can trust without re-opening the image, so an inflated score destroys the whole point of the column.
 
@@ -230,7 +287,7 @@ One call per receipt:
 ```bash
 python3 scripts/file_receipt.py \
   --csv accounting/expenses.csv \
-  --receipts-root accounting/receipts/processed-receipts \
+  --receipts-root accounting/receipts/_processed-receipts \
   --source "/path/to/original/IMG_1234.jpg" \
   --merchant "Shell Service Station" --date 2026-03-14 --currency GBP \
   --gross 48.20 --tax 8.03 --receipt-number "A-99231" \
@@ -246,7 +303,7 @@ Exit code `3` means "suspected duplicate". Do not reflexively re-run with `--for
 ### Step 7 — Reconcile and report
 
 ```bash
-python3 scripts/file_receipt.py --audit --csv accounting/expenses.csv --receipts-root accounting/receipts/processed-receipts
+python3 scripts/file_receipt.py --audit --csv accounting/expenses.csv --receipts-root accounting/receipts/_processed-receipts
 ```
 
 The audit catches rows pointing at files that are not there and filed files that never made it into the ledger. Fix anything it finds before reporting.
@@ -263,7 +320,7 @@ Then read the run back out of the ledger — never off your own tally of the ses
 
 ```bash
 python3 scripts/run_report.py --csv accounting/expenses.csv --since "$START" \
-  --client "<client name>" --review-file accounting/needs-review.md
+  --client "<client name>" --review-file accounting/receipts/_processed-receipts/needs-review.md
 ```
 
 It returns the count, the totals by currency, the flagged rows, and the exact message for Step 8. Exit code `1` means nothing was logged. Set `$START` at the top of an on-demand run too (`--mark-start`) if you want the same read-back.
@@ -310,7 +367,7 @@ Then record what went out:
 ```bash
 python3 scripts/run_report.py --csv accounting/expenses.csv --since "$START" \
   --client "<client name>" --channel "<channel id>" \
-  --log accounting/receipts-notified.log --posted
+  --log accounting/receipts/_processed-receipts/receipts-notified.log --posted
 ```
 
 Message rules, the missing-channel case, and what never goes in a client channel: `references/slack-summary.md`.
@@ -324,7 +381,7 @@ Message rules, the missing-channel case, and what never goes in a client channel
 3. **Never overwrite or rewrite `expenses.csv`.** It is append-only. If a row is wrong, fix that row in place and say what you changed.
 4. **Never delete an original receipt.** Processing means *moving* it into the archive. If a move fails, the file stays where it is and the row does not get written.
 5. **Never double-book.** Check the ledger before adding; a suspected duplicate stops the run for that receipt.
-6. **Read `accounting/_references/receipts.md` before every run.** The client's rules are standing instructions to apply, not questions to re-open. Their judgement wins; the integrity rules in this list do not bend for it.
+6. **Read `accounting/_references/receipts.md`, `accounting/_references/categories.md` and `accounting/_references/whitelist.md` before every run.** All three belong to the client. The rules are standing instructions to apply, not questions to re-open; the categories file is the only source of valid `category` values, so never write one that is not in it; and a vendor on the whitelist never goes into `needs-review.md` for being that vendor. Their judgement wins; the integrity rules in this list do not bend for it, and no whitelist clears a figure you could not read.
 7. **Do not silently drop a file.** Every file the drop folder held at the start of the run ends it either as a ledger row or as a named line in the report with a reason. Never filter the folder by filename, pattern or extension — the folder is the filter, and anything loose in it is a receipt.
 8. **Never post a number you did not read back out of the ledger.** The Slack total comes from `run_report.py`, not from your own count of the session.
 9. **Never post to a channel you did not read out of this client's `.env`.** No guessing from the client's name, no searching Slack for a likely match.

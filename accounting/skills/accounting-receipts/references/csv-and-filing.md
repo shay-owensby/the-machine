@@ -6,9 +6,18 @@ Two artefacts, both inside the **client project root** (the current working dire
 accounting/
   expenses.csv
   receipts/
-    processed-receipts/
+    _processed-receipts/
+      needs-review.md
+      receipts-notified.log
       YYYYMM_MonthName/
 ```
+
+Any of these folders that do not exist yet get created by `check_inbox.py` at
+the start of a scheduled run, and by the writing scripts themselves otherwise.
+The run's own bookkeeping — `needs-review.md` and `receipts-notified.log` — sits
+inside `_processed-receipts/` rather than beside the ledger, because everything
+loose in `accounting/receipts/` is treated as a receipt awaiting processing and
+a log file left there would be read as one.
 
 ## The CSV
 
@@ -31,10 +40,10 @@ If a row is wrong, edit that one row in place and tell the user what changed.
 | 5 | `tax_amount` | `0.00` | VAT/GST contained in gross. `0.00` is a valid answer |
 | 6 | `net_amount` | `0.00` | `gross − tax` |
 | 7 | `receipt_number` | text | Verbatim, empty if none printed |
-| 8 | `category` | text | Exactly one string from `categories.md` |
+| 8 | `category` | text | Exactly one string from this client's `accounting/_references/categories.md` |
 | 9 | `confidence` | `0.00`–`1.00` | See `confidence-and-review.md` |
-| 10 | `needs_review` | `yes` / `no` | |
-| 11 | `review_notes` | text | Required when `needs_review` is `yes` |
+| 10 | `needs_review` | `yes` / `no` | `no` for a vendor on this client's `whitelist.md`, unless the *reading* is in doubt |
+| 11 | `review_notes` | text | Required when `needs_review` is `yes`. Also carries `Whitelisted vendor — approved without review.` |
 | 12 | `file_path` | text | **Post-move** path, relative to the project root |
 | 13 | `processed_at` | `YYYY-MM-DDTHH:MM:SS` | Written by the script |
 

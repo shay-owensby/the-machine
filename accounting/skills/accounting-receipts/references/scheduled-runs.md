@@ -26,18 +26,22 @@ beside it.
 <client project root>/
   .env                                        SLACK_CHANNEL_ID lives here
   accounting/
+    _references/                              this client's own standing instructions
+      receipts.md                             filing rules
+      categories.md                           expense taxonomy
+      whitelist.md                            pre-approved vendors, never flagged
     expenses.csv                              the ledger
-    needs-review.md                           what the run could not resolve
-    receipts-notified.log                     one JSON line per Slack post
     receipts/                                 <- THE DROP FOLDER. Upload here.
       IMG_4471.HEIC
       invoice-march.pdf
-      processed-receipts/
+      _processed-receipts/                    <- everything below here is done
+        needs-review.md                       what the run could not resolve
+        receipts-notified.log                 one JSON line per Slack post
         202603_March/                         <- filed originals land here
 ```
 
 **Loose files in `accounting/receipts/` are the inbox — all of them.** Anything
-under `processed-receipts/` has already been done and is invisible to the next
+under `_processed-receipts/` has already been done and is invisible to the next
 run. That subfolder is the *only* thing in there that is not work.
 
 So the folder is the filter, and nothing else gets a vote. Do not glob for
@@ -52,20 +56,34 @@ state file to corrupt and no "last run" timestamp to get wrong. **An empty inbox
 means no work, no ledger row, and no Slack message.**
 
 Never "tidy" the drop folder by deleting things out of it. A file only leaves the
-inbox by being filed into `processed-receipts/`, and only `file_receipt.py` does
+inbox by being filed into `_processed-receipts/`, and only `file_receipt.py` does
 that.
 
 ## Starting the run
 
-Read the client's rulebook first — `accounting/_references/receipts.md` — before
-the inbox check and before any extraction. Its rules are standing instructions
-for this client's books. A scheduled run has nobody to correct it afterwards, so
-consulting the rules after filing means re-doing work that is already committed.
+Read the client's three reference files first — `receipts.md` for their filing
+rules, `categories.md` for their expense taxonomy and `whitelist.md` for the
+vendors they have already approved — before the inbox check and before any
+extraction. All three are standing instructions for this client's books. A
+scheduled run has nobody to correct it afterwards, so consulting any of them
+after filing means re-doing work that is already committed.
 
 ```bash
 cat accounting/_references/receipts.md
+cat accounting/_references/categories.md
+cat accounting/_references/whitelist.md
 python3 scripts/check_inbox.py
 ```
+
+The taxonomy is per-client: the `category` column may hold nothing that is not in
+that client's own `categories.md`. A client who has none yet gets one seeded from
+the skill's template by `check_inbox.py`, reported as `client_categories_seeded`.
+
+The whitelist is per-client too, and it is never seeded — `client_whitelist_exists`
+says whether there is one. A vendor on it never reaches `needs-review.md`, which
+matters most on a scheduled run: nobody is awake to wave off a flag on a supplier
+the client settled months ago. It clears the vendor, not the reading — see
+`confidence-and-review.md` for what still flags regardless.
 
 Run from the client project root. It returns the receipts waiting, anything in
 the folder that is not a receipt, and the `SLACK_CHANNEL_ID` from that client's

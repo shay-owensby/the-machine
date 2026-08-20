@@ -32,7 +32,7 @@ find yourself wanting a second line, the answer is no.
 **Review flags stay out of the client channel.** A row you were unsure about is
 your problem to close, not theirs, and "3 receipts need review" in their channel
 reads as *your* process failing in front of them. Flagged rows go to
-`accounting/needs-review.md` and into the run report, where they get fixed.
+`accounting/receipts/_processed-receipts/needs-review.md` and into the run report, where they get fixed.
 
 Also never in the message: file paths, confidence scores, anything read out of
 `.env`, and any receipt you did not successfully log.
@@ -45,7 +45,7 @@ own running tally of the session:
 ```bash
 python3 scripts/run_report.py \
   --csv accounting/expenses.csv --since "$START" --client "<name>" \
-  --review-file accounting/needs-review.md
+  --review-file accounting/receipts/_processed-receipts/needs-review.md
 ```
 
 It reads back every row appended since `$START` and returns the count, the totals
@@ -89,7 +89,7 @@ After the post succeeds:
 ```bash
 python3 scripts/run_report.py \
   --csv accounting/expenses.csv --since "$START" --client "<name>" \
-  --channel "<channel id>" --log accounting/receipts-notified.log --posted
+  --channel "<channel id>" --log accounting/receipts/_processed-receipts/receipts-notified.log --posted
 ```
 
 Same window, same numbers, now written to an append-only log. Omit `--posted` if
