@@ -1,0 +1,1763 @@
+{
+  "schema": "reports-google-analytics/raw@1",
+  "generated_at": "2026-08-20T06:15:00-04:00",
+  "api": {
+    "data_api": "https://analyticsdata.googleapis.com/v1beta",
+    "admin_api": "https://analyticsadmin.googleapis.com/v1beta"
+  },
+  "property": {
+    "property_id": "123456789",
+    "name": "Example Legacy Property",
+    "admin_api_available": true,
+    "time_zone": "America/New_York",
+    "currency": "USD",
+    "industry": "OTHER",
+    "created": "2023-04-11T09:12:00Z",
+    "account": "accounts/98765",
+    "property_type": "PROPERTY_TYPE_ORDINARY",
+    "data_streams": [
+      {
+        "name": "Web",
+        "type": "WEB_DATA_STREAM",
+        "uri": "https://www.example.com",
+        "measurement_id": "G-EXAMPLE01"
+      }
+    ]
+  },
+  "periods": {
+    "current": {
+      "start": "2026-07-21",
+      "end": "2026-08-19",
+      "days": 30
+    },
+    "previous": {
+      "start": "2026-06-21",
+      "end": "2026-07-20",
+      "days": 30
+    },
+    "basis": "most recent 30 completed days ending yesterday in America/New_York",
+    "time_zone": "America/New_York",
+    "time_zone_used": "America/New_York"
+  },
+  "schema_support": {
+    "metadata_loaded": true,
+    "dimension_count": 218,
+    "metric_count": 121,
+    "custom_dimensions": [],
+    "custom_metrics": [],
+    "unsupported_metrics": [],
+    "kpi_metrics_requested": []
+  },
+  "key_events": {
+    "metric_naming": "conversions (pre-2024 naming)",
+    "metrics_used": [
+      "conversions",
+      "sessionConversionRate",
+      "userConversionRate"
+    ],
+    "definitions": null,
+    "declared_in_env": []
+  },
+  "ecommerce": {
+    "state": "no_data",
+    "signals": {},
+    "reason": "Ecommerce metrics were returned and every one is zero."
+  },
+  "datasets": {
+    "totals": {
+      "dimensions": [],
+      "metrics": [],
+      "limit": 1,
+      "sort_metric": "sessions",
+      "current": {
+        "dimensions": [],
+        "metrics": [
+          {
+            "name": "activeUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "totalUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "newUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "sessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagedSessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagementRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "bounceRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "averageSessionDuration",
+            "type": "TYPE_SECONDS"
+          },
+          {
+            "name": "userEngagementDuration",
+            "type": "TYPE_SECONDS"
+          },
+          {
+            "name": "screenPageViews",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "screenPageViewsPerSession",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "sessionsPerUser",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "eventCount",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "conversions",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "sessionConversionRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "userConversionRate",
+            "type": "TYPE_FLOAT"
+          }
+        ],
+        "rows": [
+          {
+            "keys": [],
+            "values": {
+              "activeUsers": 17400.0,
+              "totalUsers": 18096.0,
+              "newUsers": 11200.0,
+              "sessions": 22600.0,
+              "engagedSessions": 13100.0,
+              "engagementRate": 0.5796460176991151,
+              "bounceRate": 0.42035398230088494,
+              "averageSessionDuration": 93.0,
+              "userEngagementDuration": 1218300.0,
+              "screenPageViews": 44800.0,
+              "screenPageViewsPerSession": 1.9823008849557522,
+              "sessionsPerUser": 1.2988505747126438,
+              "eventCount": 128000.0,
+              "conversions": 486.0,
+              "sessionConversionRate": 0.02150442477876106,
+              "userConversionRate": 0.02793103448275862
+            }
+          }
+        ],
+        "totals": {
+          "activeUsers": 17400.0,
+          "totalUsers": 18096.0,
+          "newUsers": 11200.0,
+          "sessions": 22600.0,
+          "engagedSessions": 13100.0,
+          "engagementRate": 0.5796460176991151,
+          "bounceRate": 0.42035398230088494,
+          "averageSessionDuration": 93.0,
+          "userEngagementDuration": 1218300.0,
+          "screenPageViews": 44800.0,
+          "screenPageViewsPerSession": 1.9823008849557522,
+          "sessionsPerUser": 1.2988505747126438,
+          "eventCount": 128000.0,
+          "conversions": 486.0,
+          "sessionConversionRate": 0.02150442477876106,
+          "userConversionRate": 0.02793103448275862
+        },
+        "row_count": 1,
+        "meta": {
+          "currencyCode": "USD",
+          "timeZone": "America/New_York"
+        }
+      },
+      "previous": {
+        "dimensions": [],
+        "metrics": [
+          {
+            "name": "activeUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "totalUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "newUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "sessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagedSessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagementRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "bounceRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "averageSessionDuration",
+            "type": "TYPE_SECONDS"
+          },
+          {
+            "name": "userEngagementDuration",
+            "type": "TYPE_SECONDS"
+          },
+          {
+            "name": "screenPageViews",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "screenPageViewsPerSession",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "sessionsPerUser",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "eventCount",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "conversions",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "sessionConversionRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "userConversionRate",
+            "type": "TYPE_FLOAT"
+          }
+        ],
+        "rows": [
+          {
+            "keys": [],
+            "values": {
+              "activeUsers": 16300.0,
+              "totalUsers": 16952.0,
+              "newUsers": 10600.0,
+              "sessions": 21100.0,
+              "engagedSessions": 12100.0,
+              "engagementRate": 0.5734597156398105,
+              "bounceRate": 0.42654028436018954,
+              "averageSessionDuration": 91.0,
+              "userEngagementDuration": 1101100.0,
+              "screenPageViews": 41900.0,
+              "screenPageViewsPerSession": 1.985781990521327,
+              "sessionsPerUser": 1.294478527607362,
+              "eventCount": 119000.0,
+              "conversions": 441.0,
+              "sessionConversionRate": 0.02090047393364929,
+              "userConversionRate": 0.02705521472392638
+            }
+          }
+        ],
+        "totals": {
+          "activeUsers": 16300.0,
+          "totalUsers": 16952.0,
+          "newUsers": 10600.0,
+          "sessions": 21100.0,
+          "engagedSessions": 12100.0,
+          "engagementRate": 0.5734597156398105,
+          "bounceRate": 0.42654028436018954,
+          "averageSessionDuration": 91.0,
+          "userEngagementDuration": 1101100.0,
+          "screenPageViews": 41900.0,
+          "screenPageViewsPerSession": 1.985781990521327,
+          "sessionsPerUser": 1.294478527607362,
+          "eventCount": 119000.0,
+          "conversions": 441.0,
+          "sessionConversionRate": 0.02090047393364929,
+          "userConversionRate": 0.02705521472392638
+        },
+        "row_count": 1,
+        "meta": {
+          "currencyCode": "USD",
+          "timeZone": "America/New_York"
+        }
+      }
+    },
+    "daily": {
+      "dimensions": [
+        "date"
+      ],
+      "metrics": [],
+      "limit": 400,
+      "sort_metric": null,
+      "current": {
+        "dimensions": [
+          "date"
+        ],
+        "metrics": [
+          {
+            "name": "sessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "activeUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "totalUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "newUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagedSessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "screenPageViews",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "eventCount",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "keyEvents",
+            "type": "TYPE_FLOAT"
+          }
+        ],
+        "rows": [
+          {
+            "keys": [
+              "20260721"
+            ],
+            "values": {
+              "sessions": 800.0,
+              "activeUsers": 616.0,
+              "totalUsers": 641.0,
+              "newUsers": 376.0,
+              "engagedSessions": 464.0,
+              "screenPageViews": 1586.0,
+              "eventCount": 4533.0,
+              "keyEvents": 17.0
+            }
+          },
+          {
+            "keys": [
+              "20260722"
+            ],
+            "values": {
+              "sessions": 800.0,
+              "activeUsers": 616.0,
+              "totalUsers": 641.0,
+              "newUsers": 376.0,
+              "engagedSessions": 464.0,
+              "screenPageViews": 1586.0,
+              "eventCount": 4533.0,
+              "keyEvents": 17.0
+            }
+          },
+          {
+            "keys": [
+              "20260723"
+            ],
+            "values": {
+              "sessions": 800.0,
+              "activeUsers": 616.0,
+              "totalUsers": 641.0,
+              "newUsers": 376.0,
+              "engagedSessions": 464.0,
+              "screenPageViews": 1586.0,
+              "eventCount": 4533.0,
+              "keyEvents": 17.0
+            }
+          },
+          {
+            "keys": [
+              "20260724"
+            ],
+            "values": {
+              "sessions": 800.0,
+              "activeUsers": 616.0,
+              "totalUsers": 641.0,
+              "newUsers": 376.0,
+              "engagedSessions": 464.0,
+              "screenPageViews": 1586.0,
+              "eventCount": 4533.0,
+              "keyEvents": 17.0
+            }
+          },
+          {
+            "keys": [
+              "20260725"
+            ],
+            "values": {
+              "sessions": 576.0,
+              "activeUsers": 444.0,
+              "totalUsers": 461.0,
+              "newUsers": 271.0,
+              "engagedSessions": 334.0,
+              "screenPageViews": 1142.0,
+              "eventCount": 3263.0,
+              "keyEvents": 12.0
+            }
+          },
+          {
+            "keys": [
+              "20260726"
+            ],
+            "values": {
+              "sessions": 576.0,
+              "activeUsers": 444.0,
+              "totalUsers": 461.0,
+              "newUsers": 271.0,
+              "engagedSessions": 334.0,
+              "screenPageViews": 1142.0,
+              "eventCount": 3263.0,
+              "keyEvents": 12.0
+            }
+          },
+          {
+            "keys": [
+              "20260727"
+            ],
+            "values": {
+              "sessions": 896.0,
+              "activeUsers": 690.0,
+              "totalUsers": 718.0,
+              "newUsers": 421.0,
+              "engagedSessions": 520.0,
+              "screenPageViews": 1777.0,
+              "eventCount": 5076.0,
+              "keyEvents": 19.0
+            }
+          },
+          {
+            "keys": [
+              "20260728"
+            ],
+            "values": {
+              "sessions": 800.0,
+              "activeUsers": 616.0,
+              "totalUsers": 641.0,
+              "newUsers": 376.0,
+              "engagedSessions": 464.0,
+              "screenPageViews": 1586.0,
+              "eventCount": 4533.0,
+              "keyEvents": 17.0
+            }
+          },
+          {
+            "keys": [
+              "20260729"
+            ],
+            "values": {
+              "sessions": 800.0,
+              "activeUsers": 616.0,
+              "totalUsers": 641.0,
+              "newUsers": 376.0,
+              "engagedSessions": 464.0,
+              "screenPageViews": 1586.0,
+              "eventCount": 4533.0,
+              "keyEvents": 17.0
+            }
+          },
+          {
+            "keys": [
+              "20260730"
+            ],
+            "values": {
+              "sessions": 800.0,
+              "activeUsers": 616.0,
+              "totalUsers": 641.0,
+              "newUsers": 376.0,
+              "engagedSessions": 464.0,
+              "screenPageViews": 1586.0,
+              "eventCount": 4533.0,
+              "keyEvents": 17.0
+            }
+          },
+          {
+            "keys": [
+              "20260731"
+            ],
+            "values": {
+              "sessions": 800.0,
+              "activeUsers": 616.0,
+              "totalUsers": 641.0,
+              "newUsers": 376.0,
+              "engagedSessions": 464.0,
+              "screenPageViews": 1586.0,
+              "eventCount": 4533.0,
+              "keyEvents": 17.0
+            }
+          },
+          {
+            "keys": [
+              "20260801"
+            ],
+            "values": {
+              "sessions": 576.0,
+              "activeUsers": 444.0,
+              "totalUsers": 461.0,
+              "newUsers": 271.0,
+              "engagedSessions": 334.0,
+              "screenPageViews": 1142.0,
+              "eventCount": 3263.0,
+              "keyEvents": 12.0
+            }
+          },
+          {
+            "keys": [
+              "20260802"
+            ],
+            "values": {
+              "sessions": 576.0,
+              "activeUsers": 444.0,
+              "totalUsers": 461.0,
+              "newUsers": 271.0,
+              "engagedSessions": 334.0,
+              "screenPageViews": 1142.0,
+              "eventCount": 3263.0,
+              "keyEvents": 12.0
+            }
+          },
+          {
+            "keys": [
+              "20260803"
+            ],
+            "values": {
+              "sessions": 896.0,
+              "activeUsers": 690.0,
+              "totalUsers": 718.0,
+              "newUsers": 421.0,
+              "engagedSessions": 520.0,
+              "screenPageViews": 1777.0,
+              "eventCount": 5076.0,
+              "keyEvents": 19.0
+            }
+          },
+          {
+            "keys": [
+              "20260804"
+            ],
+            "values": {
+              "sessions": 800.0,
+              "activeUsers": 616.0,
+              "totalUsers": 641.0,
+              "newUsers": 376.0,
+              "engagedSessions": 464.0,
+              "screenPageViews": 1586.0,
+              "eventCount": 4533.0,
+              "keyEvents": 17.0
+            }
+          },
+          {
+            "keys": [
+              "20260805"
+            ],
+            "values": {
+              "sessions": 800.0,
+              "activeUsers": 616.0,
+              "totalUsers": 641.0,
+              "newUsers": 376.0,
+              "engagedSessions": 464.0,
+              "screenPageViews": 1586.0,
+              "eventCount": 4533.0,
+              "keyEvents": 17.0
+            }
+          },
+          {
+            "keys": [
+              "20260806"
+            ],
+            "values": {
+              "sessions": 800.0,
+              "activeUsers": 616.0,
+              "totalUsers": 641.0,
+              "newUsers": 376.0,
+              "engagedSessions": 464.0,
+              "screenPageViews": 1586.0,
+              "eventCount": 4533.0,
+              "keyEvents": 17.0
+            }
+          },
+          {
+            "keys": [
+              "20260807"
+            ],
+            "values": {
+              "sessions": 800.0,
+              "activeUsers": 616.0,
+              "totalUsers": 641.0,
+              "newUsers": 376.0,
+              "engagedSessions": 464.0,
+              "screenPageViews": 1586.0,
+              "eventCount": 4533.0,
+              "keyEvents": 17.0
+            }
+          },
+          {
+            "keys": [
+              "20260808"
+            ],
+            "values": {
+              "sessions": 576.0,
+              "activeUsers": 444.0,
+              "totalUsers": 461.0,
+              "newUsers": 271.0,
+              "engagedSessions": 334.0,
+              "screenPageViews": 1142.0,
+              "eventCount": 3263.0,
+              "keyEvents": 12.0
+            }
+          },
+          {
+            "keys": [
+              "20260809"
+            ],
+            "values": {
+              "sessions": 576.0,
+              "activeUsers": 444.0,
+              "totalUsers": 461.0,
+              "newUsers": 271.0,
+              "engagedSessions": 334.0,
+              "screenPageViews": 1142.0,
+              "eventCount": 3263.0,
+              "keyEvents": 12.0
+            }
+          },
+          {
+            "keys": [
+              "20260810"
+            ],
+            "values": {
+              "sessions": 896.0,
+              "activeUsers": 690.0,
+              "totalUsers": 718.0,
+              "newUsers": 421.0,
+              "engagedSessions": 520.0,
+              "screenPageViews": 1777.0,
+              "eventCount": 5076.0,
+              "keyEvents": 19.0
+            }
+          },
+          {
+            "keys": [
+              "20260811"
+            ],
+            "values": {
+              "sessions": 800.0,
+              "activeUsers": 616.0,
+              "totalUsers": 641.0,
+              "newUsers": 376.0,
+              "engagedSessions": 464.0,
+              "screenPageViews": 1586.0,
+              "eventCount": 4533.0,
+              "keyEvents": 17.0
+            }
+          },
+          {
+            "keys": [
+              "20260812"
+            ],
+            "values": {
+              "sessions": 800.0,
+              "activeUsers": 616.0,
+              "totalUsers": 641.0,
+              "newUsers": 376.0,
+              "engagedSessions": 464.0,
+              "screenPageViews": 1586.0,
+              "eventCount": 4533.0,
+              "keyEvents": 17.0
+            }
+          },
+          {
+            "keys": [
+              "20260813"
+            ],
+            "values": {
+              "sessions": 800.0,
+              "activeUsers": 616.0,
+              "totalUsers": 641.0,
+              "newUsers": 376.0,
+              "engagedSessions": 464.0,
+              "screenPageViews": 1586.0,
+              "eventCount": 4533.0,
+              "keyEvents": 17.0
+            }
+          },
+          {
+            "keys": [
+              "20260814"
+            ],
+            "values": {
+              "sessions": 800.0,
+              "activeUsers": 616.0,
+              "totalUsers": 641.0,
+              "newUsers": 376.0,
+              "engagedSessions": 464.0,
+              "screenPageViews": 1586.0,
+              "eventCount": 4533.0,
+              "keyEvents": 17.0
+            }
+          },
+          {
+            "keys": [
+              "20260815"
+            ],
+            "values": {
+              "sessions": 576.0,
+              "activeUsers": 444.0,
+              "totalUsers": 461.0,
+              "newUsers": 271.0,
+              "engagedSessions": 334.0,
+              "screenPageViews": 1142.0,
+              "eventCount": 3263.0,
+              "keyEvents": 12.0
+            }
+          },
+          {
+            "keys": [
+              "20260816"
+            ],
+            "values": {
+              "sessions": 576.0,
+              "activeUsers": 444.0,
+              "totalUsers": 461.0,
+              "newUsers": 271.0,
+              "engagedSessions": 334.0,
+              "screenPageViews": 1142.0,
+              "eventCount": 3263.0,
+              "keyEvents": 12.0
+            }
+          },
+          {
+            "keys": [
+              "20260817"
+            ],
+            "values": {
+              "sessions": 896.0,
+              "activeUsers": 690.0,
+              "totalUsers": 718.0,
+              "newUsers": 421.0,
+              "engagedSessions": 520.0,
+              "screenPageViews": 1777.0,
+              "eventCount": 5076.0,
+              "keyEvents": 19.0
+            }
+          },
+          {
+            "keys": [
+              "20260818"
+            ],
+            "values": {
+              "sessions": 800.0,
+              "activeUsers": 616.0,
+              "totalUsers": 641.0,
+              "newUsers": 376.0,
+              "engagedSessions": 464.0,
+              "screenPageViews": 1586.0,
+              "eventCount": 4533.0,
+              "keyEvents": 17.0
+            }
+          },
+          {
+            "keys": [
+              "20260819"
+            ],
+            "values": {
+              "sessions": 800.0,
+              "activeUsers": 616.0,
+              "totalUsers": 641.0,
+              "newUsers": 376.0,
+              "engagedSessions": 464.0,
+              "screenPageViews": 1586.0,
+              "eventCount": 4533.0,
+              "keyEvents": 17.0
+            }
+          }
+        ],
+        "totals": null,
+        "row_count": 30,
+        "meta": {
+          "currencyCode": "USD",
+          "timeZone": "America/New_York"
+        }
+      },
+      "previous": {
+        "dimensions": [
+          "date"
+        ],
+        "metrics": [
+          {
+            "name": "sessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "activeUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "totalUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "newUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagedSessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "screenPageViews",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "eventCount",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "keyEvents",
+            "type": "TYPE_FLOAT"
+          }
+        ],
+        "rows": [
+          {
+            "keys": [
+              "20260621"
+            ],
+            "values": {
+              "sessions": 541.0,
+              "activeUsers": 418.0,
+              "totalUsers": 435.0,
+              "newUsers": 255.0,
+              "engagedSessions": 314.0,
+              "screenPageViews": 1074.0,
+              "eventCount": 3051.0,
+              "keyEvents": 11.0
+            }
+          },
+          {
+            "keys": [
+              "20260622"
+            ],
+            "values": {
+              "sessions": 842.0,
+              "activeUsers": 650.0,
+              "totalUsers": 676.0,
+              "newUsers": 397.0,
+              "engagedSessions": 488.0,
+              "screenPageViews": 1671.0,
+              "eventCount": 4746.0,
+              "keyEvents": 18.0
+            }
+          },
+          {
+            "keys": [
+              "20260623"
+            ],
+            "values": {
+              "sessions": 751.0,
+              "activeUsers": 580.0,
+              "totalUsers": 604.0,
+              "newUsers": 354.0,
+              "engagedSessions": 436.0,
+              "screenPageViews": 1492.0,
+              "eventCount": 4238.0,
+              "keyEvents": 16.0
+            }
+          },
+          {
+            "keys": [
+              "20260624"
+            ],
+            "values": {
+              "sessions": 751.0,
+              "activeUsers": 580.0,
+              "totalUsers": 604.0,
+              "newUsers": 354.0,
+              "engagedSessions": 436.0,
+              "screenPageViews": 1492.0,
+              "eventCount": 4238.0,
+              "keyEvents": 16.0
+            }
+          },
+          {
+            "keys": [
+              "20260625"
+            ],
+            "values": {
+              "sessions": 751.0,
+              "activeUsers": 580.0,
+              "totalUsers": 604.0,
+              "newUsers": 354.0,
+              "engagedSessions": 436.0,
+              "screenPageViews": 1492.0,
+              "eventCount": 4238.0,
+              "keyEvents": 16.0
+            }
+          },
+          {
+            "keys": [
+              "20260626"
+            ],
+            "values": {
+              "sessions": 751.0,
+              "activeUsers": 580.0,
+              "totalUsers": 604.0,
+              "newUsers": 354.0,
+              "engagedSessions": 436.0,
+              "screenPageViews": 1492.0,
+              "eventCount": 4238.0,
+              "keyEvents": 16.0
+            }
+          },
+          {
+            "keys": [
+              "20260627"
+            ],
+            "values": {
+              "sessions": 541.0,
+              "activeUsers": 418.0,
+              "totalUsers": 435.0,
+              "newUsers": 255.0,
+              "engagedSessions": 314.0,
+              "screenPageViews": 1074.0,
+              "eventCount": 3051.0,
+              "keyEvents": 11.0
+            }
+          },
+          {
+            "keys": [
+              "20260628"
+            ],
+            "values": {
+              "sessions": 541.0,
+              "activeUsers": 418.0,
+              "totalUsers": 435.0,
+              "newUsers": 255.0,
+              "engagedSessions": 314.0,
+              "screenPageViews": 1074.0,
+              "eventCount": 3051.0,
+              "keyEvents": 11.0
+            }
+          },
+          {
+            "keys": [
+              "20260629"
+            ],
+            "values": {
+              "sessions": 842.0,
+              "activeUsers": 650.0,
+              "totalUsers": 676.0,
+              "newUsers": 397.0,
+              "engagedSessions": 488.0,
+              "screenPageViews": 1671.0,
+              "eventCount": 4746.0,
+              "keyEvents": 18.0
+            }
+          },
+          {
+            "keys": [
+              "20260630"
+            ],
+            "values": {
+              "sessions": 751.0,
+              "activeUsers": 580.0,
+              "totalUsers": 604.0,
+              "newUsers": 354.0,
+              "engagedSessions": 436.0,
+              "screenPageViews": 1492.0,
+              "eventCount": 4238.0,
+              "keyEvents": 16.0
+            }
+          },
+          {
+            "keys": [
+              "20260701"
+            ],
+            "values": {
+              "sessions": 751.0,
+              "activeUsers": 580.0,
+              "totalUsers": 604.0,
+              "newUsers": 354.0,
+              "engagedSessions": 436.0,
+              "screenPageViews": 1492.0,
+              "eventCount": 4238.0,
+              "keyEvents": 16.0
+            }
+          },
+          {
+            "keys": [
+              "20260702"
+            ],
+            "values": {
+              "sessions": 751.0,
+              "activeUsers": 580.0,
+              "totalUsers": 604.0,
+              "newUsers": 354.0,
+              "engagedSessions": 436.0,
+              "screenPageViews": 1492.0,
+              "eventCount": 4238.0,
+              "keyEvents": 16.0
+            }
+          },
+          {
+            "keys": [
+              "20260703"
+            ],
+            "values": {
+              "sessions": 751.0,
+              "activeUsers": 580.0,
+              "totalUsers": 604.0,
+              "newUsers": 354.0,
+              "engagedSessions": 436.0,
+              "screenPageViews": 1492.0,
+              "eventCount": 4238.0,
+              "keyEvents": 16.0
+            }
+          },
+          {
+            "keys": [
+              "20260704"
+            ],
+            "values": {
+              "sessions": 541.0,
+              "activeUsers": 418.0,
+              "totalUsers": 435.0,
+              "newUsers": 255.0,
+              "engagedSessions": 314.0,
+              "screenPageViews": 1074.0,
+              "eventCount": 3051.0,
+              "keyEvents": 11.0
+            }
+          },
+          {
+            "keys": [
+              "20260705"
+            ],
+            "values": {
+              "sessions": 541.0,
+              "activeUsers": 418.0,
+              "totalUsers": 435.0,
+              "newUsers": 255.0,
+              "engagedSessions": 314.0,
+              "screenPageViews": 1074.0,
+              "eventCount": 3051.0,
+              "keyEvents": 11.0
+            }
+          },
+          {
+            "keys": [
+              "20260706"
+            ],
+            "values": {
+              "sessions": 842.0,
+              "activeUsers": 650.0,
+              "totalUsers": 676.0,
+              "newUsers": 397.0,
+              "engagedSessions": 488.0,
+              "screenPageViews": 1671.0,
+              "eventCount": 4746.0,
+              "keyEvents": 18.0
+            }
+          },
+          {
+            "keys": [
+              "20260707"
+            ],
+            "values": {
+              "sessions": 751.0,
+              "activeUsers": 580.0,
+              "totalUsers": 604.0,
+              "newUsers": 354.0,
+              "engagedSessions": 436.0,
+              "screenPageViews": 1492.0,
+              "eventCount": 4238.0,
+              "keyEvents": 16.0
+            }
+          },
+          {
+            "keys": [
+              "20260708"
+            ],
+            "values": {
+              "sessions": 751.0,
+              "activeUsers": 580.0,
+              "totalUsers": 604.0,
+              "newUsers": 354.0,
+              "engagedSessions": 436.0,
+              "screenPageViews": 1492.0,
+              "eventCount": 4238.0,
+              "keyEvents": 16.0
+            }
+          },
+          {
+            "keys": [
+              "20260709"
+            ],
+            "values": {
+              "sessions": 751.0,
+              "activeUsers": 580.0,
+              "totalUsers": 604.0,
+              "newUsers": 354.0,
+              "engagedSessions": 436.0,
+              "screenPageViews": 1492.0,
+              "eventCount": 4238.0,
+              "keyEvents": 16.0
+            }
+          },
+          {
+            "keys": [
+              "20260710"
+            ],
+            "values": {
+              "sessions": 751.0,
+              "activeUsers": 580.0,
+              "totalUsers": 604.0,
+              "newUsers": 354.0,
+              "engagedSessions": 436.0,
+              "screenPageViews": 1492.0,
+              "eventCount": 4238.0,
+              "keyEvents": 16.0
+            }
+          },
+          {
+            "keys": [
+              "20260711"
+            ],
+            "values": {
+              "sessions": 541.0,
+              "activeUsers": 418.0,
+              "totalUsers": 435.0,
+              "newUsers": 255.0,
+              "engagedSessions": 314.0,
+              "screenPageViews": 1074.0,
+              "eventCount": 3051.0,
+              "keyEvents": 11.0
+            }
+          },
+          {
+            "keys": [
+              "20260712"
+            ],
+            "values": {
+              "sessions": 541.0,
+              "activeUsers": 418.0,
+              "totalUsers": 435.0,
+              "newUsers": 255.0,
+              "engagedSessions": 314.0,
+              "screenPageViews": 1074.0,
+              "eventCount": 3051.0,
+              "keyEvents": 11.0
+            }
+          },
+          {
+            "keys": [
+              "20260713"
+            ],
+            "values": {
+              "sessions": 842.0,
+              "activeUsers": 650.0,
+              "totalUsers": 676.0,
+              "newUsers": 397.0,
+              "engagedSessions": 488.0,
+              "screenPageViews": 1671.0,
+              "eventCount": 4746.0,
+              "keyEvents": 18.0
+            }
+          },
+          {
+            "keys": [
+              "20260714"
+            ],
+            "values": {
+              "sessions": 751.0,
+              "activeUsers": 580.0,
+              "totalUsers": 604.0,
+              "newUsers": 354.0,
+              "engagedSessions": 436.0,
+              "screenPageViews": 1492.0,
+              "eventCount": 4238.0,
+              "keyEvents": 16.0
+            }
+          },
+          {
+            "keys": [
+              "20260715"
+            ],
+            "values": {
+              "sessions": 751.0,
+              "activeUsers": 580.0,
+              "totalUsers": 604.0,
+              "newUsers": 354.0,
+              "engagedSessions": 436.0,
+              "screenPageViews": 1492.0,
+              "eventCount": 4238.0,
+              "keyEvents": 16.0
+            }
+          },
+          {
+            "keys": [
+              "20260716"
+            ],
+            "values": {
+              "sessions": 751.0,
+              "activeUsers": 580.0,
+              "totalUsers": 604.0,
+              "newUsers": 354.0,
+              "engagedSessions": 436.0,
+              "screenPageViews": 1492.0,
+              "eventCount": 4238.0,
+              "keyEvents": 16.0
+            }
+          },
+          {
+            "keys": [
+              "20260717"
+            ],
+            "values": {
+              "sessions": 751.0,
+              "activeUsers": 580.0,
+              "totalUsers": 604.0,
+              "newUsers": 354.0,
+              "engagedSessions": 436.0,
+              "screenPageViews": 1492.0,
+              "eventCount": 4238.0,
+              "keyEvents": 16.0
+            }
+          },
+          {
+            "keys": [
+              "20260718"
+            ],
+            "values": {
+              "sessions": 541.0,
+              "activeUsers": 418.0,
+              "totalUsers": 435.0,
+              "newUsers": 255.0,
+              "engagedSessions": 314.0,
+              "screenPageViews": 1074.0,
+              "eventCount": 3051.0,
+              "keyEvents": 11.0
+            }
+          },
+          {
+            "keys": [
+              "20260719"
+            ],
+            "values": {
+              "sessions": 541.0,
+              "activeUsers": 418.0,
+              "totalUsers": 435.0,
+              "newUsers": 255.0,
+              "engagedSessions": 314.0,
+              "screenPageViews": 1074.0,
+              "eventCount": 3051.0,
+              "keyEvents": 11.0
+            }
+          },
+          {
+            "keys": [
+              "20260720"
+            ],
+            "values": {
+              "sessions": 842.0,
+              "activeUsers": 650.0,
+              "totalUsers": 676.0,
+              "newUsers": 397.0,
+              "engagedSessions": 488.0,
+              "screenPageViews": 1671.0,
+              "eventCount": 4746.0,
+              "keyEvents": 18.0
+            }
+          }
+        ],
+        "totals": null,
+        "row_count": 30,
+        "meta": {
+          "currencyCode": "USD",
+          "timeZone": "America/New_York"
+        }
+      }
+    },
+    "channels": {
+      "dimensions": [
+        "sessionDefaultChannelGroup"
+      ],
+      "metrics": [],
+      "limit": 50,
+      "sort_metric": "sessions",
+      "current": {
+        "dimensions": [
+          "sessionDefaultChannelGroup"
+        ],
+        "metrics": [
+          {
+            "name": "sessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "totalUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "newUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagedSessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagementRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "averageSessionDuration",
+            "type": "TYPE_SECONDS"
+          },
+          {
+            "name": "screenPageViews",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "conversions",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "sessionConversionRate",
+            "type": "TYPE_FLOAT"
+          }
+        ],
+        "rows": [
+          {
+            "keys": [
+              "Organic Search"
+            ],
+            "values": {
+              "sessions": 9800.0,
+              "totalUsers": 7600.0,
+              "newUsers": 4560.0,
+              "engagedSessions": 5880.0,
+              "engagementRate": 0.6,
+              "averageSessionDuration": 132.0,
+              "screenPageViews": 19600.0,
+              "conversions": 212.0,
+              "sessionConversionRate": 0.02163265306122449
+            }
+          },
+          {
+            "keys": [
+              "Direct"
+            ],
+            "values": {
+              "sessions": 6400.0,
+              "totalUsers": 5100.0,
+              "newUsers": 3060.0,
+              "engagedSessions": 3456.0,
+              "engagementRate": 0.54,
+              "averageSessionDuration": 124.8,
+              "screenPageViews": 12416.0,
+              "conversions": 128.0,
+              "sessionConversionRate": 0.02
+            }
+          },
+          {
+            "keys": [
+              "Email"
+            ],
+            "values": {
+              "sessions": 3200.0,
+              "totalUsers": 2100.0,
+              "newUsers": 1260.0,
+              "engagedSessions": 2368.0,
+              "engagementRate": 0.74,
+              "averageSessionDuration": 148.8,
+              "screenPageViews": 6848.0,
+              "conversions": 96.0,
+              "sessionConversionRate": 0.03
+            }
+          },
+          {
+            "keys": [
+              "Referral"
+            ],
+            "values": {
+              "sessions": 3200.0,
+              "totalUsers": 2600.0,
+              "newUsers": 1560.0,
+              "engagedSessions": 1856.0,
+              "engagementRate": 0.58,
+              "averageSessionDuration": 129.6,
+              "screenPageViews": 6336.0,
+              "conversions": 50.0,
+              "sessionConversionRate": 0.015625
+            }
+          }
+        ],
+        "totals": null,
+        "row_count": 4,
+        "meta": {
+          "currencyCode": "USD",
+          "timeZone": "America/New_York"
+        }
+      },
+      "previous": {
+        "dimensions": [
+          "sessionDefaultChannelGroup"
+        ],
+        "metrics": [
+          {
+            "name": "sessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "totalUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "newUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagedSessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagementRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "averageSessionDuration",
+            "type": "TYPE_SECONDS"
+          },
+          {
+            "name": "screenPageViews",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "conversions",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "sessionConversionRate",
+            "type": "TYPE_FLOAT"
+          }
+        ],
+        "rows": [
+          {
+            "keys": [
+              "Organic Search"
+            ],
+            "values": {
+              "sessions": 9400.0,
+              "totalUsers": 7300.0,
+              "newUsers": 4380.0,
+              "engagedSessions": 5546.0,
+              "engagementRate": 0.59,
+              "averageSessionDuration": 130.8,
+              "screenPageViews": 18706.0,
+              "conversions": 198.0,
+              "sessionConversionRate": 0.02106382978723404
+            }
+          },
+          {
+            "keys": [
+              "Direct"
+            ],
+            "values": {
+              "sessions": 6200.0,
+              "totalUsers": 4900.0,
+              "newUsers": 2940.0,
+              "engagedSessions": 3286.0,
+              "engagementRate": 0.53,
+              "averageSessionDuration": 123.6,
+              "screenPageViews": 11966.0,
+              "conversions": 121.0,
+              "sessionConversionRate": 0.019516129032258064
+            }
+          },
+          {
+            "keys": [
+              "Email"
+            ],
+            "values": {
+              "sessions": 2800.0,
+              "totalUsers": 1900.0,
+              "newUsers": 1140.0,
+              "engagedSessions": 2044.0,
+              "engagementRate": 0.73,
+              "averageSessionDuration": 147.6,
+              "screenPageViews": 5964.0,
+              "conversions": 84.0,
+              "sessionConversionRate": 0.03
+            }
+          },
+          {
+            "keys": [
+              "Referral"
+            ],
+            "values": {
+              "sessions": 2700.0,
+              "totalUsers": 2200.0,
+              "newUsers": 1320.0,
+              "engagedSessions": 1539.0,
+              "engagementRate": 0.57,
+              "averageSessionDuration": 128.4,
+              "screenPageViews": 5319.0,
+              "conversions": 38.0,
+              "sessionConversionRate": 0.014074074074074074
+            }
+          }
+        ],
+        "totals": null,
+        "row_count": 4,
+        "meta": {
+          "currencyCode": "USD",
+          "timeZone": "America/New_York"
+        }
+      }
+    },
+    "devices": {
+      "dimensions": [
+        "deviceCategory"
+      ],
+      "metrics": [],
+      "limit": 10,
+      "sort_metric": "sessions",
+      "current": {
+        "dimensions": [
+          "deviceCategory"
+        ],
+        "metrics": [
+          {
+            "name": "sessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "totalUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "newUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagedSessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagementRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "averageSessionDuration",
+            "type": "TYPE_SECONDS"
+          },
+          {
+            "name": "screenPageViews",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "conversions",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "sessionConversionRate",
+            "type": "TYPE_FLOAT"
+          }
+        ],
+        "rows": [
+          {
+            "keys": [
+              "mobile"
+            ],
+            "values": {
+              "sessions": 13400.0,
+              "totalUsers": 10200.0,
+              "newUsers": 6120.0,
+              "engagedSessions": 7504.0,
+              "engagementRate": 0.56,
+              "averageSessionDuration": 127.2,
+              "screenPageViews": 26264.0,
+              "conversions": 214.0,
+              "sessionConversionRate": 0.015970149253731344
+            }
+          },
+          {
+            "keys": [
+              "desktop"
+            ],
+            "values": {
+              "sessions": 8400.0,
+              "totalUsers": 6600.0,
+              "newUsers": 3960.0,
+              "engagedSessions": 5460.0,
+              "engagementRate": 0.65,
+              "averageSessionDuration": 138.0,
+              "screenPageViews": 17220.0,
+              "conversions": 258.0,
+              "sessionConversionRate": 0.030714285714285715
+            }
+          },
+          {
+            "keys": [
+              "tablet"
+            ],
+            "values": {
+              "sessions": 800.0,
+              "totalUsers": 600.0,
+              "newUsers": 360.0,
+              "engagedSessions": 464.0,
+              "engagementRate": 0.58,
+              "averageSessionDuration": 129.6,
+              "screenPageViews": 1584.0,
+              "conversions": 14.0,
+              "sessionConversionRate": 0.0175
+            }
+          }
+        ],
+        "totals": null,
+        "row_count": 3,
+        "meta": {
+          "currencyCode": "USD",
+          "timeZone": "America/New_York"
+        }
+      },
+      "previous": {
+        "dimensions": [
+          "deviceCategory"
+        ],
+        "metrics": [
+          {
+            "name": "sessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "totalUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "newUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagedSessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagementRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "averageSessionDuration",
+            "type": "TYPE_SECONDS"
+          },
+          {
+            "name": "screenPageViews",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "conversions",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "sessionConversionRate",
+            "type": "TYPE_FLOAT"
+          }
+        ],
+        "rows": [
+          {
+            "keys": [
+              "mobile"
+            ],
+            "values": {
+              "sessions": 12600.0,
+              "totalUsers": 9600.0,
+              "newUsers": 5760.0,
+              "engagedSessions": 6930.0,
+              "engagementRate": 0.55,
+              "averageSessionDuration": 126.0,
+              "screenPageViews": 24570.0,
+              "conversions": 196.0,
+              "sessionConversionRate": 0.015555555555555555
+            }
+          },
+          {
+            "keys": [
+              "desktop"
+            ],
+            "values": {
+              "sessions": 7900.0,
+              "totalUsers": 6200.0,
+              "newUsers": 3720.0,
+              "engagedSessions": 5056.0,
+              "engagementRate": 0.64,
+              "averageSessionDuration": 136.8,
+              "screenPageViews": 16116.0,
+              "conversions": 232.0,
+              "sessionConversionRate": 0.029367088607594936
+            }
+          },
+          {
+            "keys": [
+              "tablet"
+            ],
+            "values": {
+              "sessions": 600.0,
+              "totalUsers": 500.0,
+              "newUsers": 300.0,
+              "engagedSessions": 342.0,
+              "engagementRate": 0.57,
+              "averageSessionDuration": 128.4,
+              "screenPageViews": 1182.0,
+              "conversions": 13.0,
+              "sessionConversionRate": 0.021666666666666667
+            }
+          }
+        ],
+        "totals": null,
+        "row_count": 3,
+        "meta": {
+          "currencyCode": "USD",
+          "timeZone": "America/New_York"
+        }
+      }
+    }
+  },
+  "errors": [],
+  "warnings": [
+    "This property reports the older `conversions` metric rather than `keyEvents`."
+  ],
+  "config": {
+    "agency_env": "~/clients/agency.env",
+    "client_env": "/path/to/client/.env",
+    "property_id": "123456789",
+    "auth_mode": "oauth",
+    "declared_key_events": [],
+    "client_name": null,
+    "site_url": "https://www.example.com"
+  }
+}

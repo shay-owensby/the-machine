@@ -75,8 +75,8 @@
       "name": "analytics-insights",
       "displayName": "Analytics & Insights",
       "source": "./analytics-insights",
-      "description": "Turn raw marketing and business data into reports, dashboards, and plain-language insight someone can act on.",
-      "version": "0.1.0",
+      "description": "Turn raw marketing and business data into reports, dashboards, and plain-language insight someone can act on \u2014 including period-over-period Google Ads performance reporting.",
+      "version": "0.2.0",
       "author": {
         "name": "Shay Owensby",
         "email": "shay@unchainedaisolutions.com"
@@ -88,17 +88,26 @@
         "reporting",
         "dashboards",
         "insights",
-        "data"
+        "data",
+        "google-ads",
+        "ppc",
+        "paid-search"
       ],
       "tags": [
         "analytics",
         "reporting",
         "dashboards",
         "insights",
-        "data"
+        "data",
+        "google-ads",
+        "ppc",
+        "paid-search"
       ],
       "skills": [
         "./skills/"
+      ],
+      "agents": [
+        "./agents/"
       ],
       "strict": false
     },

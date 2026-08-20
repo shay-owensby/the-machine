@@ -1,0 +1,3194 @@
+{
+  "schema": "reports-google-analytics/raw@1",
+  "generated_at": "2026-08-20T06:15:00-04:00",
+  "api": {
+    "data_api": "https://analyticsdata.googleapis.com/v1beta",
+    "admin_api": "https://analyticsadmin.googleapis.com/v1beta"
+  },
+  "property": {
+    "property_id": "123456789",
+    "name": "Example Store",
+    "admin_api_available": true,
+    "time_zone": "America/New_York",
+    "currency": "USD",
+    "industry": "SHOPPING",
+    "created": "2023-04-11T09:12:00Z",
+    "account": "accounts/98765",
+    "property_type": "PROPERTY_TYPE_ORDINARY",
+    "data_streams": [
+      {
+        "name": "Web",
+        "type": "WEB_DATA_STREAM",
+        "uri": "https://www.example.com",
+        "measurement_id": "G-EXAMPLE01"
+      }
+    ]
+  },
+  "periods": {
+    "current": {
+      "start": "2026-07-21",
+      "end": "2026-08-19",
+      "days": 30
+    },
+    "previous": {
+      "start": "2026-06-21",
+      "end": "2026-07-20",
+      "days": 30
+    },
+    "basis": "most recent 30 completed days ending yesterday in America/New_York",
+    "time_zone": "America/New_York",
+    "time_zone_used": "America/New_York"
+  },
+  "schema_support": {
+    "metadata_loaded": true,
+    "dimension_count": 218,
+    "metric_count": 121,
+    "custom_dimensions": [],
+    "custom_metrics": [],
+    "unsupported_metrics": [],
+    "kpi_metrics_requested": []
+  },
+  "key_events": {
+    "metric_naming": "keyEvents",
+    "metrics_used": [
+      "keyEvents",
+      "sessionKeyEventRate",
+      "userKeyEventRate"
+    ],
+    "definitions": [
+      {
+        "event_name": "purchase",
+        "counting_method": "ONCE_PER_EVENT",
+        "custom": false,
+        "created": "2023-04-11T09:12:00Z",
+        "default_value": null
+      }
+    ],
+    "declared_in_env": [
+      "purchase"
+    ]
+  },
+  "ecommerce": {
+    "state": "active",
+    "signals": {
+      "transactions": {
+        "current": 2198.0,
+        "previous": 1942.0
+      },
+      "purchaseRevenue": {
+        "current": 184600.0,
+        "previous": 163200.0
+      }
+    },
+    "reason": "The property returned non-zero purchase activity."
+  },
+  "datasets": {
+    "totals": {
+      "dimensions": [],
+      "metrics": [],
+      "limit": 1,
+      "sort_metric": "sessions",
+      "current": {
+        "dimensions": [],
+        "metrics": [
+          {
+            "name": "activeUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "totalUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "newUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "sessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagedSessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagementRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "bounceRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "averageSessionDuration",
+            "type": "TYPE_SECONDS"
+          },
+          {
+            "name": "userEngagementDuration",
+            "type": "TYPE_SECONDS"
+          },
+          {
+            "name": "screenPageViews",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "screenPageViewsPerSession",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "sessionsPerUser",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "eventCount",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "keyEvents",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "sessionKeyEventRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "userKeyEventRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "totalRevenue",
+            "type": "TYPE_CURRENCY"
+          },
+          {
+            "name": "purchaseRevenue",
+            "type": "TYPE_CURRENCY"
+          },
+          {
+            "name": "transactions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "ecommercePurchases",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "totalPurchasers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "firstTimePurchasers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "purchaserRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "averagePurchaseRevenue",
+            "type": "TYPE_CURRENCY"
+          },
+          {
+            "name": "averageRevenuePerUser",
+            "type": "TYPE_CURRENCY"
+          },
+          {
+            "name": "itemsViewed",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "itemsAddedToCart",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "itemsCheckedOut",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "itemsPurchased",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "addToCarts",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "checkouts",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "cartToViewRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "purchaseToViewRate",
+            "type": "TYPE_FLOAT"
+          }
+        ],
+        "rows": [
+          {
+            "keys": [],
+            "values": {
+              "activeUsers": 61200.0,
+              "totalUsers": 63648.0,
+              "newUsers": 38900.0,
+              "sessions": 96200.0,
+              "engagedSessions": 58100.0,
+              "engagementRate": 0.603950103950104,
+              "bounceRate": 0.39604989604989604,
+              "averageSessionDuration": 142.0,
+              "userEngagementDuration": 8250200.0,
+              "screenPageViews": 288600.0,
+              "screenPageViewsPerSession": 3.0,
+              "sessionsPerUser": 1.5718954248366013,
+              "eventCount": 812000.0,
+              "keyEvents": 2198.0,
+              "sessionKeyEventRate": 0.022848232848232848,
+              "userKeyEventRate": 0.035915032679738564,
+              "totalRevenue": 184600.0,
+              "purchaseRevenue": 184600.0,
+              "transactions": 2198.0,
+              "ecommercePurchases": 2198.0,
+              "totalPurchasers": 1904.0,
+              "firstTimePurchasers": 1180.0,
+              "purchaserRate": 0.03111111111111111,
+              "averagePurchaseRevenue": 83.98544131028207,
+              "averageRevenuePerUser": 3.0163398692810457,
+              "itemsViewed": 92400.0,
+              "itemsAddedToCart": 18900.0,
+              "itemsCheckedOut": 9100.0,
+              "itemsPurchased": 3120.0,
+              "addToCarts": 18900.0,
+              "checkouts": 9100.0,
+              "cartToViewRate": 0.20454545454545456,
+              "purchaseToViewRate": 0.033766233766233764
+            }
+          }
+        ],
+        "totals": {
+          "activeUsers": 61200.0,
+          "totalUsers": 63648.0,
+          "newUsers": 38900.0,
+          "sessions": 96200.0,
+          "engagedSessions": 58100.0,
+          "engagementRate": 0.603950103950104,
+          "bounceRate": 0.39604989604989604,
+          "averageSessionDuration": 142.0,
+          "userEngagementDuration": 8250200.0,
+          "screenPageViews": 288600.0,
+          "screenPageViewsPerSession": 3.0,
+          "sessionsPerUser": 1.5718954248366013,
+          "eventCount": 812000.0,
+          "keyEvents": 2198.0,
+          "sessionKeyEventRate": 0.022848232848232848,
+          "userKeyEventRate": 0.035915032679738564,
+          "totalRevenue": 184600.0,
+          "purchaseRevenue": 184600.0,
+          "transactions": 2198.0,
+          "ecommercePurchases": 2198.0,
+          "totalPurchasers": 1904.0,
+          "firstTimePurchasers": 1180.0,
+          "purchaserRate": 0.03111111111111111,
+          "averagePurchaseRevenue": 83.98544131028207,
+          "averageRevenuePerUser": 3.0163398692810457,
+          "itemsViewed": 92400.0,
+          "itemsAddedToCart": 18900.0,
+          "itemsCheckedOut": 9100.0,
+          "itemsPurchased": 3120.0,
+          "addToCarts": 18900.0,
+          "checkouts": 9100.0,
+          "cartToViewRate": 0.20454545454545456,
+          "purchaseToViewRate": 0.033766233766233764
+        },
+        "row_count": 1,
+        "meta": {
+          "currencyCode": "USD",
+          "timeZone": "America/New_York"
+        }
+      },
+      "previous": {
+        "dimensions": [],
+        "metrics": [
+          {
+            "name": "activeUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "totalUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "newUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "sessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagedSessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagementRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "bounceRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "averageSessionDuration",
+            "type": "TYPE_SECONDS"
+          },
+          {
+            "name": "userEngagementDuration",
+            "type": "TYPE_SECONDS"
+          },
+          {
+            "name": "screenPageViews",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "screenPageViewsPerSession",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "sessionsPerUser",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "eventCount",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "keyEvents",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "sessionKeyEventRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "userKeyEventRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "totalRevenue",
+            "type": "TYPE_CURRENCY"
+          },
+          {
+            "name": "purchaseRevenue",
+            "type": "TYPE_CURRENCY"
+          },
+          {
+            "name": "transactions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "ecommercePurchases",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "totalPurchasers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "firstTimePurchasers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "purchaserRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "averagePurchaseRevenue",
+            "type": "TYPE_CURRENCY"
+          },
+          {
+            "name": "averageRevenuePerUser",
+            "type": "TYPE_CURRENCY"
+          },
+          {
+            "name": "itemsViewed",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "itemsAddedToCart",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "itemsCheckedOut",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "itemsPurchased",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "addToCarts",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "checkouts",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "cartToViewRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "purchaseToViewRate",
+            "type": "TYPE_FLOAT"
+          }
+        ],
+        "rows": [
+          {
+            "keys": [],
+            "values": {
+              "activeUsers": 57400.0,
+              "totalUsers": 59696.0,
+              "newUsers": 36600.0,
+              "sessions": 89400.0,
+              "engagedSessions": 53200.0,
+              "engagementRate": 0.5950782997762863,
+              "bounceRate": 0.40492170022371365,
+              "averageSessionDuration": 138.0,
+              "userEngagementDuration": 7341600.0,
+              "screenPageViews": 264800.0,
+              "screenPageViewsPerSession": 2.9619686800894853,
+              "sessionsPerUser": 1.5574912891986064,
+              "eventCount": 742000.0,
+              "keyEvents": 1942.0,
+              "sessionKeyEventRate": 0.021722595078299777,
+              "userKeyEventRate": 0.03383275261324042,
+              "totalRevenue": 163200.0,
+              "purchaseRevenue": 163200.0,
+              "transactions": 1942.0,
+              "ecommercePurchases": 1942.0,
+              "totalPurchasers": 1712.0,
+              "firstTimePurchasers": 1061.0,
+              "purchaserRate": 0.029825783972125437,
+              "averagePurchaseRevenue": 84.03707518022657,
+              "averageRevenuePerUser": 2.843205574912892,
+              "itemsViewed": 84100.0,
+              "itemsAddedToCart": 17400.0,
+              "itemsCheckedOut": 9600.0,
+              "itemsPurchased": 2780.0,
+              "addToCarts": 17400.0,
+              "checkouts": 9600.0,
+              "cartToViewRate": 0.20689655172413793,
+              "purchaseToViewRate": 0.03305588585017836
+            }
+          }
+        ],
+        "totals": {
+          "activeUsers": 57400.0,
+          "totalUsers": 59696.0,
+          "newUsers": 36600.0,
+          "sessions": 89400.0,
+          "engagedSessions": 53200.0,
+          "engagementRate": 0.5950782997762863,
+          "bounceRate": 0.40492170022371365,
+          "averageSessionDuration": 138.0,
+          "userEngagementDuration": 7341600.0,
+          "screenPageViews": 264800.0,
+          "screenPageViewsPerSession": 2.9619686800894853,
+          "sessionsPerUser": 1.5574912891986064,
+          "eventCount": 742000.0,
+          "keyEvents": 1942.0,
+          "sessionKeyEventRate": 0.021722595078299777,
+          "userKeyEventRate": 0.03383275261324042,
+          "totalRevenue": 163200.0,
+          "purchaseRevenue": 163200.0,
+          "transactions": 1942.0,
+          "ecommercePurchases": 1942.0,
+          "totalPurchasers": 1712.0,
+          "firstTimePurchasers": 1061.0,
+          "purchaserRate": 0.029825783972125437,
+          "averagePurchaseRevenue": 84.03707518022657,
+          "averageRevenuePerUser": 2.843205574912892,
+          "itemsViewed": 84100.0,
+          "itemsAddedToCart": 17400.0,
+          "itemsCheckedOut": 9600.0,
+          "itemsPurchased": 2780.0,
+          "addToCarts": 17400.0,
+          "checkouts": 9600.0,
+          "cartToViewRate": 0.20689655172413793,
+          "purchaseToViewRate": 0.03305588585017836
+        },
+        "row_count": 1,
+        "meta": {
+          "currencyCode": "USD",
+          "timeZone": "America/New_York"
+        }
+      }
+    },
+    "daily": {
+      "dimensions": [
+        "date"
+      ],
+      "metrics": [],
+      "limit": 400,
+      "sort_metric": null,
+      "current": {
+        "dimensions": [
+          "date"
+        ],
+        "metrics": [
+          {
+            "name": "sessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "activeUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "totalUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "newUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagedSessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "screenPageViews",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "eventCount",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "keyEvents",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "totalRevenue",
+            "type": "TYPE_CURRENCY"
+          },
+          {
+            "name": "transactions",
+            "type": "TYPE_INTEGER"
+          }
+        ],
+        "rows": [
+          {
+            "keys": [
+              "20260721"
+            ],
+            "values": {
+              "sessions": 3407.0,
+              "activeUsers": 2167.0,
+              "totalUsers": 2254.0,
+              "newUsers": 1322.0,
+              "engagedSessions": 1976.0,
+              "screenPageViews": 10220.0,
+              "eventCount": 28754.0,
+              "keyEvents": 78.0,
+              "totalRevenue": 6536.83,
+              "transactions": 78.0
+            }
+          },
+          {
+            "keys": [
+              "20260722"
+            ],
+            "values": {
+              "sessions": 3407.0,
+              "activeUsers": 2167.0,
+              "totalUsers": 2254.0,
+              "newUsers": 1322.0,
+              "engagedSessions": 1976.0,
+              "screenPageViews": 10220.0,
+              "eventCount": 28754.0,
+              "keyEvents": 78.0,
+              "totalRevenue": 6536.83,
+              "transactions": 78.0
+            }
+          },
+          {
+            "keys": [
+              "20260723"
+            ],
+            "values": {
+              "sessions": 3407.0,
+              "activeUsers": 2167.0,
+              "totalUsers": 2254.0,
+              "newUsers": 1322.0,
+              "engagedSessions": 1976.0,
+              "screenPageViews": 10220.0,
+              "eventCount": 28754.0,
+              "keyEvents": 78.0,
+              "totalRevenue": 6536.83,
+              "transactions": 78.0
+            }
+          },
+          {
+            "keys": [
+              "20260724"
+            ],
+            "values": {
+              "sessions": 3407.0,
+              "activeUsers": 2167.0,
+              "totalUsers": 2254.0,
+              "newUsers": 1322.0,
+              "engagedSessions": 1976.0,
+              "screenPageViews": 10220.0,
+              "eventCount": 28754.0,
+              "keyEvents": 78.0,
+              "totalRevenue": 6536.83,
+              "transactions": 78.0
+            }
+          },
+          {
+            "keys": [
+              "20260725"
+            ],
+            "values": {
+              "sessions": 2453.0,
+              "activeUsers": 1560.0,
+              "totalUsers": 1623.0,
+              "newUsers": 952.0,
+              "engagedSessions": 1423.0,
+              "screenPageViews": 7358.0,
+              "eventCount": 20703.0,
+              "keyEvents": 56.0,
+              "totalRevenue": 4706.52,
+              "transactions": 56.0
+            }
+          },
+          {
+            "keys": [
+              "20260726"
+            ],
+            "values": {
+              "sessions": 2453.0,
+              "activeUsers": 1560.0,
+              "totalUsers": 1623.0,
+              "newUsers": 952.0,
+              "engagedSessions": 1423.0,
+              "screenPageViews": 7358.0,
+              "eventCount": 20703.0,
+              "keyEvents": 56.0,
+              "totalRevenue": 4706.52,
+              "transactions": 56.0
+            }
+          },
+          {
+            "keys": [
+              "20260727"
+            ],
+            "values": {
+              "sessions": 3815.0,
+              "activeUsers": 2427.0,
+              "totalUsers": 2524.0,
+              "newUsers": 1481.0,
+              "engagedSessions": 2213.0,
+              "screenPageViews": 11446.0,
+              "eventCount": 32204.0,
+              "keyEvents": 87.0,
+              "totalRevenue": 7321.25,
+              "transactions": 87.0
+            }
+          },
+          {
+            "keys": [
+              "20260728"
+            ],
+            "values": {
+              "sessions": 3407.0,
+              "activeUsers": 2167.0,
+              "totalUsers": 2254.0,
+              "newUsers": 1322.0,
+              "engagedSessions": 1976.0,
+              "screenPageViews": 10220.0,
+              "eventCount": 28754.0,
+              "keyEvents": 78.0,
+              "totalRevenue": 6536.83,
+              "transactions": 78.0
+            }
+          },
+          {
+            "keys": [
+              "20260729"
+            ],
+            "values": {
+              "sessions": 3407.0,
+              "activeUsers": 2167.0,
+              "totalUsers": 2254.0,
+              "newUsers": 1322.0,
+              "engagedSessions": 1976.0,
+              "screenPageViews": 10220.0,
+              "eventCount": 28754.0,
+              "keyEvents": 78.0,
+              "totalRevenue": 6536.83,
+              "transactions": 78.0
+            }
+          },
+          {
+            "keys": [
+              "20260730"
+            ],
+            "values": {
+              "sessions": 3407.0,
+              "activeUsers": 2167.0,
+              "totalUsers": 2254.0,
+              "newUsers": 1322.0,
+              "engagedSessions": 1976.0,
+              "screenPageViews": 10220.0,
+              "eventCount": 28754.0,
+              "keyEvents": 78.0,
+              "totalRevenue": 6536.83,
+              "transactions": 78.0
+            }
+          },
+          {
+            "keys": [
+              "20260731"
+            ],
+            "values": {
+              "sessions": 3407.0,
+              "activeUsers": 2167.0,
+              "totalUsers": 2254.0,
+              "newUsers": 1322.0,
+              "engagedSessions": 1976.0,
+              "screenPageViews": 10220.0,
+              "eventCount": 28754.0,
+              "keyEvents": 78.0,
+              "totalRevenue": 6536.83,
+              "transactions": 78.0
+            }
+          },
+          {
+            "keys": [
+              "20260801"
+            ],
+            "values": {
+              "sessions": 2453.0,
+              "activeUsers": 1560.0,
+              "totalUsers": 1623.0,
+              "newUsers": 952.0,
+              "engagedSessions": 1423.0,
+              "screenPageViews": 7358.0,
+              "eventCount": 20703.0,
+              "keyEvents": 56.0,
+              "totalRevenue": 4706.52,
+              "transactions": 56.0
+            }
+          },
+          {
+            "keys": [
+              "20260802"
+            ],
+            "values": {
+              "sessions": 2453.0,
+              "activeUsers": 1560.0,
+              "totalUsers": 1623.0,
+              "newUsers": 952.0,
+              "engagedSessions": 1423.0,
+              "screenPageViews": 7358.0,
+              "eventCount": 20703.0,
+              "keyEvents": 56.0,
+              "totalRevenue": 4706.52,
+              "transactions": 56.0
+            }
+          },
+          {
+            "keys": [
+              "20260803"
+            ],
+            "values": {
+              "sessions": 3815.0,
+              "activeUsers": 2427.0,
+              "totalUsers": 2524.0,
+              "newUsers": 1481.0,
+              "engagedSessions": 2213.0,
+              "screenPageViews": 11446.0,
+              "eventCount": 32204.0,
+              "keyEvents": 87.0,
+              "totalRevenue": 7321.25,
+              "transactions": 87.0
+            }
+          },
+          {
+            "keys": [
+              "20260804"
+            ],
+            "values": {
+              "sessions": 3407.0,
+              "activeUsers": 2167.0,
+              "totalUsers": 2254.0,
+              "newUsers": 1322.0,
+              "engagedSessions": 1976.0,
+              "screenPageViews": 10220.0,
+              "eventCount": 28754.0,
+              "keyEvents": 78.0,
+              "totalRevenue": 6536.83,
+              "transactions": 78.0
+            }
+          },
+          {
+            "keys": [
+              "20260805"
+            ],
+            "values": {
+              "sessions": 3407.0,
+              "activeUsers": 2167.0,
+              "totalUsers": 2254.0,
+              "newUsers": 1322.0,
+              "engagedSessions": 1976.0,
+              "screenPageViews": 10220.0,
+              "eventCount": 28754.0,
+              "keyEvents": 78.0,
+              "totalRevenue": 6536.83,
+              "transactions": 78.0
+            }
+          },
+          {
+            "keys": [
+              "20260806"
+            ],
+            "values": {
+              "sessions": 3407.0,
+              "activeUsers": 2167.0,
+              "totalUsers": 2254.0,
+              "newUsers": 1322.0,
+              "engagedSessions": 1976.0,
+              "screenPageViews": 10220.0,
+              "eventCount": 28754.0,
+              "keyEvents": 78.0,
+              "totalRevenue": 6536.83,
+              "transactions": 78.0
+            }
+          },
+          {
+            "keys": [
+              "20260807"
+            ],
+            "values": {
+              "sessions": 3407.0,
+              "activeUsers": 2167.0,
+              "totalUsers": 2254.0,
+              "newUsers": 1322.0,
+              "engagedSessions": 1976.0,
+              "screenPageViews": 10220.0,
+              "eventCount": 28754.0,
+              "keyEvents": 78.0,
+              "totalRevenue": 6536.83,
+              "transactions": 78.0
+            }
+          },
+          {
+            "keys": [
+              "20260808"
+            ],
+            "values": {
+              "sessions": 2453.0,
+              "activeUsers": 1560.0,
+              "totalUsers": 1623.0,
+              "newUsers": 952.0,
+              "engagedSessions": 1423.0,
+              "screenPageViews": 7358.0,
+              "eventCount": 20703.0,
+              "keyEvents": 56.0,
+              "totalRevenue": 4706.52,
+              "transactions": 56.0
+            }
+          },
+          {
+            "keys": [
+              "20260809"
+            ],
+            "values": {
+              "sessions": 2453.0,
+              "activeUsers": 1560.0,
+              "totalUsers": 1623.0,
+              "newUsers": 952.0,
+              "engagedSessions": 1423.0,
+              "screenPageViews": 7358.0,
+              "eventCount": 20703.0,
+              "keyEvents": 56.0,
+              "totalRevenue": 4706.52,
+              "transactions": 56.0
+            }
+          },
+          {
+            "keys": [
+              "20260810"
+            ],
+            "values": {
+              "sessions": 3815.0,
+              "activeUsers": 2427.0,
+              "totalUsers": 2524.0,
+              "newUsers": 1481.0,
+              "engagedSessions": 2213.0,
+              "screenPageViews": 11446.0,
+              "eventCount": 32204.0,
+              "keyEvents": 87.0,
+              "totalRevenue": 7321.25,
+              "transactions": 87.0
+            }
+          },
+          {
+            "keys": [
+              "20260811"
+            ],
+            "values": {
+              "sessions": 3407.0,
+              "activeUsers": 2167.0,
+              "totalUsers": 2254.0,
+              "newUsers": 1322.0,
+              "engagedSessions": 1976.0,
+              "screenPageViews": 10220.0,
+              "eventCount": 28754.0,
+              "keyEvents": 78.0,
+              "totalRevenue": 6536.83,
+              "transactions": 78.0
+            }
+          },
+          {
+            "keys": [
+              "20260812"
+            ],
+            "values": {
+              "sessions": 3407.0,
+              "activeUsers": 2167.0,
+              "totalUsers": 2254.0,
+              "newUsers": 1322.0,
+              "engagedSessions": 1976.0,
+              "screenPageViews": 10220.0,
+              "eventCount": 28754.0,
+              "keyEvents": 78.0,
+              "totalRevenue": 6536.83,
+              "transactions": 78.0
+            }
+          },
+          {
+            "keys": [
+              "20260813"
+            ],
+            "values": {
+              "sessions": 3407.0,
+              "activeUsers": 2167.0,
+              "totalUsers": 2254.0,
+              "newUsers": 1322.0,
+              "engagedSessions": 1976.0,
+              "screenPageViews": 10220.0,
+              "eventCount": 28754.0,
+              "keyEvents": 78.0,
+              "totalRevenue": 6536.83,
+              "transactions": 78.0
+            }
+          },
+          {
+            "keys": [
+              "20260814"
+            ],
+            "values": {
+              "sessions": 3407.0,
+              "activeUsers": 2167.0,
+              "totalUsers": 2254.0,
+              "newUsers": 1322.0,
+              "engagedSessions": 1976.0,
+              "screenPageViews": 10220.0,
+              "eventCount": 28754.0,
+              "keyEvents": 78.0,
+              "totalRevenue": 6536.83,
+              "transactions": 78.0
+            }
+          },
+          {
+            "keys": [
+              "20260815"
+            ],
+            "values": {
+              "sessions": 2453.0,
+              "activeUsers": 1560.0,
+              "totalUsers": 1623.0,
+              "newUsers": 952.0,
+              "engagedSessions": 1423.0,
+              "screenPageViews": 7358.0,
+              "eventCount": 20703.0,
+              "keyEvents": 56.0,
+              "totalRevenue": 4706.52,
+              "transactions": 56.0
+            }
+          },
+          {
+            "keys": [
+              "20260816"
+            ],
+            "values": {
+              "sessions": 2453.0,
+              "activeUsers": 1560.0,
+              "totalUsers": 1623.0,
+              "newUsers": 952.0,
+              "engagedSessions": 1423.0,
+              "screenPageViews": 7358.0,
+              "eventCount": 20703.0,
+              "keyEvents": 56.0,
+              "totalRevenue": 4706.52,
+              "transactions": 56.0
+            }
+          },
+          {
+            "keys": [
+              "20260817"
+            ],
+            "values": {
+              "sessions": 3815.0,
+              "activeUsers": 2427.0,
+              "totalUsers": 2524.0,
+              "newUsers": 1481.0,
+              "engagedSessions": 2213.0,
+              "screenPageViews": 11446.0,
+              "eventCount": 32204.0,
+              "keyEvents": 87.0,
+              "totalRevenue": 7321.25,
+              "transactions": 87.0
+            }
+          },
+          {
+            "keys": [
+              "20260818"
+            ],
+            "values": {
+              "sessions": 3407.0,
+              "activeUsers": 2167.0,
+              "totalUsers": 2254.0,
+              "newUsers": 1322.0,
+              "engagedSessions": 1976.0,
+              "screenPageViews": 10220.0,
+              "eventCount": 28754.0,
+              "keyEvents": 78.0,
+              "totalRevenue": 6536.83,
+              "transactions": 78.0
+            }
+          },
+          {
+            "keys": [
+              "20260819"
+            ],
+            "values": {
+              "sessions": 3407.0,
+              "activeUsers": 2167.0,
+              "totalUsers": 2254.0,
+              "newUsers": 1322.0,
+              "engagedSessions": 1976.0,
+              "screenPageViews": 10220.0,
+              "eventCount": 28754.0,
+              "keyEvents": 78.0,
+              "totalRevenue": 6536.83,
+              "transactions": 78.0
+            }
+          }
+        ],
+        "totals": null,
+        "row_count": 30,
+        "meta": {
+          "currencyCode": "USD",
+          "timeZone": "America/New_York"
+        }
+      },
+      "previous": {
+        "dimensions": [
+          "date"
+        ],
+        "metrics": [
+          {
+            "name": "sessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "activeUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "totalUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "newUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagedSessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "screenPageViews",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "eventCount",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "keyEvents",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "totalRevenue",
+            "type": "TYPE_CURRENCY"
+          },
+          {
+            "name": "transactions",
+            "type": "TYPE_INTEGER"
+          }
+        ],
+        "rows": [
+          {
+            "keys": [
+              "20260621"
+            ],
+            "values": {
+              "sessions": 2292.0,
+              "activeUsers": 1472.0,
+              "totalUsers": 1531.0,
+              "newUsers": 898.0,
+              "engagedSessions": 1330.0,
+              "screenPageViews": 6790.0,
+              "eventCount": 19026.0,
+              "keyEvents": 50.0,
+              "totalRevenue": 4184.62,
+              "transactions": 50.0
+            }
+          },
+          {
+            "keys": [
+              "20260622"
+            ],
+            "values": {
+              "sessions": 3566.0,
+              "activeUsers": 2289.0,
+              "totalUsers": 2381.0,
+              "newUsers": 1397.0,
+              "engagedSessions": 2068.0,
+              "screenPageViews": 10562.0,
+              "eventCount": 29595.0,
+              "keyEvents": 77.0,
+              "totalRevenue": 6509.4,
+              "transactions": 77.0
+            }
+          },
+          {
+            "keys": [
+              "20260623"
+            ],
+            "values": {
+              "sessions": 3184.0,
+              "activeUsers": 2044.0,
+              "totalUsers": 2126.0,
+              "newUsers": 1247.0,
+              "engagedSessions": 1847.0,
+              "screenPageViews": 9430.0,
+              "eventCount": 26425.0,
+              "keyEvents": 69.0,
+              "totalRevenue": 5811.97,
+              "transactions": 69.0
+            }
+          },
+          {
+            "keys": [
+              "20260624"
+            ],
+            "values": {
+              "sessions": 3184.0,
+              "activeUsers": 2044.0,
+              "totalUsers": 2126.0,
+              "newUsers": 1247.0,
+              "engagedSessions": 1847.0,
+              "screenPageViews": 9430.0,
+              "eventCount": 26425.0,
+              "keyEvents": 69.0,
+              "totalRevenue": 5811.97,
+              "transactions": 69.0
+            }
+          },
+          {
+            "keys": [
+              "20260625"
+            ],
+            "values": {
+              "sessions": 3184.0,
+              "activeUsers": 2044.0,
+              "totalUsers": 2126.0,
+              "newUsers": 1247.0,
+              "engagedSessions": 1847.0,
+              "screenPageViews": 9430.0,
+              "eventCount": 26425.0,
+              "keyEvents": 69.0,
+              "totalRevenue": 5811.97,
+              "transactions": 69.0
+            }
+          },
+          {
+            "keys": [
+              "20260626"
+            ],
+            "values": {
+              "sessions": 3184.0,
+              "activeUsers": 2044.0,
+              "totalUsers": 2126.0,
+              "newUsers": 1247.0,
+              "engagedSessions": 1847.0,
+              "screenPageViews": 9430.0,
+              "eventCount": 26425.0,
+              "keyEvents": 69.0,
+              "totalRevenue": 5811.97,
+              "transactions": 69.0
+            }
+          },
+          {
+            "keys": [
+              "20260627"
+            ],
+            "values": {
+              "sessions": 2292.0,
+              "activeUsers": 1472.0,
+              "totalUsers": 1531.0,
+              "newUsers": 898.0,
+              "engagedSessions": 1330.0,
+              "screenPageViews": 6790.0,
+              "eventCount": 19026.0,
+              "keyEvents": 50.0,
+              "totalRevenue": 4184.62,
+              "transactions": 50.0
+            }
+          },
+          {
+            "keys": [
+              "20260628"
+            ],
+            "values": {
+              "sessions": 2292.0,
+              "activeUsers": 1472.0,
+              "totalUsers": 1531.0,
+              "newUsers": 898.0,
+              "engagedSessions": 1330.0,
+              "screenPageViews": 6790.0,
+              "eventCount": 19026.0,
+              "keyEvents": 50.0,
+              "totalRevenue": 4184.62,
+              "transactions": 50.0
+            }
+          },
+          {
+            "keys": [
+              "20260629"
+            ],
+            "values": {
+              "sessions": 3566.0,
+              "activeUsers": 2289.0,
+              "totalUsers": 2381.0,
+              "newUsers": 1397.0,
+              "engagedSessions": 2068.0,
+              "screenPageViews": 10562.0,
+              "eventCount": 29595.0,
+              "keyEvents": 77.0,
+              "totalRevenue": 6509.4,
+              "transactions": 77.0
+            }
+          },
+          {
+            "keys": [
+              "20260630"
+            ],
+            "values": {
+              "sessions": 3184.0,
+              "activeUsers": 2044.0,
+              "totalUsers": 2126.0,
+              "newUsers": 1247.0,
+              "engagedSessions": 1847.0,
+              "screenPageViews": 9430.0,
+              "eventCount": 26425.0,
+              "keyEvents": 69.0,
+              "totalRevenue": 5811.97,
+              "transactions": 69.0
+            }
+          },
+          {
+            "keys": [
+              "20260701"
+            ],
+            "values": {
+              "sessions": 3184.0,
+              "activeUsers": 2044.0,
+              "totalUsers": 2126.0,
+              "newUsers": 1247.0,
+              "engagedSessions": 1847.0,
+              "screenPageViews": 9430.0,
+              "eventCount": 26425.0,
+              "keyEvents": 69.0,
+              "totalRevenue": 5811.97,
+              "transactions": 69.0
+            }
+          },
+          {
+            "keys": [
+              "20260702"
+            ],
+            "values": {
+              "sessions": 3184.0,
+              "activeUsers": 2044.0,
+              "totalUsers": 2126.0,
+              "newUsers": 1247.0,
+              "engagedSessions": 1847.0,
+              "screenPageViews": 9430.0,
+              "eventCount": 26425.0,
+              "keyEvents": 69.0,
+              "totalRevenue": 5811.97,
+              "transactions": 69.0
+            }
+          },
+          {
+            "keys": [
+              "20260703"
+            ],
+            "values": {
+              "sessions": 3184.0,
+              "activeUsers": 2044.0,
+              "totalUsers": 2126.0,
+              "newUsers": 1247.0,
+              "engagedSessions": 1847.0,
+              "screenPageViews": 9430.0,
+              "eventCount": 26425.0,
+              "keyEvents": 69.0,
+              "totalRevenue": 5811.97,
+              "transactions": 69.0
+            }
+          },
+          {
+            "keys": [
+              "20260704"
+            ],
+            "values": {
+              "sessions": 2292.0,
+              "activeUsers": 1472.0,
+              "totalUsers": 1531.0,
+              "newUsers": 898.0,
+              "engagedSessions": 1330.0,
+              "screenPageViews": 6790.0,
+              "eventCount": 19026.0,
+              "keyEvents": 50.0,
+              "totalRevenue": 4184.62,
+              "transactions": 50.0
+            }
+          },
+          {
+            "keys": [
+              "20260705"
+            ],
+            "values": {
+              "sessions": 2292.0,
+              "activeUsers": 1472.0,
+              "totalUsers": 1531.0,
+              "newUsers": 898.0,
+              "engagedSessions": 1330.0,
+              "screenPageViews": 6790.0,
+              "eventCount": 19026.0,
+              "keyEvents": 50.0,
+              "totalRevenue": 4184.62,
+              "transactions": 50.0
+            }
+          },
+          {
+            "keys": [
+              "20260706"
+            ],
+            "values": {
+              "sessions": 3566.0,
+              "activeUsers": 2289.0,
+              "totalUsers": 2381.0,
+              "newUsers": 1397.0,
+              "engagedSessions": 2068.0,
+              "screenPageViews": 10562.0,
+              "eventCount": 29595.0,
+              "keyEvents": 77.0,
+              "totalRevenue": 6509.4,
+              "transactions": 77.0
+            }
+          },
+          {
+            "keys": [
+              "20260707"
+            ],
+            "values": {
+              "sessions": 3184.0,
+              "activeUsers": 2044.0,
+              "totalUsers": 2126.0,
+              "newUsers": 1247.0,
+              "engagedSessions": 1847.0,
+              "screenPageViews": 9430.0,
+              "eventCount": 26425.0,
+              "keyEvents": 69.0,
+              "totalRevenue": 5811.97,
+              "transactions": 69.0
+            }
+          },
+          {
+            "keys": [
+              "20260708"
+            ],
+            "values": {
+              "sessions": 3184.0,
+              "activeUsers": 2044.0,
+              "totalUsers": 2126.0,
+              "newUsers": 1247.0,
+              "engagedSessions": 1847.0,
+              "screenPageViews": 9430.0,
+              "eventCount": 26425.0,
+              "keyEvents": 69.0,
+              "totalRevenue": 5811.97,
+              "transactions": 69.0
+            }
+          },
+          {
+            "keys": [
+              "20260709"
+            ],
+            "values": {
+              "sessions": 3184.0,
+              "activeUsers": 2044.0,
+              "totalUsers": 2126.0,
+              "newUsers": 1247.0,
+              "engagedSessions": 1847.0,
+              "screenPageViews": 9430.0,
+              "eventCount": 26425.0,
+              "keyEvents": 69.0,
+              "totalRevenue": 5811.97,
+              "transactions": 69.0
+            }
+          },
+          {
+            "keys": [
+              "20260710"
+            ],
+            "values": {
+              "sessions": 3184.0,
+              "activeUsers": 2044.0,
+              "totalUsers": 2126.0,
+              "newUsers": 1247.0,
+              "engagedSessions": 1847.0,
+              "screenPageViews": 9430.0,
+              "eventCount": 26425.0,
+              "keyEvents": 69.0,
+              "totalRevenue": 5811.97,
+              "transactions": 69.0
+            }
+          },
+          {
+            "keys": [
+              "20260711"
+            ],
+            "values": {
+              "sessions": 2292.0,
+              "activeUsers": 1472.0,
+              "totalUsers": 1531.0,
+              "newUsers": 898.0,
+              "engagedSessions": 1330.0,
+              "screenPageViews": 6790.0,
+              "eventCount": 19026.0,
+              "keyEvents": 50.0,
+              "totalRevenue": 4184.62,
+              "transactions": 50.0
+            }
+          },
+          {
+            "keys": [
+              "20260712"
+            ],
+            "values": {
+              "sessions": 2292.0,
+              "activeUsers": 1472.0,
+              "totalUsers": 1531.0,
+              "newUsers": 898.0,
+              "engagedSessions": 1330.0,
+              "screenPageViews": 6790.0,
+              "eventCount": 19026.0,
+              "keyEvents": 50.0,
+              "totalRevenue": 4184.62,
+              "transactions": 50.0
+            }
+          },
+          {
+            "keys": [
+              "20260713"
+            ],
+            "values": {
+              "sessions": 3566.0,
+              "activeUsers": 2289.0,
+              "totalUsers": 2381.0,
+              "newUsers": 1397.0,
+              "engagedSessions": 2068.0,
+              "screenPageViews": 10562.0,
+              "eventCount": 29595.0,
+              "keyEvents": 77.0,
+              "totalRevenue": 6509.4,
+              "transactions": 77.0
+            }
+          },
+          {
+            "keys": [
+              "20260714"
+            ],
+            "values": {
+              "sessions": 3184.0,
+              "activeUsers": 2044.0,
+              "totalUsers": 2126.0,
+              "newUsers": 1247.0,
+              "engagedSessions": 1847.0,
+              "screenPageViews": 9430.0,
+              "eventCount": 26425.0,
+              "keyEvents": 69.0,
+              "totalRevenue": 5811.97,
+              "transactions": 69.0
+            }
+          },
+          {
+            "keys": [
+              "20260715"
+            ],
+            "values": {
+              "sessions": 3184.0,
+              "activeUsers": 2044.0,
+              "totalUsers": 2126.0,
+              "newUsers": 1247.0,
+              "engagedSessions": 1847.0,
+              "screenPageViews": 9430.0,
+              "eventCount": 26425.0,
+              "keyEvents": 69.0,
+              "totalRevenue": 5811.97,
+              "transactions": 69.0
+            }
+          },
+          {
+            "keys": [
+              "20260716"
+            ],
+            "values": {
+              "sessions": 3184.0,
+              "activeUsers": 2044.0,
+              "totalUsers": 2126.0,
+              "newUsers": 1247.0,
+              "engagedSessions": 1847.0,
+              "screenPageViews": 9430.0,
+              "eventCount": 26425.0,
+              "keyEvents": 69.0,
+              "totalRevenue": 5811.97,
+              "transactions": 69.0
+            }
+          },
+          {
+            "keys": [
+              "20260717"
+            ],
+            "values": {
+              "sessions": 3184.0,
+              "activeUsers": 2044.0,
+              "totalUsers": 2126.0,
+              "newUsers": 1247.0,
+              "engagedSessions": 1847.0,
+              "screenPageViews": 9430.0,
+              "eventCount": 26425.0,
+              "keyEvents": 69.0,
+              "totalRevenue": 5811.97,
+              "transactions": 69.0
+            }
+          },
+          {
+            "keys": [
+              "20260718"
+            ],
+            "values": {
+              "sessions": 2292.0,
+              "activeUsers": 1472.0,
+              "totalUsers": 1531.0,
+              "newUsers": 898.0,
+              "engagedSessions": 1330.0,
+              "screenPageViews": 6790.0,
+              "eventCount": 19026.0,
+              "keyEvents": 50.0,
+              "totalRevenue": 4184.62,
+              "transactions": 50.0
+            }
+          },
+          {
+            "keys": [
+              "20260719"
+            ],
+            "values": {
+              "sessions": 2292.0,
+              "activeUsers": 1472.0,
+              "totalUsers": 1531.0,
+              "newUsers": 898.0,
+              "engagedSessions": 1330.0,
+              "screenPageViews": 6790.0,
+              "eventCount": 19026.0,
+              "keyEvents": 50.0,
+              "totalRevenue": 4184.62,
+              "transactions": 50.0
+            }
+          },
+          {
+            "keys": [
+              "20260720"
+            ],
+            "values": {
+              "sessions": 3566.0,
+              "activeUsers": 2289.0,
+              "totalUsers": 2381.0,
+              "newUsers": 1397.0,
+              "engagedSessions": 2068.0,
+              "screenPageViews": 10562.0,
+              "eventCount": 29595.0,
+              "keyEvents": 77.0,
+              "totalRevenue": 6509.4,
+              "transactions": 77.0
+            }
+          }
+        ],
+        "totals": null,
+        "row_count": 30,
+        "meta": {
+          "currencyCode": "USD",
+          "timeZone": "America/New_York"
+        }
+      }
+    },
+    "channels": {
+      "dimensions": [
+        "sessionDefaultChannelGroup"
+      ],
+      "metrics": [],
+      "limit": 50,
+      "sort_metric": "sessions",
+      "current": {
+        "dimensions": [
+          "sessionDefaultChannelGroup"
+        ],
+        "metrics": [
+          {
+            "name": "sessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "totalUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "newUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagedSessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagementRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "averageSessionDuration",
+            "type": "TYPE_SECONDS"
+          },
+          {
+            "name": "screenPageViews",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "keyEvents",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "sessionKeyEventRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "totalRevenue",
+            "type": "TYPE_CURRENCY"
+          },
+          {
+            "name": "transactions",
+            "type": "TYPE_INTEGER"
+          }
+        ],
+        "rows": [
+          {
+            "keys": [
+              "Organic Search"
+            ],
+            "values": {
+              "sessions": 31200.0,
+              "totalUsers": 21400.0,
+              "newUsers": 12840.0,
+              "engagedSessions": 19968.0,
+              "engagementRate": 0.64,
+              "averageSessionDuration": 136.8,
+              "screenPageViews": 63648.0,
+              "keyEvents": 742.0,
+              "sessionKeyEventRate": 0.023782051282051284,
+              "totalRevenue": 61800.0,
+              "transactions": 736.0
+            }
+          },
+          {
+            "keys": [
+              "Paid Search"
+            ],
+            "values": {
+              "sessions": 21800.0,
+              "totalUsers": 15600.0,
+              "newUsers": 9360.0,
+              "engagedSessions": 14388.0,
+              "engagementRate": 0.66,
+              "averageSessionDuration": 139.2,
+              "screenPageViews": 44908.0,
+              "keyEvents": 604.0,
+              "sessionKeyEventRate": 0.027706422018348623,
+              "totalRevenue": 52400.0,
+              "transactions": 624.0
+            }
+          },
+          {
+            "keys": [
+              "Direct"
+            ],
+            "values": {
+              "sessions": 18400.0,
+              "totalUsers": 12900.0,
+              "newUsers": 7740.0,
+              "engagedSessions": 10672.0,
+              "engagementRate": 0.58,
+              "averageSessionDuration": 129.6,
+              "screenPageViews": 36432.0,
+              "keyEvents": 401.0,
+              "sessionKeyEventRate": 0.021793478260869564,
+              "totalRevenue": 33900.0,
+              "transactions": 404.0
+            }
+          },
+          {
+            "keys": [
+              "Email"
+            ],
+            "values": {
+              "sessions": 9600.0,
+              "totalUsers": 5100.0,
+              "newUsers": 3060.0,
+              "engagedSessions": 7584.0,
+              "engagementRate": 0.79,
+              "averageSessionDuration": 154.8,
+              "screenPageViews": 21024.0,
+              "keyEvents": 288.0,
+              "sessionKeyEventRate": 0.03,
+              "totalRevenue": 24800.0,
+              "transactions": 295.0
+            }
+          },
+          {
+            "keys": [
+              "Organic Social"
+            ],
+            "values": {
+              "sessions": 9800.0,
+              "totalUsers": 7600.0,
+              "newUsers": 4560.0,
+              "engagedSessions": 4116.0,
+              "engagementRate": 0.42,
+              "averageSessionDuration": 110.4,
+              "screenPageViews": 17836.0,
+              "keyEvents": 84.0,
+              "sessionKeyEventRate": 0.008571428571428572,
+              "totalRevenue": 6900.0,
+              "transactions": 82.0
+            }
+          },
+          {
+            "keys": [
+              "Referral"
+            ],
+            "values": {
+              "sessions": 5400.0,
+              "totalUsers": 3900.0,
+              "newUsers": 2340.0,
+              "engagedSessions": 3294.0,
+              "engagementRate": 0.61,
+              "averageSessionDuration": 133.2,
+              "screenPageViews": 10854.0,
+              "keyEvents": 79.0,
+              "sessionKeyEventRate": 0.01462962962962963,
+              "totalRevenue": 4800.0,
+              "transactions": 57.0
+            }
+          }
+        ],
+        "totals": null,
+        "row_count": 6,
+        "meta": {
+          "currencyCode": "USD",
+          "timeZone": "America/New_York"
+        }
+      },
+      "previous": {
+        "dimensions": [
+          "sessionDefaultChannelGroup"
+        ],
+        "metrics": [
+          {
+            "name": "sessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "totalUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "newUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagedSessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagementRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "averageSessionDuration",
+            "type": "TYPE_SECONDS"
+          },
+          {
+            "name": "screenPageViews",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "keyEvents",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "sessionKeyEventRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "totalRevenue",
+            "type": "TYPE_CURRENCY"
+          },
+          {
+            "name": "transactions",
+            "type": "TYPE_INTEGER"
+          }
+        ],
+        "rows": [
+          {
+            "keys": [
+              "Organic Search"
+            ],
+            "values": {
+              "sessions": 30100.0,
+              "totalUsers": 20800.0,
+              "newUsers": 12480.0,
+              "engagedSessions": 18963.0,
+              "engagementRate": 0.63,
+              "averageSessionDuration": 135.6,
+              "screenPageViews": 61103.0,
+              "keyEvents": 698.0,
+              "sessionKeyEventRate": 0.02318936877076412,
+              "totalRevenue": 58200.0,
+              "transactions": 693.0
+            }
+          },
+          {
+            "keys": [
+              "Paid Search"
+            ],
+            "values": {
+              "sessions": 16900.0,
+              "totalUsers": 12400.0,
+              "newUsers": 7440.0,
+              "engagedSessions": 10985.0,
+              "engagementRate": 0.65,
+              "averageSessionDuration": 138.0,
+              "screenPageViews": 34645.0,
+              "keyEvents": 471.0,
+              "sessionKeyEventRate": 0.0278698224852071,
+              "totalRevenue": 40100.0,
+              "transactions": 477.0
+            }
+          },
+          {
+            "keys": [
+              "Direct"
+            ],
+            "values": {
+              "sessions": 18900.0,
+              "totalUsers": 13300.0,
+              "newUsers": 7980.0,
+              "engagedSessions": 10773.0,
+              "engagementRate": 0.57,
+              "averageSessionDuration": 128.4,
+              "screenPageViews": 37233.0,
+              "keyEvents": 396.0,
+              "sessionKeyEventRate": 0.02095238095238095,
+              "totalRevenue": 33100.0,
+              "transactions": 394.0
+            }
+          },
+          {
+            "keys": [
+              "Email"
+            ],
+            "values": {
+              "sessions": 9100.0,
+              "totalUsers": 4900.0,
+              "newUsers": 2940.0,
+              "engagedSessions": 7098.0,
+              "engagementRate": 0.78,
+              "averageSessionDuration": 153.6,
+              "screenPageViews": 19838.0,
+              "keyEvents": 271.0,
+              "sessionKeyEventRate": 0.02978021978021978,
+              "totalRevenue": 23400.0,
+              "transactions": 279.0
+            }
+          },
+          {
+            "keys": [
+              "Organic Social"
+            ],
+            "values": {
+              "sessions": 9200.0,
+              "totalUsers": 7100.0,
+              "newUsers": 4260.0,
+              "engagedSessions": 3772.0,
+              "engagementRate": 0.41,
+              "averageSessionDuration": 109.2,
+              "screenPageViews": 16652.0,
+              "keyEvents": 71.0,
+              "sessionKeyEventRate": 0.007717391304347826,
+              "totalRevenue": 5900.0,
+              "transactions": 70.0
+            }
+          },
+          {
+            "keys": [
+              "Referral"
+            ],
+            "values": {
+              "sessions": 5200.0,
+              "totalUsers": 3800.0,
+              "newUsers": 2280.0,
+              "engagedSessions": 3120.0,
+              "engagementRate": 0.6,
+              "averageSessionDuration": 132.0,
+              "screenPageViews": 10400.0,
+              "keyEvents": 35.0,
+              "sessionKeyEventRate": 0.006730769230769231,
+              "totalRevenue": 2500.0,
+              "transactions": 30.0
+            }
+          }
+        ],
+        "totals": null,
+        "row_count": 6,
+        "meta": {
+          "currencyCode": "USD",
+          "timeZone": "America/New_York"
+        }
+      }
+    },
+    "landing_pages": {
+      "dimensions": [
+        "landingPagePlusQueryString"
+      ],
+      "metrics": [],
+      "limit": 100,
+      "sort_metric": "sessions",
+      "current": {
+        "dimensions": [
+          "landingPagePlusQueryString"
+        ],
+        "metrics": [
+          {
+            "name": "sessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "totalUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "newUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagedSessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagementRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "averageSessionDuration",
+            "type": "TYPE_SECONDS"
+          },
+          {
+            "name": "screenPageViews",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "keyEvents",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "sessionKeyEventRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "totalRevenue",
+            "type": "TYPE_CURRENCY"
+          },
+          {
+            "name": "transactions",
+            "type": "TYPE_INTEGER"
+          }
+        ],
+        "rows": [
+          {
+            "keys": [
+              "/"
+            ],
+            "values": {
+              "sessions": 28400.0,
+              "totalUsers": 19800.0,
+              "newUsers": 11880.0,
+              "engagedSessions": 17608.0,
+              "engagementRate": 0.62,
+              "averageSessionDuration": 134.4,
+              "screenPageViews": 57368.0,
+              "keyEvents": 604.0,
+              "sessionKeyEventRate": 0.021267605633802818,
+              "totalRevenue": 48200.0,
+              "transactions": 574.0
+            }
+          },
+          {
+            "keys": [
+              "/collections/new-arrivals"
+            ],
+            "values": {
+              "sessions": 16200.0,
+              "totalUsers": 11400.0,
+              "newUsers": 6840.0,
+              "engagedSessions": 11502.0,
+              "engagementRate": 0.71,
+              "averageSessionDuration": 145.2,
+              "screenPageViews": 34182.0,
+              "keyEvents": 512.0,
+              "sessionKeyEventRate": 0.03160493827160494,
+              "totalRevenue": 44900.0,
+              "transactions": 535.0
+            }
+          },
+          {
+            "keys": [
+              "/products/signature-jacket"
+            ],
+            "values": {
+              "sessions": 11800.0,
+              "totalUsers": 8900.0,
+              "newUsers": 5340.0,
+              "engagedSessions": 8024.0,
+              "engagementRate": 0.68,
+              "averageSessionDuration": 141.6,
+              "screenPageViews": 24544.0,
+              "keyEvents": 388.0,
+              "sessionKeyEventRate": 0.03288135593220339,
+              "totalRevenue": 36100.0,
+              "transactions": 430.0
+            }
+          },
+          {
+            "keys": [
+              "/collections/sale"
+            ],
+            "values": {
+              "sessions": 9600.0,
+              "totalUsers": 7200.0,
+              "newUsers": 4320.0,
+              "engagedSessions": 5664.0,
+              "engagementRate": 0.59,
+              "averageSessionDuration": 130.8,
+              "screenPageViews": 19104.0,
+              "keyEvents": 214.0,
+              "sessionKeyEventRate": 0.022291666666666668,
+              "totalRevenue": 17400.0,
+              "transactions": 207.0
+            }
+          },
+          {
+            "keys": [
+              "/blog/style-guide"
+            ],
+            "values": {
+              "sessions": 8100.0,
+              "totalUsers": 7400.0,
+              "newUsers": 4440.0,
+              "engagedSessions": 2511.0,
+              "engagementRate": 0.31,
+              "averageSessionDuration": 97.2,
+              "screenPageViews": 13851.0,
+              "keyEvents": 12.0,
+              "sessionKeyEventRate": 0.0014814814814814814,
+              "totalRevenue": 900.0,
+              "transactions": 11.0
+            }
+          },
+          {
+            "keys": [
+              "/pages/shipping"
+            ],
+            "values": {
+              "sessions": 4200.0,
+              "totalUsers": 3800.0,
+              "newUsers": 2280.0,
+              "engagedSessions": 1848.0,
+              "engagementRate": 0.44,
+              "averageSessionDuration": 112.8,
+              "screenPageViews": 7728.0,
+              "keyEvents": 18.0,
+              "sessionKeyEventRate": 0.004285714285714286,
+              "totalRevenue": 1200.0,
+              "transactions": 14.0
+            }
+          }
+        ],
+        "totals": null,
+        "row_count": 6,
+        "meta": {
+          "currencyCode": "USD",
+          "timeZone": "America/New_York"
+        }
+      },
+      "previous": {
+        "dimensions": [
+          "landingPagePlusQueryString"
+        ],
+        "metrics": [
+          {
+            "name": "sessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "totalUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "newUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagedSessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagementRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "averageSessionDuration",
+            "type": "TYPE_SECONDS"
+          },
+          {
+            "name": "screenPageViews",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "keyEvents",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "sessionKeyEventRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "totalRevenue",
+            "type": "TYPE_CURRENCY"
+          },
+          {
+            "name": "transactions",
+            "type": "TYPE_INTEGER"
+          }
+        ],
+        "rows": [
+          {
+            "keys": [
+              "/"
+            ],
+            "values": {
+              "sessions": 27900.0,
+              "totalUsers": 19400.0,
+              "newUsers": 11640.0,
+              "engagedSessions": 17019.0,
+              "engagementRate": 0.61,
+              "averageSessionDuration": 133.2,
+              "screenPageViews": 56079.0,
+              "keyEvents": 566.0,
+              "sessionKeyEventRate": 0.02028673835125448,
+              "totalRevenue": 45800.0,
+              "transactions": 545.0
+            }
+          },
+          {
+            "keys": [
+              "/collections/new-arrivals"
+            ],
+            "values": {
+              "sessions": 12100.0,
+              "totalUsers": 8800.0,
+              "newUsers": 5280.0,
+              "engagedSessions": 8470.0,
+              "engagementRate": 0.7,
+              "averageSessionDuration": 144.0,
+              "screenPageViews": 25410.0,
+              "keyEvents": 402.0,
+              "sessionKeyEventRate": 0.03322314049586777,
+              "totalRevenue": 34600.0,
+              "transactions": 412.0
+            }
+          },
+          {
+            "keys": [
+              "/products/signature-jacket"
+            ],
+            "values": {
+              "sessions": 11400.0,
+              "totalUsers": 8600.0,
+              "newUsers": 5160.0,
+              "engagedSessions": 7638.0,
+              "engagementRate": 0.67,
+              "averageSessionDuration": 140.4,
+              "screenPageViews": 23598.0,
+              "keyEvents": 356.0,
+              "sessionKeyEventRate": 0.031228070175438598,
+              "totalRevenue": 33200.0,
+              "transactions": 395.0
+            }
+          },
+          {
+            "keys": [
+              "/collections/sale"
+            ],
+            "values": {
+              "sessions": 9900.0,
+              "totalUsers": 7400.0,
+              "newUsers": 4440.0,
+              "engagedSessions": 5742.0,
+              "engagementRate": 0.58,
+              "averageSessionDuration": 129.6,
+              "screenPageViews": 19602.0,
+              "keyEvents": 208.0,
+              "sessionKeyEventRate": 0.02101010101010101,
+              "totalRevenue": 16900.0,
+              "transactions": 201.0
+            }
+          },
+          {
+            "keys": [
+              "/blog/style-guide"
+            ],
+            "values": {
+              "sessions": 9800.0,
+              "totalUsers": 8900.0,
+              "newUsers": 5340.0,
+              "engagedSessions": 3234.0,
+              "engagementRate": 0.33,
+              "averageSessionDuration": 99.6,
+              "screenPageViews": 16954.0,
+              "keyEvents": 15.0,
+              "sessionKeyEventRate": 0.001530612244897959,
+              "totalRevenue": 1100.0,
+              "transactions": 13.0
+            }
+          },
+          {
+            "keys": [
+              "/pages/shipping"
+            ],
+            "values": {
+              "sessions": 4100.0,
+              "totalUsers": 3700.0,
+              "newUsers": 2220.0,
+              "engagedSessions": 1763.0,
+              "engagementRate": 0.43,
+              "averageSessionDuration": 111.6,
+              "screenPageViews": 7503.0,
+              "keyEvents": 14.0,
+              "sessionKeyEventRate": 0.0034146341463414634,
+              "totalRevenue": 800.0,
+              "transactions": 10.0
+            }
+          }
+        ],
+        "totals": null,
+        "row_count": 6,
+        "meta": {
+          "currencyCode": "USD",
+          "timeZone": "America/New_York"
+        }
+      }
+    },
+    "devices": {
+      "dimensions": [
+        "deviceCategory"
+      ],
+      "metrics": [],
+      "limit": 10,
+      "sort_metric": "sessions",
+      "current": {
+        "dimensions": [
+          "deviceCategory"
+        ],
+        "metrics": [
+          {
+            "name": "sessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "totalUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "newUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagedSessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagementRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "averageSessionDuration",
+            "type": "TYPE_SECONDS"
+          },
+          {
+            "name": "screenPageViews",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "keyEvents",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "sessionKeyEventRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "totalRevenue",
+            "type": "TYPE_CURRENCY"
+          },
+          {
+            "name": "transactions",
+            "type": "TYPE_INTEGER"
+          }
+        ],
+        "rows": [
+          {
+            "keys": [
+              "mobile"
+            ],
+            "values": {
+              "sessions": 62400.0,
+              "totalUsers": 40100.0,
+              "newUsers": 24060.0,
+              "engagedSessions": 36192.0,
+              "engagementRate": 0.58,
+              "averageSessionDuration": 129.6,
+              "screenPageViews": 123552.0,
+              "keyEvents": 1102.0,
+              "sessionKeyEventRate": 0.01766025641025641,
+              "totalRevenue": 82400.0,
+              "transactions": 981.0
+            }
+          },
+          {
+            "keys": [
+              "desktop"
+            ],
+            "values": {
+              "sessions": 30100.0,
+              "totalUsers": 18900.0,
+              "newUsers": 11340.0,
+              "engagedSessions": 19866.0,
+              "engagementRate": 0.66,
+              "averageSessionDuration": 139.2,
+              "screenPageViews": 62006.0,
+              "keyEvents": 1042.0,
+              "sessionKeyEventRate": 0.03461794019933555,
+              "totalRevenue": 96800.0,
+              "transactions": 1152.0
+            }
+          },
+          {
+            "keys": [
+              "tablet"
+            ],
+            "values": {
+              "sessions": 3700.0,
+              "totalUsers": 2200.0,
+              "newUsers": 1320.0,
+              "engagedSessions": 2220.0,
+              "engagementRate": 0.6,
+              "averageSessionDuration": 132.0,
+              "screenPageViews": 7400.0,
+              "keyEvents": 54.0,
+              "sessionKeyEventRate": 0.014594594594594595,
+              "totalRevenue": 5400.0,
+              "transactions": 64.0
+            }
+          }
+        ],
+        "totals": null,
+        "row_count": 3,
+        "meta": {
+          "currencyCode": "USD",
+          "timeZone": "America/New_York"
+        }
+      },
+      "previous": {
+        "dimensions": [
+          "deviceCategory"
+        ],
+        "metrics": [
+          {
+            "name": "sessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "totalUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "newUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagedSessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "engagementRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "averageSessionDuration",
+            "type": "TYPE_SECONDS"
+          },
+          {
+            "name": "screenPageViews",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "keyEvents",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "sessionKeyEventRate",
+            "type": "TYPE_FLOAT"
+          },
+          {
+            "name": "totalRevenue",
+            "type": "TYPE_CURRENCY"
+          },
+          {
+            "name": "transactions",
+            "type": "TYPE_INTEGER"
+          }
+        ],
+        "rows": [
+          {
+            "keys": [
+              "mobile"
+            ],
+            "values": {
+              "sessions": 57800.0,
+              "totalUsers": 37600.0,
+              "newUsers": 22560.0,
+              "engagedSessions": 32946.0,
+              "engagementRate": 0.57,
+              "averageSessionDuration": 128.4,
+              "screenPageViews": 113866.0,
+              "keyEvents": 942.0,
+              "sessionKeyEventRate": 0.01629757785467128,
+              "totalRevenue": 71200.0,
+              "transactions": 848.0
+            }
+          },
+          {
+            "keys": [
+              "desktop"
+            ],
+            "values": {
+              "sessions": 28200.0,
+              "totalUsers": 17800.0,
+              "newUsers": 10680.0,
+              "engagedSessions": 18330.0,
+              "engagementRate": 0.65,
+              "averageSessionDuration": 138.0,
+              "screenPageViews": 57810.0,
+              "keyEvents": 962.0,
+              "sessionKeyEventRate": 0.03411347517730497,
+              "totalRevenue": 87400.0,
+              "transactions": 1040.0
+            }
+          },
+          {
+            "keys": [
+              "tablet"
+            ],
+            "values": {
+              "sessions": 3400.0,
+              "totalUsers": 2000.0,
+              "newUsers": 1200.0,
+              "engagedSessions": 2006.0,
+              "engagementRate": 0.59,
+              "averageSessionDuration": 130.8,
+              "screenPageViews": 6766.0,
+              "keyEvents": 38.0,
+              "sessionKeyEventRate": 0.011176470588235295,
+              "totalRevenue": 4600.0,
+              "transactions": 55.0
+            }
+          }
+        ],
+        "totals": null,
+        "row_count": 3,
+        "meta": {
+          "currencyCode": "USD",
+          "timeZone": "America/New_York"
+        }
+      }
+    },
+    "revenue_by_channel": {
+      "dimensions": [
+        "sessionDefaultChannelGroup"
+      ],
+      "metrics": [],
+      "limit": 50,
+      "sort_metric": "totalRevenue",
+      "current": {
+        "dimensions": [
+          "sessionDefaultChannelGroup"
+        ],
+        "metrics": [
+          {
+            "name": "totalRevenue",
+            "type": "TYPE_CURRENCY"
+          },
+          {
+            "name": "purchaseRevenue",
+            "type": "TYPE_CURRENCY"
+          },
+          {
+            "name": "transactions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "sessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "totalPurchasers",
+            "type": "TYPE_INTEGER"
+          }
+        ],
+        "rows": [
+          {
+            "keys": [
+              "Organic Search"
+            ],
+            "values": {
+              "totalRevenue": 61800.0,
+              "purchaseRevenue": 61800.0,
+              "transactions": 742.0,
+              "sessions": 31200.0,
+              "totalPurchasers": 664.0
+            }
+          },
+          {
+            "keys": [
+              "Paid Search"
+            ],
+            "values": {
+              "totalRevenue": 52400.0,
+              "purchaseRevenue": 52400.0,
+              "transactions": 604.0,
+              "sessions": 21800.0,
+              "totalPurchasers": 541.0
+            }
+          },
+          {
+            "keys": [
+              "Direct"
+            ],
+            "values": {
+              "totalRevenue": 33900.0,
+              "purchaseRevenue": 33900.0,
+              "transactions": 401.0,
+              "sessions": 18400.0,
+              "totalPurchasers": 362.0
+            }
+          },
+          {
+            "keys": [
+              "Email"
+            ],
+            "values": {
+              "totalRevenue": 24800.0,
+              "purchaseRevenue": 24800.0,
+              "transactions": 288.0,
+              "sessions": 9600.0,
+              "totalPurchasers": 244.0
+            }
+          }
+        ],
+        "totals": null,
+        "row_count": 4,
+        "meta": {
+          "currencyCode": "USD",
+          "timeZone": "America/New_York"
+        }
+      },
+      "previous": {
+        "dimensions": [
+          "sessionDefaultChannelGroup"
+        ],
+        "metrics": [
+          {
+            "name": "totalRevenue",
+            "type": "TYPE_CURRENCY"
+          },
+          {
+            "name": "transactions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "sessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "totalPurchasers",
+            "type": "TYPE_INTEGER"
+          }
+        ],
+        "rows": [
+          {
+            "keys": [
+              "Organic Search"
+            ],
+            "values": {
+              "totalRevenue": 58200.0,
+              "transactions": 698.0,
+              "sessions": 30100.0,
+              "totalPurchasers": 631.0
+            }
+          },
+          {
+            "keys": [
+              "Paid Search"
+            ],
+            "values": {
+              "totalRevenue": 40100.0,
+              "transactions": 471.0,
+              "sessions": 16900.0,
+              "totalPurchasers": 428.0
+            }
+          },
+          {
+            "keys": [
+              "Direct"
+            ],
+            "values": {
+              "totalRevenue": 33100.0,
+              "transactions": 396.0,
+              "sessions": 18900.0,
+              "totalPurchasers": 357.0
+            }
+          },
+          {
+            "keys": [
+              "Email"
+            ],
+            "values": {
+              "totalRevenue": 23400.0,
+              "transactions": 271.0,
+              "sessions": 9100.0,
+              "totalPurchasers": 231.0
+            }
+          }
+        ],
+        "totals": null,
+        "row_count": 4,
+        "meta": {
+          "currencyCode": "USD",
+          "timeZone": "America/New_York"
+        }
+      }
+    },
+    "revenue_by_device": {
+      "dimensions": [
+        "deviceCategory"
+      ],
+      "metrics": [],
+      "limit": 50,
+      "sort_metric": "totalRevenue",
+      "current": {
+        "dimensions": [
+          "deviceCategory"
+        ],
+        "metrics": [
+          {
+            "name": "totalRevenue",
+            "type": "TYPE_CURRENCY"
+          },
+          {
+            "name": "transactions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "sessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "purchaserRate",
+            "type": "TYPE_FLOAT"
+          }
+        ],
+        "rows": [
+          {
+            "keys": [
+              "desktop"
+            ],
+            "values": {
+              "totalRevenue": 96800.0,
+              "transactions": 1042.0,
+              "sessions": 30100.0,
+              "purchaserRate": 0.049
+            }
+          },
+          {
+            "keys": [
+              "mobile"
+            ],
+            "values": {
+              "totalRevenue": 82400.0,
+              "transactions": 1102.0,
+              "sessions": 62400.0,
+              "purchaserRate": 0.024
+            }
+          },
+          {
+            "keys": [
+              "tablet"
+            ],
+            "values": {
+              "totalRevenue": 5400.0,
+              "transactions": 54.0,
+              "sessions": 3700.0,
+              "purchaserRate": 0.021
+            }
+          }
+        ],
+        "totals": null,
+        "row_count": 3,
+        "meta": {
+          "currencyCode": "USD",
+          "timeZone": "America/New_York"
+        }
+      },
+      "previous": {
+        "dimensions": [
+          "deviceCategory"
+        ],
+        "metrics": [
+          {
+            "name": "totalRevenue",
+            "type": "TYPE_CURRENCY"
+          },
+          {
+            "name": "transactions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "sessions",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "purchaserRate",
+            "type": "TYPE_FLOAT"
+          }
+        ],
+        "rows": [
+          {
+            "keys": [
+              "desktop"
+            ],
+            "values": {
+              "totalRevenue": 87400.0,
+              "transactions": 962.0,
+              "sessions": 28200.0,
+              "purchaserRate": 0.048
+            }
+          },
+          {
+            "keys": [
+              "mobile"
+            ],
+            "values": {
+              "totalRevenue": 71200.0,
+              "transactions": 942.0,
+              "sessions": 57800.0,
+              "purchaserRate": 0.022
+            }
+          },
+          {
+            "keys": [
+              "tablet"
+            ],
+            "values": {
+              "totalRevenue": 4600.0,
+              "transactions": 38.0,
+              "sessions": 3400.0,
+              "purchaserRate": 0.019
+            }
+          }
+        ],
+        "totals": null,
+        "row_count": 3,
+        "meta": {
+          "currencyCode": "USD",
+          "timeZone": "America/New_York"
+        }
+      }
+    },
+    "items": {
+      "dimensions": [
+        "itemName"
+      ],
+      "metrics": [],
+      "limit": 25,
+      "sort_metric": "itemsPurchased",
+      "current": {
+        "dimensions": [
+          "itemName"
+        ],
+        "metrics": [
+          {
+            "name": "itemsViewed",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "itemsAddedToCart",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "itemsPurchased",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "itemRevenue",
+            "type": "TYPE_CURRENCY"
+          }
+        ],
+        "rows": [
+          {
+            "keys": [
+              "Signature Jacket"
+            ],
+            "values": {
+              "itemsViewed": 14200.0,
+              "itemsAddedToCart": 3100.0,
+              "itemsPurchased": 604.0,
+              "itemRevenue": 42800.0
+            }
+          },
+          {
+            "keys": [
+              "Merino Scarf"
+            ],
+            "values": {
+              "itemsViewed": 9800.0,
+              "itemsAddedToCart": 2400.0,
+              "itemsPurchased": 512.0,
+              "itemRevenue": 18400.0
+            }
+          },
+          {
+            "keys": [
+              "Rain Shell"
+            ],
+            "values": {
+              "itemsViewed": 8100.0,
+              "itemsAddedToCart": 1600.0,
+              "itemsPurchased": 388.0,
+              "itemRevenue": 31200.0
+            }
+          }
+        ],
+        "totals": null,
+        "row_count": 3,
+        "meta": {
+          "currencyCode": "USD",
+          "timeZone": "America/New_York"
+        }
+      },
+      "previous": {
+        "dimensions": [
+          "itemName"
+        ],
+        "metrics": [
+          {
+            "name": "itemsViewed",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "itemsAddedToCart",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "itemsPurchased",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "itemRevenue",
+            "type": "TYPE_CURRENCY"
+          }
+        ],
+        "rows": [
+          {
+            "keys": [
+              "Signature Jacket"
+            ],
+            "values": {
+              "itemsViewed": 13100.0,
+              "itemsAddedToCart": 2900.0,
+              "itemsPurchased": 561.0,
+              "itemRevenue": 39800.0
+            }
+          },
+          {
+            "keys": [
+              "Merino Scarf"
+            ],
+            "values": {
+              "itemsViewed": 9100.0,
+              "itemsAddedToCart": 2300.0,
+              "itemsPurchased": 486.0,
+              "itemRevenue": 17400.0
+            }
+          },
+          {
+            "keys": [
+              "Rain Shell"
+            ],
+            "values": {
+              "itemsViewed": 7600.0,
+              "itemsAddedToCart": 1500.0,
+              "itemsPurchased": 341.0,
+              "itemRevenue": 27400.0
+            }
+          }
+        ],
+        "totals": null,
+        "row_count": 3,
+        "meta": {
+          "currencyCode": "USD",
+          "timeZone": "America/New_York"
+        }
+      }
+    },
+    "events": {
+      "dimensions": [
+        "eventName"
+      ],
+      "metrics": [],
+      "limit": 100,
+      "sort_metric": "eventCount",
+      "current": {
+        "dimensions": [
+          "eventName"
+        ],
+        "metrics": [
+          {
+            "name": "eventCount",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "totalUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "keyEvents",
+            "type": "TYPE_FLOAT"
+          }
+        ],
+        "rows": [
+          {
+            "keys": [
+              "page_view"
+            ],
+            "values": {
+              "eventCount": 288600.0,
+              "totalUsers": 61200.0,
+              "keyEvents": 0.0
+            }
+          },
+          {
+            "keys": [
+              "view_item"
+            ],
+            "values": {
+              "eventCount": 92400.0,
+              "totalUsers": 38900.0,
+              "keyEvents": 0.0
+            }
+          },
+          {
+            "keys": [
+              "add_to_cart"
+            ],
+            "values": {
+              "eventCount": 18900.0,
+              "totalUsers": 12400.0,
+              "keyEvents": 0.0
+            }
+          },
+          {
+            "keys": [
+              "begin_checkout"
+            ],
+            "values": {
+              "eventCount": 9100.0,
+              "totalUsers": 6800.0,
+              "keyEvents": 0.0
+            }
+          },
+          {
+            "keys": [
+              "purchase"
+            ],
+            "values": {
+              "eventCount": 2198.0,
+              "totalUsers": 1904.0,
+              "keyEvents": 2198.0
+            }
+          }
+        ],
+        "totals": null,
+        "row_count": 5,
+        "meta": {
+          "currencyCode": "USD",
+          "timeZone": "America/New_York"
+        }
+      },
+      "previous": {
+        "dimensions": [
+          "eventName"
+        ],
+        "metrics": [
+          {
+            "name": "eventCount",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "totalUsers",
+            "type": "TYPE_INTEGER"
+          },
+          {
+            "name": "keyEvents",
+            "type": "TYPE_FLOAT"
+          }
+        ],
+        "rows": [
+          {
+            "keys": [
+              "page_view"
+            ],
+            "values": {
+              "eventCount": 264800.0,
+              "totalUsers": 57400.0,
+              "keyEvents": 0.0
+            }
+          },
+          {
+            "keys": [
+              "view_item"
+            ],
+            "values": {
+              "eventCount": 84100.0,
+              "totalUsers": 36600.0,
+              "keyEvents": 0.0
+            }
+          },
+          {
+            "keys": [
+              "add_to_cart"
+            ],
+            "values": {
+              "eventCount": 17400.0,
+              "totalUsers": 11600.0,
+              "keyEvents": 0.0
+            }
+          },
+          {
+            "keys": [
+              "begin_checkout"
+            ],
+            "values": {
+              "eventCount": 9600.0,
+              "totalUsers": 7100.0,
+              "keyEvents": 0.0
+            }
+          },
+          {
+            "keys": [
+              "purchase"
+            ],
+            "values": {
+              "eventCount": 1942.0,
+              "totalUsers": 1712.0,
+              "keyEvents": 1942.0
+            }
+          }
+        ],
+        "totals": null,
+        "row_count": 5,
+        "meta": {
+          "currencyCode": "USD",
+          "timeZone": "America/New_York"
+        }
+      }
+    }
+  },
+  "errors": [],
+  "warnings": [],
+  "config": {
+    "agency_env": "~/clients/agency.env",
+    "client_env": "/path/to/client/.env",
+    "property_id": "123456789",
+    "auth_mode": "oauth",
+    "declared_key_events": [],
+    "client_name": null,
+    "site_url": "https://www.example.com"
+  }
+}

@@ -1,0 +1,725 @@
+{
+  "schema": "reports-google-search-console/raw@1",
+  "generated_at": "2026-08-19T09:00:00+01:00",
+  "retrieval_seconds": 12.3,
+  "api_calls": 18,
+  "partial": false,
+  "property": {
+    "site_url": "https://www.example.com/",
+    "property_type": "url_prefix",
+    "permission_level": "siteFullUser",
+    "display": "www.example.com",
+    "access": "ok"
+  },
+  "client": {
+    "name": null
+  },
+  "freshness": {
+    "latest_final": "2026-08-16",
+    "latest_including_fresh": "2026-08-18",
+    "queried_through": "2026-08-19",
+    "lag_days": 3,
+    "fresh_days_available": 2,
+    "days_with_final_data_in_window": 12,
+    "lookback_days": 14
+  },
+  "periods": {
+    "current": {
+      "start": "2026-07-18",
+      "end": "2026-08-16",
+      "days": 30
+    },
+    "previous": {
+      "start": "2026-06-18",
+      "end": "2026-07-17",
+      "days": 30
+    },
+    "lag_days": 0,
+    "comparable": true,
+    "basis": "the most recent 30 finalised days for this property (latest finalised date 2026-08-16), against the 30 days immediately before them"
+  },
+  "search_type": "web",
+  "data_state": "final",
+  "settings": {
+    "report_days": 30,
+    "lag_days": 0,
+    "row_limit": 25000,
+    "max_rows": 50000,
+    "chunk_days": 0,
+    "brand_terms": [],
+    "brand_terms_configured": false,
+    "primary_country": null,
+    "extra_search_types": [],
+    "skipped": []
+  },
+  "datasets": {
+    "totals": {
+      "current": {
+        "rows": [
+          {
+            "clicks": 19,
+            "impressions": 980,
+            "ctr": 0.019387755102040816,
+            "position": 10.2
+          }
+        ],
+        "meta": {
+          "dimensions": [],
+          "search_type": "web",
+          "start_date": "2026-07-18",
+          "end_date": "2026-08-16",
+          "data_state": "final",
+          "row_limit": 25000,
+          "pages_fetched": 1,
+          "rows_returned": 1,
+          "truncated": false,
+          "complete": true,
+          "aggregation_type": null
+        }
+      },
+      "previous": {
+        "rows": [
+          {
+            "clicks": 13,
+            "impressions": 840,
+            "ctr": 0.015476190476190477,
+            "position": 11.1
+          }
+        ],
+        "meta": {
+          "dimensions": [],
+          "search_type": "web",
+          "start_date": "2026-06-18",
+          "end_date": "2026-07-17",
+          "data_state": "final",
+          "row_limit": 25000,
+          "pages_fetched": 1,
+          "rows_returned": 1,
+          "truncated": false,
+          "complete": true,
+          "aggregation_type": null
+        }
+      }
+    },
+    "daily": {
+      "current": {
+        "rows": [
+          {
+            "date": "2026-07-18",
+            "clicks": 0,
+            "impressions": 23,
+            "ctr": 0.0,
+            "position": 10.57
+          },
+          {
+            "date": "2026-07-19",
+            "clicks": 0,
+            "impressions": 22,
+            "ctr": 0.0,
+            "position": 10.36
+          },
+          {
+            "date": "2026-07-20",
+            "clicks": 1,
+            "impressions": 31,
+            "ctr": 0.03225806451612903,
+            "position": 10.0
+          },
+          {
+            "date": "2026-07-21",
+            "clicks": 1,
+            "impressions": 36,
+            "ctr": 0.027777777777777776,
+            "position": 9.97
+          },
+          {
+            "date": "2026-07-22",
+            "clicks": 1,
+            "impressions": 34,
+            "ctr": 0.029411764705882353,
+            "position": 10.17
+          },
+          {
+            "date": "2026-07-23",
+            "clicks": 1,
+            "impressions": 33,
+            "ctr": 0.030303030303030304,
+            "position": 10.2
+          },
+          {
+            "date": "2026-07-24",
+            "clicks": 1,
+            "impressions": 31,
+            "ctr": 0.03225806451612903,
+            "position": 10.46
+          },
+          {
+            "date": "2026-07-25",
+            "clicks": 0,
+            "impressions": 22,
+            "ctr": 0.0,
+            "position": 9.99
+          },
+          {
+            "date": "2026-07-26",
+            "clicks": 0,
+            "impressions": 22,
+            "ctr": 0.0,
+            "position": 10.01
+          },
+          {
+            "date": "2026-07-27",
+            "clicks": 1,
+            "impressions": 33,
+            "ctr": 0.030303030303030304,
+            "position": 10.52
+          },
+          {
+            "date": "2026-07-28",
+            "clicks": 1,
+            "impressions": 32,
+            "ctr": 0.03125,
+            "position": 9.89
+          },
+          {
+            "date": "2026-07-29",
+            "clicks": 1,
+            "impressions": 32,
+            "ctr": 0.03125,
+            "position": 10.59
+          },
+          {
+            "date": "2026-07-30",
+            "clicks": 1,
+            "impressions": 31,
+            "ctr": 0.03225806451612903,
+            "position": 10.3
+          },
+          {
+            "date": "2026-07-31",
+            "clicks": 1,
+            "impressions": 32,
+            "ctr": 0.03125,
+            "position": 10.33
+          },
+          {
+            "date": "2026-08-01",
+            "clicks": 0,
+            "impressions": 23,
+            "ctr": 0.0,
+            "position": 10.35
+          },
+          {
+            "date": "2026-08-02",
+            "clicks": 0,
+            "impressions": 24,
+            "ctr": 0.0,
+            "position": 10.32
+          },
+          {
+            "date": "2026-08-03",
+            "clicks": 1,
+            "impressions": 35,
+            "ctr": 0.02857142857142857,
+            "position": 10.27
+          },
+          {
+            "date": "2026-08-04",
+            "clicks": 1,
+            "impressions": 31,
+            "ctr": 0.03225806451612903,
+            "position": 9.85
+          },
+          {
+            "date": "2026-08-05",
+            "clicks": 1,
+            "impressions": 35,
+            "ctr": 0.02857142857142857,
+            "position": 10.19
+          },
+          {
+            "date": "2026-08-06",
+            "clicks": 1,
+            "impressions": 31,
+            "ctr": 0.03225806451612903,
+            "position": 10.56
+          },
+          {
+            "date": "2026-08-07",
+            "clicks": 1,
+            "impressions": 33,
+            "ctr": 0.030303030303030304,
+            "position": 10.38
+          },
+          {
+            "date": "2026-08-08",
+            "clicks": 0,
+            "impressions": 25,
+            "ctr": 0.0,
+            "position": 10.03
+          },
+          {
+            "date": "2026-08-09",
+            "clicks": 0,
+            "impressions": 23,
+            "ctr": 0.0,
+            "position": 10.5
+          },
+          {
+            "date": "2026-08-10",
+            "clicks": 1,
+            "impressions": 31,
+            "ctr": 0.03225806451612903,
+            "position": 10.41
+          },
+          {
+            "date": "2026-08-11",
+            "clicks": 1,
+            "impressions": 31,
+            "ctr": 0.03225806451612903,
+            "position": 10.35
+          },
+          {
+            "date": "2026-08-12",
+            "clicks": 1,
+            "impressions": 34,
+            "ctr": 0.029411764705882353,
+            "position": 10.56
+          },
+          {
+            "date": "2026-08-13",
+            "clicks": 1,
+            "impressions": 35,
+            "ctr": 0.02857142857142857,
+            "position": 10.2
+          },
+          {
+            "date": "2026-08-14",
+            "clicks": 1,
+            "impressions": 31,
+            "ctr": 0.03225806451612903,
+            "position": 9.92
+          },
+          {
+            "date": "2026-08-15",
+            "clicks": 0,
+            "impressions": 24,
+            "ctr": 0.0,
+            "position": 10.21
+          },
+          {
+            "date": "2026-08-16",
+            "clicks": 0,
+            "impressions": 22,
+            "ctr": 0.0,
+            "position": 10.52
+          }
+        ],
+        "meta": {
+          "dimensions": [
+            "date"
+          ],
+          "search_type": "web",
+          "start_date": "2026-07-18",
+          "end_date": "2026-08-16",
+          "data_state": "final",
+          "row_limit": 25000,
+          "pages_fetched": 1,
+          "rows_returned": 30,
+          "truncated": false,
+          "complete": true,
+          "aggregation_type": null
+        }
+      },
+      "previous": {
+        "rows": [
+          {
+            "date": "2026-06-18",
+            "clicks": 0,
+            "impressions": 28,
+            "ctr": 0.0,
+            "position": 11.0
+          },
+          {
+            "date": "2026-06-19",
+            "clicks": 0,
+            "impressions": 26,
+            "ctr": 0.0,
+            "position": 11.39
+          },
+          {
+            "date": "2026-06-20",
+            "clicks": 0,
+            "impressions": 19,
+            "ctr": 0.0,
+            "position": 11.1
+          },
+          {
+            "date": "2026-06-21",
+            "clicks": 0,
+            "impressions": 21,
+            "ctr": 0.0,
+            "position": 10.76
+          },
+          {
+            "date": "2026-06-22",
+            "clicks": 0,
+            "impressions": 28,
+            "ctr": 0.0,
+            "position": 11.19
+          },
+          {
+            "date": "2026-06-23",
+            "clicks": 0,
+            "impressions": 26,
+            "ctr": 0.0,
+            "position": 11.0
+          },
+          {
+            "date": "2026-06-24",
+            "clicks": 0,
+            "impressions": 29,
+            "ctr": 0.0,
+            "position": 11.06
+          },
+          {
+            "date": "2026-06-25",
+            "clicks": 0,
+            "impressions": 29,
+            "ctr": 0.0,
+            "position": 10.83
+          },
+          {
+            "date": "2026-06-26",
+            "clicks": 0,
+            "impressions": 27,
+            "ctr": 0.0,
+            "position": 10.79
+          },
+          {
+            "date": "2026-06-27",
+            "clicks": 0,
+            "impressions": 20,
+            "ctr": 0.0,
+            "position": 11.44
+          },
+          {
+            "date": "2026-06-28",
+            "clicks": 0,
+            "impressions": 20,
+            "ctr": 0.0,
+            "position": 11.32
+          },
+          {
+            "date": "2026-06-29",
+            "clicks": 0,
+            "impressions": 27,
+            "ctr": 0.0,
+            "position": 11.3
+          },
+          {
+            "date": "2026-06-30",
+            "clicks": 0,
+            "impressions": 26,
+            "ctr": 0.0,
+            "position": 10.93
+          },
+          {
+            "date": "2026-07-01",
+            "clicks": 0,
+            "impressions": 29,
+            "ctr": 0.0,
+            "position": 11.28
+          },
+          {
+            "date": "2026-07-02",
+            "clicks": 0,
+            "impressions": 28,
+            "ctr": 0.0,
+            "position": 10.77
+          },
+          {
+            "date": "2026-07-03",
+            "clicks": 0,
+            "impressions": 27,
+            "ctr": 0.0,
+            "position": 10.87
+          },
+          {
+            "date": "2026-07-04",
+            "clicks": 0,
+            "impressions": 19,
+            "ctr": 0.0,
+            "position": 11.35
+          },
+          {
+            "date": "2026-07-05",
+            "clicks": 0,
+            "impressions": 19,
+            "ctr": 0.0,
+            "position": 11.41
+          },
+          {
+            "date": "2026-07-06",
+            "clicks": 0,
+            "impressions": 30,
+            "ctr": 0.0,
+            "position": 10.74
+          },
+          {
+            "date": "2026-07-07",
+            "clicks": 0,
+            "impressions": 27,
+            "ctr": 0.0,
+            "position": 11.09
+          },
+          {
+            "date": "2026-07-08",
+            "clicks": 0,
+            "impressions": 26,
+            "ctr": 0.0,
+            "position": 11.04
+          },
+          {
+            "date": "2026-07-09",
+            "clicks": 0,
+            "impressions": 30,
+            "ctr": 0.0,
+            "position": 10.79
+          },
+          {
+            "date": "2026-07-10",
+            "clicks": 0,
+            "impressions": 28,
+            "ctr": 0.0,
+            "position": 10.8
+          },
+          {
+            "date": "2026-07-11",
+            "clicks": 0,
+            "impressions": 20,
+            "ctr": 0.0,
+            "position": 11.42
+          },
+          {
+            "date": "2026-07-12",
+            "clicks": 0,
+            "impressions": 19,
+            "ctr": 0.0,
+            "position": 10.71
+          },
+          {
+            "date": "2026-07-13",
+            "clicks": 0,
+            "impressions": 26,
+            "ctr": 0.0,
+            "position": 11.13
+          },
+          {
+            "date": "2026-07-14",
+            "clicks": 0,
+            "impressions": 26,
+            "ctr": 0.0,
+            "position": 10.77
+          },
+          {
+            "date": "2026-07-15",
+            "clicks": 0,
+            "impressions": 28,
+            "ctr": 0.0,
+            "position": 11.44
+          },
+          {
+            "date": "2026-07-16",
+            "clicks": 0,
+            "impressions": 28,
+            "ctr": 0.0,
+            "position": 11.02
+          },
+          {
+            "date": "2026-07-17",
+            "clicks": 0,
+            "impressions": 29,
+            "ctr": 0.0,
+            "position": 10.77
+          }
+        ],
+        "meta": {
+          "dimensions": [
+            "date"
+          ],
+          "search_type": "web",
+          "start_date": "2026-06-18",
+          "end_date": "2026-07-17",
+          "data_state": "final",
+          "row_limit": 25000,
+          "pages_fetched": 1,
+          "rows_returned": 30,
+          "truncated": false,
+          "complete": true,
+          "aggregation_type": null
+        }
+      }
+    },
+    "queries": {
+      "current": {
+        "rows": [
+          {
+            "query": "plumber near me",
+            "clicks": 6,
+            "impressions": 340,
+            "ctr": 0.01764705882352941,
+            "position": 8.2
+          },
+          {
+            "query": "emergency plumber",
+            "clicks": 4,
+            "impressions": 210,
+            "ctr": 0.01904761904761905,
+            "position": 11.4
+          },
+          {
+            "query": "boiler repair cost",
+            "clicks": 3,
+            "impressions": 190,
+            "ctr": 0.015789473684210527,
+            "position": 14.8
+          },
+          {
+            "query": "local plumbing company",
+            "clicks": 2,
+            "impressions": 90,
+            "ctr": 0.022222222222222223,
+            "position": 9.1
+          }
+        ],
+        "meta": {
+          "dimensions": [
+            "query"
+          ],
+          "search_type": "web",
+          "start_date": "2026-07-18",
+          "end_date": "2026-08-16",
+          "data_state": "final",
+          "row_limit": 25000,
+          "pages_fetched": 1,
+          "rows_returned": 4,
+          "truncated": false,
+          "complete": true,
+          "aggregation_type": null
+        }
+      },
+      "previous": {
+        "rows": [
+          {
+            "query": "plumber near me",
+            "clicks": 4,
+            "impressions": 300,
+            "ctr": 0.013333333333333334,
+            "position": 9.0
+          },
+          {
+            "query": "emergency plumber",
+            "clicks": 3,
+            "impressions": 180,
+            "ctr": 0.016666666666666666,
+            "position": 12.1
+          },
+          {
+            "query": "boiler repair cost",
+            "clicks": 2,
+            "impressions": 150,
+            "ctr": 0.013333333333333334,
+            "position": 15.9
+          }
+        ],
+        "meta": {
+          "dimensions": [
+            "query"
+          ],
+          "search_type": "web",
+          "start_date": "2026-06-18",
+          "end_date": "2026-07-17",
+          "data_state": "final",
+          "row_limit": 25000,
+          "pages_fetched": 1,
+          "rows_returned": 3,
+          "truncated": false,
+          "complete": true,
+          "aggregation_type": null
+        }
+      }
+    },
+    "pages": {
+      "current": {
+        "rows": [
+          {
+            "page": "https://www.example.com/",
+            "clicks": 9,
+            "impressions": 520,
+            "ctr": 0.01730769230769231,
+            "position": 9.4
+          },
+          {
+            "page": "https://www.example.com/contact/",
+            "clicks": 4,
+            "impressions": 190,
+            "ctr": 0.021052631578947368,
+            "position": 11.2
+          }
+        ],
+        "meta": {
+          "dimensions": [
+            "page"
+          ],
+          "search_type": "web",
+          "start_date": "2026-07-18",
+          "end_date": "2026-08-16",
+          "data_state": "final",
+          "row_limit": 25000,
+          "pages_fetched": 1,
+          "rows_returned": 2,
+          "truncated": false,
+          "complete": true,
+          "aggregation_type": null
+        }
+      },
+      "previous": {
+        "rows": [
+          {
+            "page": "https://www.example.com/",
+            "clicks": 6,
+            "impressions": 460,
+            "ctr": 0.013043478260869565,
+            "position": 10.1
+          },
+          {
+            "page": "https://www.example.com/contact/",
+            "clicks": 3,
+            "impressions": 160,
+            "ctr": 0.01875,
+            "position": 11.9
+          }
+        ],
+        "meta": {
+          "dimensions": [
+            "page"
+          ],
+          "search_type": "web",
+          "start_date": "2026-06-18",
+          "end_date": "2026-07-17",
+          "data_state": "final",
+          "row_limit": 25000,
+          "pages_fetched": 1,
+          "rows_returned": 2,
+          "truncated": false,
+          "complete": true,
+          "aggregation_type": null
+        }
+      }
+    }
+  },
+  "extra_search_types": {},
+  "errors": [],
+  "warnings": []
+}

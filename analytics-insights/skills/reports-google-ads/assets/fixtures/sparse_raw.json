@@ -1,0 +1,871 @@
+{
+  "schema": "reports-google-ads/raw@1",
+  "generated_at": "2026-08-19T09:00:00+01:00",
+  "api_version": "v21",
+  "fixture": "sparse",
+  "account": {
+    "customer_id": "1234567890",
+    "name": "Example Client Account",
+    "currency": "USD",
+    "time_zone": "America/New_York",
+    "is_manager": false,
+    "is_test_account": false,
+    "status": "ENABLED",
+    "auto_tagging_enabled": true,
+    "optimization_score": 0.78,
+    "login_customer_id": "9876543210"
+  },
+  "periods": {
+    "current": {
+      "start": "2026-07-20",
+      "end": "2026-08-18",
+      "days": 30
+    },
+    "previous": {
+      "start": "2026-06-20",
+      "end": "2026-07-19",
+      "days": 30
+    },
+    "basis": "most recent 30 completed days ending yesterday in America/New_York",
+    "time_zone": "America/New_York"
+  },
+  "datasets": {
+    "account_totals": {
+      "current": [
+        {
+          "metrics": {
+            "impressions": "2400",
+            "clicks": "73",
+            "costMicros": "135500000",
+            "conversions": 3.0,
+            "conversionsValue": 270.0
+          }
+        }
+      ],
+      "previous": [
+        {
+          "metrics": {
+            "impressions": "2400",
+            "clicks": "71",
+            "costMicros": "127800000",
+            "conversions": 5.0,
+            "conversionsValue": 450.0
+          }
+        }
+      ]
+    },
+    "daily": {
+      "current": [
+        {
+          "segments": {
+            "date": "2026-07-20"
+          },
+          "metrics": {
+            "impressions": "84",
+            "clicks": "3",
+            "costMicros": "4730000",
+            "conversions": 0.1,
+            "conversionsValue": 9.42
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-07-21"
+          },
+          "metrics": {
+            "impressions": "91",
+            "clicks": "3",
+            "costMicros": "5130000",
+            "conversions": 0.11,
+            "conversionsValue": 10.23
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-07-22"
+          },
+          "metrics": {
+            "impressions": "78",
+            "clicks": "2",
+            "costMicros": "4410000",
+            "conversions": 0.1,
+            "conversionsValue": 8.79
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-07-23"
+          },
+          "metrics": {
+            "impressions": "71",
+            "clicks": "2",
+            "costMicros": "3980000",
+            "conversions": 0.09,
+            "conversionsValue": 7.93
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-07-24"
+          },
+          "metrics": {
+            "impressions": "83",
+            "clicks": "3",
+            "costMicros": "4680000",
+            "conversions": 0.1,
+            "conversionsValue": 9.32
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-07-25"
+          },
+          "metrics": {
+            "impressions": "57",
+            "clicks": "2",
+            "costMicros": "3230000",
+            "conversions": 0.07,
+            "conversionsValue": 6.43
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-07-26"
+          },
+          "metrics": {
+            "impressions": "52",
+            "clicks": "2",
+            "costMicros": "2930000",
+            "conversions": 0.06,
+            "conversionsValue": 5.83
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-07-27"
+          },
+          "metrics": {
+            "impressions": "84",
+            "clicks": "3",
+            "costMicros": "4710000",
+            "conversions": 0.1,
+            "conversionsValue": 9.39
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-07-28"
+          },
+          "metrics": {
+            "impressions": "95",
+            "clicks": "3",
+            "costMicros": "5370000",
+            "conversions": 0.12,
+            "conversionsValue": 10.7
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-07-29"
+          },
+          "metrics": {
+            "impressions": "88",
+            "clicks": "3",
+            "costMicros": "4980000",
+            "conversions": 0.11,
+            "conversionsValue": 9.93
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-07-30"
+          },
+          "metrics": {
+            "impressions": "74",
+            "clicks": "2",
+            "costMicros": "4190000",
+            "conversions": 0.09,
+            "conversionsValue": 8.36
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-07-31"
+          },
+          "metrics": {
+            "impressions": "82",
+            "clicks": "2",
+            "costMicros": "4630000",
+            "conversions": 0.1,
+            "conversionsValue": 9.23
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-08-01"
+          },
+          "metrics": {
+            "impressions": "62",
+            "clicks": "2",
+            "costMicros": "3480000",
+            "conversions": 0.08,
+            "conversionsValue": 6.93
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-08-02"
+          },
+          "metrics": {
+            "impressions": "58",
+            "clicks": "2",
+            "costMicros": "3280000",
+            "conversions": 0.07,
+            "conversionsValue": 6.54
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-08-03"
+          },
+          "metrics": {
+            "impressions": "85",
+            "clicks": "3",
+            "costMicros": "4800000",
+            "conversions": 0.11,
+            "conversionsValue": 9.57
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-08-04"
+          },
+          "metrics": {
+            "impressions": "96",
+            "clicks": "3",
+            "costMicros": "5410000",
+            "conversions": 0.12,
+            "conversionsValue": 10.78
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-08-05"
+          },
+          "metrics": {
+            "impressions": "97",
+            "clicks": "3",
+            "costMicros": "5500000",
+            "conversions": 0.12,
+            "conversionsValue": 10.96
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-08-06"
+          },
+          "metrics": {
+            "impressions": "82",
+            "clicks": "2",
+            "costMicros": "4620000",
+            "conversions": 0.1,
+            "conversionsValue": 9.2
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-08-07"
+          },
+          "metrics": {
+            "impressions": "81",
+            "clicks": "2",
+            "costMicros": "4590000",
+            "conversions": 0.1,
+            "conversionsValue": 9.14
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-08-08"
+          },
+          "metrics": {
+            "impressions": "64",
+            "clicks": "2",
+            "costMicros": "3590000",
+            "conversions": 0.08,
+            "conversionsValue": 7.16
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-08-09"
+          },
+          "metrics": {
+            "impressions": "65",
+            "clicks": "2",
+            "costMicros": "3680000",
+            "conversions": 0.08,
+            "conversionsValue": 7.33
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-08-10"
+          },
+          "metrics": {
+            "impressions": "90",
+            "clicks": "3",
+            "costMicros": "5090000",
+            "conversions": 0.11,
+            "conversionsValue": 10.14
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-08-11"
+          },
+          "metrics": {
+            "impressions": "95",
+            "clicks": "3",
+            "costMicros": "5340000",
+            "conversions": 0.12,
+            "conversionsValue": 10.65
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-08-12"
+          },
+          "metrics": {
+            "impressions": "103",
+            "clicks": "3",
+            "costMicros": "5840000",
+            "conversions": 0.13,
+            "conversionsValue": 11.64
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-08-13"
+          },
+          "metrics": {
+            "impressions": "92",
+            "clicks": "3",
+            "costMicros": "5190000",
+            "conversions": 0.12,
+            "conversionsValue": 10.35
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-08-14"
+          },
+          "metrics": {
+            "impressions": "83",
+            "clicks": "3",
+            "costMicros": "4680000",
+            "conversions": 0.1,
+            "conversionsValue": 9.32
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-08-15"
+          },
+          "metrics": {
+            "impressions": "63",
+            "clicks": "2",
+            "costMicros": "3580000",
+            "conversions": 0.08,
+            "conversionsValue": 7.14
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-08-16"
+          },
+          "metrics": {
+            "impressions": "71",
+            "clicks": "2",
+            "costMicros": "4010000",
+            "conversions": 0.09,
+            "conversionsValue": 8.0
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-08-17"
+          },
+          "metrics": {
+            "impressions": "99",
+            "clicks": "3",
+            "costMicros": "5600000",
+            "conversions": 0.12,
+            "conversionsValue": 11.16
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-08-18"
+          },
+          "metrics": {
+            "impressions": "94",
+            "clicks": "3",
+            "costMicros": "5310000",
+            "conversions": 0.12,
+            "conversionsValue": 10.59
+          }
+        }
+      ],
+      "previous": [
+        {
+          "segments": {
+            "date": "2026-06-20"
+          },
+          "metrics": {
+            "impressions": "54",
+            "clicks": "2",
+            "costMicros": "2870000",
+            "conversions": 0.11,
+            "conversionsValue": 10.09
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-06-21"
+          },
+          "metrics": {
+            "impressions": "58",
+            "clicks": "2",
+            "costMicros": "3110000",
+            "conversions": 0.12,
+            "conversionsValue": 10.96
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-06-22"
+          },
+          "metrics": {
+            "impressions": "78",
+            "clicks": "2",
+            "costMicros": "4160000",
+            "conversions": 0.16,
+            "conversionsValue": 14.65
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-06-23"
+          },
+          "metrics": {
+            "impressions": "71",
+            "clicks": "2",
+            "costMicros": "3750000",
+            "conversions": 0.15,
+            "conversionsValue": 13.22
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-06-24"
+          },
+          "metrics": {
+            "impressions": "83",
+            "clicks": "2",
+            "costMicros": "4410000",
+            "conversions": 0.17,
+            "conversionsValue": 15.53
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-06-25"
+          },
+          "metrics": {
+            "impressions": "89",
+            "clicks": "3",
+            "costMicros": "4730000",
+            "conversions": 0.19,
+            "conversionsValue": 16.67
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-06-26"
+          },
+          "metrics": {
+            "impressions": "81",
+            "clicks": "2",
+            "costMicros": "4290000",
+            "conversions": 0.17,
+            "conversionsValue": 15.12
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-06-27"
+          },
+          "metrics": {
+            "impressions": "54",
+            "clicks": "2",
+            "costMicros": "2860000",
+            "conversions": 0.11,
+            "conversionsValue": 10.07
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-06-28"
+          },
+          "metrics": {
+            "impressions": "61",
+            "clicks": "2",
+            "costMicros": "3260000",
+            "conversions": 0.13,
+            "conversionsValue": 11.46
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-06-29"
+          },
+          "metrics": {
+            "impressions": "88",
+            "clicks": "3",
+            "costMicros": "4700000",
+            "conversions": 0.18,
+            "conversionsValue": 16.54
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-06-30"
+          },
+          "metrics": {
+            "impressions": "74",
+            "clicks": "2",
+            "costMicros": "3960000",
+            "conversions": 0.15,
+            "conversionsValue": 13.93
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-07-01"
+          },
+          "metrics": {
+            "impressions": "82",
+            "clicks": "2",
+            "costMicros": "4370000",
+            "conversions": 0.17,
+            "conversionsValue": 15.38
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-07-02"
+          },
+          "metrics": {
+            "impressions": "96",
+            "clicks": "3",
+            "costMicros": "5100000",
+            "conversions": 0.2,
+            "conversionsValue": 17.97
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-07-03"
+          },
+          "metrics": {
+            "impressions": "90",
+            "clicks": "3",
+            "costMicros": "4820000",
+            "conversions": 0.19,
+            "conversionsValue": 16.97
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-07-04"
+          },
+          "metrics": {
+            "impressions": "55",
+            "clicks": "2",
+            "costMicros": "2910000",
+            "conversions": 0.11,
+            "conversionsValue": 10.25
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-07-05"
+          },
+          "metrics": {
+            "impressions": "62",
+            "clicks": "2",
+            "costMicros": "3280000",
+            "conversions": 0.13,
+            "conversionsValue": 11.55
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-07-06"
+          },
+          "metrics": {
+            "impressions": "97",
+            "clicks": "3",
+            "costMicros": "5190000",
+            "conversions": 0.2,
+            "conversionsValue": 18.26
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-07-07"
+          },
+          "metrics": {
+            "impressions": "82",
+            "clicks": "2",
+            "costMicros": "4350000",
+            "conversions": 0.17,
+            "conversionsValue": 15.33
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-07-08"
+          },
+          "metrics": {
+            "impressions": "81",
+            "clicks": "2",
+            "costMicros": "4330000",
+            "conversions": 0.17,
+            "conversionsValue": 15.23
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-07-09"
+          },
+          "metrics": {
+            "impressions": "99",
+            "clicks": "3",
+            "costMicros": "5270000",
+            "conversions": 0.21,
+            "conversionsValue": 18.56
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-07-10"
+          },
+          "metrics": {
+            "impressions": "101",
+            "clicks": "3",
+            "costMicros": "5400000",
+            "conversions": 0.21,
+            "conversionsValue": 19.0
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-07-11"
+          },
+          "metrics": {
+            "impressions": "58",
+            "clicks": "2",
+            "costMicros": "3090000",
+            "conversions": 0.12,
+            "conversionsValue": 10.87
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-07-12"
+          },
+          "metrics": {
+            "impressions": "61",
+            "clicks": "2",
+            "costMicros": "3240000",
+            "conversions": 0.13,
+            "conversionsValue": 11.41
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-07-13"
+          },
+          "metrics": {
+            "impressions": "103",
+            "clicks": "3",
+            "costMicros": "5510000",
+            "conversions": 0.22,
+            "conversionsValue": 19.4
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-07-14"
+          },
+          "metrics": {
+            "impressions": "92",
+            "clicks": "3",
+            "costMicros": "4900000",
+            "conversions": 0.19,
+            "conversionsValue": 17.25
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-07-15"
+          },
+          "metrics": {
+            "impressions": "83",
+            "clicks": "2",
+            "costMicros": "4410000",
+            "conversions": 0.17,
+            "conversionsValue": 15.54
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-07-16"
+          },
+          "metrics": {
+            "impressions": "99",
+            "clicks": "3",
+            "costMicros": "5260000",
+            "conversions": 0.21,
+            "conversionsValue": 18.51
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-07-17"
+          },
+          "metrics": {
+            "impressions": "111",
+            "clicks": "3",
+            "costMicros": "5890000",
+            "conversions": 0.23,
+            "conversionsValue": 20.74
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-07-18"
+          },
+          "metrics": {
+            "impressions": "64",
+            "clicks": "2",
+            "costMicros": "3400000",
+            "conversions": 0.13,
+            "conversionsValue": 11.95
+          }
+        },
+        {
+          "segments": {
+            "date": "2026-07-19"
+          },
+          "metrics": {
+            "impressions": "60",
+            "clicks": "2",
+            "costMicros": "3220000",
+            "conversions": 0.13,
+            "conversionsValue": 11.34
+          }
+        }
+      ]
+    },
+    "campaigns": {
+      "current": [
+        {
+          "campaign": {
+            "resourceName": "customers/1234567890/campaigns/51",
+            "id": "51",
+            "name": "Search \u2014 Local",
+            "status": "ENABLED",
+            "advertisingChannelType": "SEARCH",
+            "biddingStrategyType": "MAXIMIZE_CONVERSIONS"
+          },
+          "metrics": {
+            "impressions": "2100",
+            "clicks": "64",
+            "costMicros": "118400000",
+            "conversions": 3.0,
+            "conversionsValue": 270.0,
+            "searchImpressionShare": 0.22,
+            "searchBudgetLostImpressionShare": 0.36,
+            "searchRankLostImpressionShare": 0.42
+          },
+          "campaignBudget": {
+            "amountMicros": "10000000",
+            "explicitlyShared": false
+          }
+        },
+        {
+          "campaign": {
+            "resourceName": "customers/1234567890/campaigns/52",
+            "id": "52",
+            "name": "Search \u2014 Old Promo",
+            "status": "PAUSED",
+            "advertisingChannelType": "SEARCH",
+            "biddingStrategyType": "MAXIMIZE_CONVERSIONS"
+          },
+          "metrics": {
+            "impressions": "300",
+            "clicks": "9",
+            "costMicros": "17100000",
+            "conversions": 0.0,
+            "conversionsValue": 0.0,
+            "searchImpressionShare": 0.05,
+            "searchBudgetLostImpressionShare": 0.1,
+            "searchRankLostImpressionShare": 0.85
+          },
+          "campaignBudget": {
+            "amountMicros": "10000000",
+            "explicitlyShared": false
+          }
+        }
+      ],
+      "previous": [
+        {
+          "campaign": {
+            "resourceName": "customers/1234567890/campaigns/51",
+            "id": "51",
+            "name": "Search \u2014 Local",
+            "status": "ENABLED",
+            "advertisingChannelType": "SEARCH",
+            "biddingStrategyType": "MAXIMIZE_CONVERSIONS"
+          },
+          "metrics": {
+            "impressions": "2400",
+            "clicks": "71",
+            "costMicros": "127800000",
+            "conversions": 5.0,
+            "conversionsValue": 450.0,
+            "searchImpressionShare": 0.25,
+            "searchBudgetLostImpressionShare": 0.33,
+            "searchRankLostImpressionShare": 0.42
+          },
+          "campaignBudget": {
+            "amountMicros": "10000000",
+            "explicitlyShared": false
+          }
+        }
+      ]
+    }
+  },
+  "errors": [],
+  "warnings": [],
+  "config": {
+    "agency_env": "~/clients/agency.env",
+    "client_env": "/example/client/.env",
+    "login_customer_id": "9876543210",
+    "customer_id": "1234567890",
+    "primary_conversion_actions": []
+  }
+}

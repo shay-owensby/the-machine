@@ -1,0 +1,1164 @@
+{
+  "schema": "reports-google-search-console/raw@1",
+  "generated_at": "2026-08-19T09:00:00+01:00",
+  "retrieval_seconds": 12.3,
+  "api_calls": 18,
+  "partial": false,
+  "property": {
+    "site_url": "https://www.example.com/",
+    "property_type": "url_prefix",
+    "permission_level": "siteFullUser",
+    "display": "www.example.com",
+    "access": "ok"
+  },
+  "client": {
+    "name": null
+  },
+  "freshness": {
+    "latest_final": "2026-08-16",
+    "latest_including_fresh": "2026-08-18",
+    "queried_through": "2026-08-19",
+    "lag_days": 3,
+    "fresh_days_available": 2,
+    "days_with_final_data_in_window": 12,
+    "lookback_days": 14
+  },
+  "periods": {
+    "current": {
+      "start": "2026-07-18",
+      "end": "2026-08-16",
+      "days": 30
+    },
+    "previous": {
+      "start": "2026-06-18",
+      "end": "2026-07-17",
+      "days": 30
+    },
+    "lag_days": 0,
+    "comparable": true,
+    "basis": "the most recent 30 finalised days for this property (latest finalised date 2026-08-16), against the 30 days immediately before them"
+  },
+  "search_type": "web",
+  "data_state": "final",
+  "settings": {
+    "report_days": 30,
+    "lag_days": 0,
+    "row_limit": 25000,
+    "max_rows": 50000,
+    "chunk_days": 0,
+    "brand_terms": [],
+    "brand_terms_configured": false,
+    "primary_country": null,
+    "extra_search_types": [],
+    "skipped": []
+  },
+  "datasets": {
+    "totals": {
+      "current": {
+        "rows": [
+          {
+            "clicks": 4100,
+            "impressions": 210000,
+            "ctr": 0.019523809523809523,
+            "position": 9.8
+          }
+        ],
+        "meta": {
+          "dimensions": [],
+          "search_type": "web",
+          "start_date": "2026-07-18",
+          "end_date": "2026-08-16",
+          "data_state": "final",
+          "row_limit": 25000,
+          "pages_fetched": 1,
+          "rows_returned": 1,
+          "truncated": false,
+          "complete": true,
+          "aggregation_type": null
+        }
+      },
+      "previous": {
+        "rows": [
+          {
+            "clicks": 5900,
+            "impressions": 206000,
+            "ctr": 0.028640776699029126,
+            "position": 9.9
+          }
+        ],
+        "meta": {
+          "dimensions": [],
+          "search_type": "web",
+          "start_date": "2026-06-18",
+          "end_date": "2026-07-17",
+          "data_state": "final",
+          "row_limit": 25000,
+          "pages_fetched": 1,
+          "rows_returned": 1,
+          "truncated": false,
+          "complete": true,
+          "aggregation_type": null
+        }
+      }
+    },
+    "daily": {
+      "current": {
+        "rows": [
+          {
+            "date": "2026-07-18",
+            "clicks": 95,
+            "impressions": 4829,
+            "ctr": 0.019672810105611928,
+            "position": 9.84
+          },
+          {
+            "date": "2026-07-19",
+            "clicks": 96,
+            "impressions": 4910,
+            "ctr": 0.019551934826883912,
+            "position": 9.88
+          },
+          {
+            "date": "2026-07-20",
+            "clicks": 138,
+            "impressions": 7067,
+            "ctr": 0.019527380783925286,
+            "position": 9.45
+          },
+          {
+            "date": "2026-07-21",
+            "clicks": 124,
+            "impressions": 6355,
+            "ctr": 0.01951219512195122,
+            "position": 10.07
+          },
+          {
+            "date": "2026-07-22",
+            "clicks": 129,
+            "impressions": 6591,
+            "ctr": 0.01957214383249886,
+            "position": 9.59
+          },
+          {
+            "date": "2026-07-23",
+            "clicks": 144,
+            "impressions": 7360,
+            "ctr": 0.01956521739130435,
+            "position": 9.78
+          },
+          {
+            "date": "2026-07-24",
+            "clicks": 140,
+            "impressions": 7148,
+            "ctr": 0.019585898153329603,
+            "position": 9.78
+          },
+          {
+            "date": "2026-07-25",
+            "clicks": 97,
+            "impressions": 4966,
+            "ctr": 0.019532823197744662,
+            "position": 9.52
+          },
+          {
+            "date": "2026-07-26",
+            "clicks": 97,
+            "impressions": 4936,
+            "ctr": 0.019651539708265803,
+            "position": 10.09
+          },
+          {
+            "date": "2026-07-27",
+            "clicks": 131,
+            "impressions": 6699,
+            "ctr": 0.01955515748619197,
+            "position": 9.99
+          },
+          {
+            "date": "2026-07-28",
+            "clicks": 133,
+            "impressions": 6820,
+            "ctr": 0.019501466275659823,
+            "position": 9.45
+          },
+          {
+            "date": "2026-07-29",
+            "clicks": 135,
+            "impressions": 6874,
+            "ctr": 0.019639220250218213,
+            "position": 9.87
+          },
+          {
+            "date": "2026-07-30",
+            "clicks": 124,
+            "impressions": 6357,
+            "ctr": 0.019506056315872267,
+            "position": 9.42
+          },
+          {
+            "date": "2026-07-31",
+            "clicks": 135,
+            "impressions": 6911,
+            "ctr": 0.0195340761105484,
+            "position": 9.78
+          },
+          {
+            "date": "2026-08-01",
+            "clicks": 95,
+            "impressions": 4839,
+            "ctr": 0.019632155404009092,
+            "position": 10.1
+          },
+          {
+            "date": "2026-08-02",
+            "clicks": 94,
+            "impressions": 4808,
+            "ctr": 0.019550748752079867,
+            "position": 10.14
+          },
+          {
+            "date": "2026-08-03",
+            "clicks": 124,
+            "impressions": 6313,
+            "ctr": 0.01964200855377792,
+            "position": 10.04
+          },
+          {
+            "date": "2026-08-04",
+            "clicks": 124,
+            "impressions": 6328,
+            "ctr": 0.019595448798988623,
+            "position": 10.15
+          },
+          {
+            "date": "2026-08-05",
+            "clicks": 132,
+            "impressions": 6733,
+            "ctr": 0.019604930937175108,
+            "position": 9.48
+          },
+          {
+            "date": "2026-08-06",
+            "clicks": 116,
+            "impressions": 5944,
+            "ctr": 0.019515477792732168,
+            "position": 9.57
+          },
+          {
+            "date": "2026-08-07",
+            "clicks": 132,
+            "impressions": 6743,
+            "ctr": 0.01957585644371941,
+            "position": 9.75
+          },
+          {
+            "date": "2026-08-08",
+            "clicks": 90,
+            "impressions": 4584,
+            "ctr": 0.01963350785340314,
+            "position": 9.64
+          },
+          {
+            "date": "2026-08-09",
+            "clicks": 88,
+            "impressions": 4472,
+            "ctr": 0.01967799642218247,
+            "position": 9.71
+          },
+          {
+            "date": "2026-08-10",
+            "clicks": 118,
+            "impressions": 6020,
+            "ctr": 0.019601328903654486,
+            "position": 9.87
+          },
+          {
+            "date": "2026-08-11",
+            "clicks": 122,
+            "impressions": 6214,
+            "ctr": 0.019633086578693275,
+            "position": 10.12
+          },
+          {
+            "date": "2026-08-12",
+            "clicks": 123,
+            "impressions": 6272,
+            "ctr": 0.0196109693877551,
+            "position": 10.14
+          },
+          {
+            "date": "2026-08-13",
+            "clicks": 125,
+            "impressions": 6404,
+            "ctr": 0.019519050593379137,
+            "position": 10.19
+          },
+          {
+            "date": "2026-08-14",
+            "clicks": 121,
+            "impressions": 6187,
+            "ctr": 0.019557135930176175,
+            "position": 9.53
+          },
+          {
+            "date": "2026-08-15",
+            "clicks": 89,
+            "impressions": 4559,
+            "ctr": 0.01952182496161439,
+            "position": 10.17
+          },
+          {
+            "date": "2026-08-16",
+            "clicks": 89,
+            "impressions": 4561,
+            "ctr": 0.019513264634948475,
+            "position": 9.86
+          }
+        ],
+        "meta": {
+          "dimensions": [
+            "date"
+          ],
+          "search_type": "web",
+          "start_date": "2026-07-18",
+          "end_date": "2026-08-16",
+          "data_state": "final",
+          "row_limit": 25000,
+          "pages_fetched": 1,
+          "rows_returned": 30,
+          "truncated": false,
+          "complete": true,
+          "aggregation_type": null
+        }
+      },
+      "previous": {
+        "rows": [
+          {
+            "date": "2026-06-18",
+            "clicks": 189,
+            "impressions": 6577,
+            "ctr": 0.02873650600577771,
+            "position": 9.58
+          },
+          {
+            "date": "2026-06-19",
+            "clicks": 194,
+            "impressions": 6753,
+            "ctr": 0.028727972752850585,
+            "position": 9.62
+          },
+          {
+            "date": "2026-06-20",
+            "clicks": 132,
+            "impressions": 4601,
+            "ctr": 0.028689415344490328,
+            "position": 9.82
+          },
+          {
+            "date": "2026-06-21",
+            "clicks": 151,
+            "impressions": 5275,
+            "ctr": 0.028625592417061613,
+            "position": 10.14
+          },
+          {
+            "date": "2026-06-22",
+            "clicks": 205,
+            "impressions": 7158,
+            "ctr": 0.02863928471640123,
+            "position": 9.68
+          },
+          {
+            "date": "2026-06-23",
+            "clicks": 198,
+            "impressions": 6907,
+            "ctr": 0.028666570146228462,
+            "position": 9.72
+          },
+          {
+            "date": "2026-06-24",
+            "clicks": 187,
+            "impressions": 6507,
+            "ctr": 0.028738281850315045,
+            "position": 9.58
+          },
+          {
+            "date": "2026-06-25",
+            "clicks": 188,
+            "impressions": 6553,
+            "ctr": 0.028689150007630095,
+            "position": 10.24
+          },
+          {
+            "date": "2026-06-26",
+            "clicks": 207,
+            "impressions": 7228,
+            "ctr": 0.02863862755949087,
+            "position": 10.15
+          },
+          {
+            "date": "2026-06-27",
+            "clicks": 149,
+            "impressions": 5182,
+            "ctr": 0.028753377074488613,
+            "position": 9.65
+          },
+          {
+            "date": "2026-06-28",
+            "clicks": 138,
+            "impressions": 4794,
+            "ctr": 0.028785982478097622,
+            "position": 10.0
+          },
+          {
+            "date": "2026-06-29",
+            "clicks": 204,
+            "impressions": 7122,
+            "ctr": 0.02864363942712721,
+            "position": 10.18
+          },
+          {
+            "date": "2026-06-30",
+            "clicks": 209,
+            "impressions": 7285,
+            "ctr": 0.028689087165408373,
+            "position": 9.57
+          },
+          {
+            "date": "2026-07-01",
+            "clicks": 200,
+            "impressions": 6983,
+            "ctr": 0.028640985249892597,
+            "position": 10.04
+          },
+          {
+            "date": "2026-07-02",
+            "clicks": 197,
+            "impressions": 6874,
+            "ctr": 0.028658713994762875,
+            "position": 9.64
+          },
+          {
+            "date": "2026-07-03",
+            "clicks": 196,
+            "impressions": 6838,
+            "ctr": 0.028663351857268208,
+            "position": 9.57
+          },
+          {
+            "date": "2026-07-04",
+            "clicks": 152,
+            "impressions": 5288,
+            "ctr": 0.028744326777609682,
+            "position": 10.19
+          },
+          {
+            "date": "2026-07-05",
+            "clicks": 143,
+            "impressions": 4982,
+            "ctr": 0.028703331995182657,
+            "position": 9.74
+          },
+          {
+            "date": "2026-07-06",
+            "clicks": 210,
+            "impressions": 7316,
+            "ctr": 0.028704209950792783,
+            "position": 9.96
+          },
+          {
+            "date": "2026-07-07",
+            "clicks": 209,
+            "impressions": 7287,
+            "ctr": 0.028681213119253465,
+            "position": 10.18
+          },
+          {
+            "date": "2026-07-08",
+            "clicks": 197,
+            "impressions": 6876,
+            "ctr": 0.028650378126817918,
+            "position": 9.83
+          },
+          {
+            "date": "2026-07-09",
+            "clicks": 200,
+            "impressions": 6976,
+            "ctr": 0.028669724770642203,
+            "position": 9.84
+          },
+          {
+            "date": "2026-07-10",
+            "clicks": 186,
+            "impressions": 6495,
+            "ctr": 0.028637413394919167,
+            "position": 9.74
+          },
+          {
+            "date": "2026-07-11",
+            "clicks": 149,
+            "impressions": 5192,
+            "ctr": 0.0286979969183359,
+            "position": 9.53
+          },
+          {
+            "date": "2026-07-12",
+            "clicks": 132,
+            "impressions": 4585,
+            "ctr": 0.028789531079607415,
+            "position": 10.0
+          },
+          {
+            "date": "2026-07-13",
+            "clicks": 190,
+            "impressions": 6626,
+            "ctr": 0.028674916993661335,
+            "position": 9.93
+          },
+          {
+            "date": "2026-07-14",
+            "clicks": 196,
+            "impressions": 6835,
+            "ctr": 0.028675932699341624,
+            "position": 9.77
+          },
+          {
+            "date": "2026-07-15",
+            "clicks": 213,
+            "impressions": 7413,
+            "ctr": 0.028733306353702956,
+            "position": 9.66
+          },
+          {
+            "date": "2026-07-16",
+            "clicks": 194,
+            "impressions": 6771,
+            "ctr": 0.028651602422094226,
+            "position": 9.66
+          },
+          {
+            "date": "2026-07-17",
+            "clicks": 201,
+            "impressions": 7013,
+            "ctr": 0.02866105803507771,
+            "position": 9.72
+          }
+        ],
+        "meta": {
+          "dimensions": [
+            "date"
+          ],
+          "search_type": "web",
+          "start_date": "2026-06-18",
+          "end_date": "2026-07-17",
+          "data_state": "final",
+          "row_limit": 25000,
+          "pages_fetched": 1,
+          "rows_returned": 30,
+          "truncated": false,
+          "complete": true,
+          "aggregation_type": null
+        }
+      }
+    },
+    "queries": {
+      "current": {
+        "rows": [
+          {
+            "query": "example query 1",
+            "clicks": 270,
+            "impressions": 1540,
+            "ctr": 0.17532467532467533,
+            "position": 1.5
+          },
+          {
+            "query": "example query 2",
+            "clicks": 201,
+            "impressions": 1250,
+            "ctr": 0.1608,
+            "position": 1.8
+          },
+          {
+            "query": "example query 3",
+            "clicks": 131,
+            "impressions": 972,
+            "ctr": 0.13477366255144033,
+            "position": 2.5
+          },
+          {
+            "query": "example query 4",
+            "clicks": 124,
+            "impressions": 963,
+            "ctr": 0.12876427829698858,
+            "position": 2.7
+          },
+          {
+            "query": "example query 5",
+            "clicks": 94,
+            "impressions": 762,
+            "ctr": 0.12335958005249344,
+            "position": 2.9
+          },
+          {
+            "query": "example query 6",
+            "clicks": 68,
+            "impressions": 622,
+            "ctr": 0.10932475884244373,
+            "position": 3.5
+          },
+          {
+            "query": "example query 7",
+            "clicks": 72,
+            "impressions": 683,
+            "ctr": 0.1054172767203514,
+            "position": 3.7
+          },
+          {
+            "query": "example query 8",
+            "clicks": 67,
+            "impressions": 705,
+            "ctr": 0.0950354609929078,
+            "position": 4.3
+          },
+          {
+            "query": "example query 9",
+            "clicks": 51,
+            "impressions": 554,
+            "ctr": 0.09205776173285199,
+            "position": 4.5
+          },
+          {
+            "query": "example query 10",
+            "clicks": 58,
+            "impressions": 740,
+            "ctr": 0.07837837837837838,
+            "position": 5.6
+          },
+          {
+            "query": "example query 11",
+            "clicks": 51,
+            "impressions": 685,
+            "ctr": 0.07445255474452554,
+            "position": 6.0
+          },
+          {
+            "query": "example query 12",
+            "clicks": 37,
+            "impressions": 504,
+            "ctr": 0.07341269841269842,
+            "position": 6.1
+          },
+          {
+            "query": "example query 13",
+            "clicks": 39,
+            "impressions": 551,
+            "ctr": 0.07078039927404718,
+            "position": 6.4
+          },
+          {
+            "query": "example query 14",
+            "clicks": 42,
+            "impressions": 644,
+            "ctr": 0.06521739130434782,
+            "position": 7.1
+          },
+          {
+            "query": "example query 15",
+            "clicks": 31,
+            "impressions": 518,
+            "ctr": 0.059845559845559844,
+            "position": 7.9
+          },
+          {
+            "query": "example query 16",
+            "clicks": 29,
+            "impressions": 514,
+            "ctr": 0.05642023346303502,
+            "position": 8.5
+          },
+          {
+            "query": "example query 17",
+            "clicks": 30,
+            "impressions": 537,
+            "ctr": 0.055865921787709494,
+            "position": 8.6
+          },
+          {
+            "query": "example query 18",
+            "clicks": 28,
+            "impressions": 521,
+            "ctr": 0.053742802303262956,
+            "position": 9.0
+          },
+          {
+            "query": "example query 19",
+            "clicks": 25,
+            "impressions": 465,
+            "ctr": 0.053763440860215055,
+            "position": 9.0
+          },
+          {
+            "query": "example query 20",
+            "clicks": 29,
+            "impressions": 574,
+            "ctr": 0.050522648083623695,
+            "position": 9.7
+          }
+        ],
+        "meta": {
+          "dimensions": [
+            "query"
+          ],
+          "search_type": "web",
+          "start_date": "2026-07-18",
+          "end_date": "2026-08-16",
+          "data_state": "final",
+          "row_limit": 25000,
+          "pages_fetched": 1,
+          "rows_returned": 20,
+          "truncated": false,
+          "complete": true,
+          "aggregation_type": null
+        }
+      },
+      "previous": {
+        "rows": [
+          {
+            "query": "example query 1",
+            "clicks": 383,
+            "impressions": 1571,
+            "ctr": 0.2437937619350732,
+            "position": 1.55
+          },
+          {
+            "query": "example query 2",
+            "clicks": 285,
+            "impressions": 1275,
+            "ctr": 0.2235294117647059,
+            "position": 1.85
+          },
+          {
+            "query": "example query 3",
+            "clicks": 186,
+            "impressions": 991,
+            "ctr": 0.18768920282542886,
+            "position": 2.55
+          },
+          {
+            "query": "example query 4",
+            "clicks": 176,
+            "impressions": 982,
+            "ctr": 0.17922606924643583,
+            "position": 2.75
+          },
+          {
+            "query": "example query 5",
+            "clicks": 133,
+            "impressions": 777,
+            "ctr": 0.17117117117117117,
+            "position": 2.9499999999999997
+          },
+          {
+            "query": "example query 6",
+            "clicks": 97,
+            "impressions": 634,
+            "ctr": 0.1529968454258675,
+            "position": 3.55
+          },
+          {
+            "query": "example query 7",
+            "clicks": 102,
+            "impressions": 697,
+            "ctr": 0.14634146341463414,
+            "position": 3.75
+          },
+          {
+            "query": "example query 8",
+            "clicks": 95,
+            "impressions": 719,
+            "ctr": 0.13212795549374132,
+            "position": 4.35
+          },
+          {
+            "query": "example query 9",
+            "clicks": 72,
+            "impressions": 565,
+            "ctr": 0.12743362831858407,
+            "position": 4.55
+          },
+          {
+            "query": "example query 10",
+            "clicks": 82,
+            "impressions": 755,
+            "ctr": 0.10860927152317881,
+            "position": 5.6499999999999995
+          },
+          {
+            "query": "example query 11",
+            "clicks": 72,
+            "impressions": 699,
+            "ctr": 0.10300429184549356,
+            "position": 6.05
+          },
+          {
+            "query": "example query 12",
+            "clicks": 53,
+            "impressions": 514,
+            "ctr": 0.10311284046692606,
+            "position": 6.1499999999999995
+          },
+          {
+            "query": "example query 13",
+            "clicks": 55,
+            "impressions": 562,
+            "ctr": 0.09786476868327403,
+            "position": 6.45
+          },
+          {
+            "query": "example query 14",
+            "clicks": 60,
+            "impressions": 657,
+            "ctr": 0.091324200913242,
+            "position": 7.1499999999999995
+          },
+          {
+            "query": "example query 15",
+            "clicks": 44,
+            "impressions": 528,
+            "ctr": 0.08333333333333333,
+            "position": 7.95
+          },
+          {
+            "query": "example query 16",
+            "clicks": 41,
+            "impressions": 524,
+            "ctr": 0.07824427480916031,
+            "position": 8.55
+          },
+          {
+            "query": "example query 17",
+            "clicks": 43,
+            "impressions": 548,
+            "ctr": 0.07846715328467153,
+            "position": 8.65
+          },
+          {
+            "query": "example query 18",
+            "clicks": 40,
+            "impressions": 531,
+            "ctr": 0.07532956685499058,
+            "position": 9.05
+          },
+          {
+            "query": "example query 19",
+            "clicks": 36,
+            "impressions": 474,
+            "ctr": 0.0759493670886076,
+            "position": 9.05
+          },
+          {
+            "query": "example query 20",
+            "clicks": 41,
+            "impressions": 585,
+            "ctr": 0.07008547008547009,
+            "position": 9.75
+          }
+        ],
+        "meta": {
+          "dimensions": [
+            "query"
+          ],
+          "search_type": "web",
+          "start_date": "2026-06-18",
+          "end_date": "2026-07-17",
+          "data_state": "final",
+          "row_limit": 25000,
+          "pages_fetched": 1,
+          "rows_returned": 20,
+          "truncated": false,
+          "complete": true,
+          "aggregation_type": null
+        }
+      }
+    },
+    "pages": {
+      "current": {
+        "rows": [
+          {
+            "page": "https://www.example.com/",
+            "clicks": 528,
+            "impressions": 3583,
+            "ctr": 0.1473625453530561,
+            "position": 1.8
+          },
+          {
+            "page": "https://www.example.com/services/",
+            "clicks": 365,
+            "impressions": 3454,
+            "ctr": 0.10567458019687319,
+            "position": 3.3
+          },
+          {
+            "page": "https://www.example.com/pricing/",
+            "clicks": 263,
+            "impressions": 2865,
+            "ctr": 0.09179755671902269,
+            "position": 4.1
+          },
+          {
+            "page": "https://www.example.com/blog/guide-to-widgets/",
+            "clicks": 203,
+            "impressions": 2538,
+            "ctr": 0.07998423955870765,
+            "position": 5.0
+          },
+          {
+            "page": "https://www.example.com/contact/",
+            "clicks": 154,
+            "impressions": 2090,
+            "ctr": 0.07368421052631578,
+            "position": 5.6
+          },
+          {
+            "page": "https://www.example.com/blog/how-to-choose/",
+            "clicks": 152,
+            "impressions": 2253,
+            "ctr": 0.06746560142032845,
+            "position": 6.3
+          },
+          {
+            "page": "https://www.example.com/products/widget-a/",
+            "clicks": 136,
+            "impressions": 2380,
+            "ctr": 0.05714285714285714,
+            "position": 7.8
+          },
+          {
+            "page": "https://www.example.com/products/widget-b/",
+            "clicks": 109,
+            "impressions": 1985,
+            "ctr": 0.05491183879093199,
+            "position": 8.2
+          },
+          {
+            "page": "https://www.example.com/about/",
+            "clicks": 99,
+            "impressions": 1962,
+            "ctr": 0.05045871559633028,
+            "position": 9.1
+          },
+          {
+            "page": "https://www.example.com/blog/comparison/",
+            "clicks": 100,
+            "impressions": 2143,
+            "ctr": 0.04666355576294914,
+            "position": 10.0
+          },
+          {
+            "page": "https://www.example.com/resources/",
+            "clicks": 75,
+            "impressions": 1701,
+            "ctr": 0.04409171075837742,
+            "position": 10.7
+          },
+          {
+            "page": "https://www.example.com/case-studies/",
+            "clicks": 80,
+            "impressions": 2057,
+            "ctr": 0.03889158969372873,
+            "position": 12.4
+          }
+        ],
+        "meta": {
+          "dimensions": [
+            "page"
+          ],
+          "search_type": "web",
+          "start_date": "2026-07-18",
+          "end_date": "2026-08-16",
+          "data_state": "final",
+          "row_limit": 25000,
+          "pages_fetched": 1,
+          "rows_returned": 12,
+          "truncated": false,
+          "complete": true,
+          "aggregation_type": null
+        }
+      },
+      "previous": {
+        "rows": [
+          {
+            "page": "https://www.example.com/",
+            "clicks": 739,
+            "impressions": 3619,
+            "ctr": 0.20420005526388504,
+            "position": 1.8
+          },
+          {
+            "page": "https://www.example.com/services/",
+            "clicks": 511,
+            "impressions": 3489,
+            "ctr": 0.1464603038119805,
+            "position": 3.3
+          },
+          {
+            "page": "https://www.example.com/pricing/",
+            "clicks": 368,
+            "impressions": 2894,
+            "ctr": 0.1271596406357982,
+            "position": 4.1
+          },
+          {
+            "page": "https://www.example.com/blog/guide-to-widgets/",
+            "clicks": 284,
+            "impressions": 2563,
+            "ctr": 0.11080764728833398,
+            "position": 5.0
+          },
+          {
+            "page": "https://www.example.com/contact/",
+            "clicks": 216,
+            "impressions": 2111,
+            "ctr": 0.10232117479867361,
+            "position": 5.6
+          },
+          {
+            "page": "https://www.example.com/blog/how-to-choose/",
+            "clicks": 213,
+            "impressions": 2276,
+            "ctr": 0.09358523725834798,
+            "position": 6.3
+          },
+          {
+            "page": "https://www.example.com/products/widget-a/",
+            "clicks": 190,
+            "impressions": 2404,
+            "ctr": 0.07903494176372712,
+            "position": 7.8
+          },
+          {
+            "page": "https://www.example.com/products/widget-b/",
+            "clicks": 153,
+            "impressions": 2005,
+            "ctr": 0.07630922693266833,
+            "position": 8.2
+          },
+          {
+            "page": "https://www.example.com/about/",
+            "clicks": 139,
+            "impressions": 1982,
+            "ctr": 0.07013118062563067,
+            "position": 9.1
+          },
+          {
+            "page": "https://www.example.com/blog/comparison/",
+            "clicks": 140,
+            "impressions": 2164,
+            "ctr": 0.06469500924214418,
+            "position": 10.0
+          },
+          {
+            "page": "https://www.example.com/resources/",
+            "clicks": 105,
+            "impressions": 1718,
+            "ctr": 0.06111757857974389,
+            "position": 10.7
+          },
+          {
+            "page": "https://www.example.com/case-studies/",
+            "clicks": 112,
+            "impressions": 2078,
+            "ctr": 0.05389797882579403,
+            "position": 12.4
+          }
+        ],
+        "meta": {
+          "dimensions": [
+            "page"
+          ],
+          "search_type": "web",
+          "start_date": "2026-06-18",
+          "end_date": "2026-07-17",
+          "data_state": "final",
+          "row_limit": 25000,
+          "pages_fetched": 1,
+          "rows_returned": 12,
+          "truncated": false,
+          "complete": true,
+          "aggregation_type": null
+        }
+      }
+    },
+    "devices": {
+      "current": {
+        "rows": [
+          {
+            "device": "MOBILE",
+            "clicks": 2400,
+            "impressions": 140000,
+            "ctr": 0.017142857142857144,
+            "position": 10.4
+          },
+          {
+            "device": "DESKTOP",
+            "clicks": 1700,
+            "impressions": 70000,
+            "ctr": 0.024285714285714285,
+            "position": 8.6
+          }
+        ],
+        "meta": {
+          "dimensions": [
+            "device"
+          ],
+          "search_type": "web",
+          "start_date": "2026-07-18",
+          "end_date": "2026-08-16",
+          "data_state": "final",
+          "row_limit": 25000,
+          "pages_fetched": 1,
+          "rows_returned": 2,
+          "truncated": false,
+          "complete": true,
+          "aggregation_type": null
+        }
+      },
+      "previous": {
+        "rows": [
+          {
+            "device": "MOBILE",
+            "clicks": 3800,
+            "impressions": 138000,
+            "ctr": 0.02753623188405797,
+            "position": 10.3
+          },
+          {
+            "device": "DESKTOP",
+            "clicks": 2100,
+            "impressions": 68000,
+            "ctr": 0.030882352941176472,
+            "position": 8.7
+          }
+        ],
+        "meta": {
+          "dimensions": [
+            "device"
+          ],
+          "search_type": "web",
+          "start_date": "2026-06-18",
+          "end_date": "2026-07-17",
+          "data_state": "final",
+          "row_limit": 25000,
+          "pages_fetched": 1,
+          "rows_returned": 2,
+          "truncated": false,
+          "complete": true,
+          "aggregation_type": null
+        }
+      }
+    }
+  },
+  "extra_search_types": {},
+  "errors": [],
+  "warnings": []
+}
