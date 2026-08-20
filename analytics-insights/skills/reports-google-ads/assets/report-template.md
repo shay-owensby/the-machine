@@ -20,6 +20,14 @@ unavailable are **removed and named in Data notes**, never filled with zeros.
 <!-- Both ranges, always, at the top. A period-over-period figure without its
      periods cannot be checked, and this is the first thing a client verifies. -->
 
+<!-- tiles -->
+
+<!-- The KPI stat-tile row is inserted here at render time, built from the
+     analysis file by design/lib/render_report.py. Leave the marker; do not
+     write tiles by hand and do not retype their figures. In the Markdown copy
+     the marker renders as nothing, which is correct -- the Markdown has the
+     KPI table a few lines below. -->
+
 ---
 
 ## Executive summary

@@ -171,15 +171,44 @@ def build_tiles(analysis, source_hint=None):
     return _tiles.grid(selected, currency, series)
 
 
-def _daily_series(analysis, keys):
-    """Pull per-day values for the sparklines, current period only."""
+def _daily_rows(analysis):
+    """The current period's daily rows, flattened to ``{metric: value}``.
+
+    The skills' analysis files disagree on where the daily series lives and what
+    shape it has, so the adapter is here rather than being pushed back into each
+    of them -- their schemas are published contracts that other things read.
+
+      reports-google-ads          trend.daily[]              flat keys
+      reports-google-analytics    sections.trends.current[]  {date, values{}}
+
+    An unrecognised shape returns nothing, and the tiles simply carry no
+    sparkline. It never guesses.
+    """
     trend = analysis.get("trend") or {}
     daily = trend.get("daily")
-    if not isinstance(daily, list):
+    if isinstance(daily, list) and daily:
+        current = [r for r in daily
+                   if isinstance(r, dict) and r.get("period") in (None, "current")]
+        return current or [r for r in daily if isinstance(r, dict)]
+
+    trends = ((analysis.get("sections") or {}).get("trends") or {})
+    rows = trends.get("current")
+    if isinstance(rows, list) and rows:
+        flat = []
+        for row in rows:
+            if not isinstance(row, dict):
+                continue
+            values = row.get("values")
+            flat.append(dict(values) if isinstance(values, dict) else row)
+        return flat
+    return []
+
+
+def _daily_series(analysis, keys):
+    """Per-day values for the sparklines, current period only."""
+    rows = _daily_rows(analysis)
+    if not rows:
         return {}
-    current = [row for row in daily
-               if isinstance(row, dict) and row.get("period") in (None, "current")]
-    rows = current or [r for r in daily if isinstance(r, dict)]
     out = {}
     for key in keys:
         values = [row.get(key) for row in rows]

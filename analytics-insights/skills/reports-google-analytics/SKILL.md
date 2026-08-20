@@ -28,7 +28,7 @@ Three rules sit above the rest:
 
 ## The pipeline
 
-Five pieces, each reading a file and writing a file. Only one touches the
+Six pieces, each reading a file and writing a file. Only one touches the
 network.
 
 ```
@@ -38,10 +38,28 @@ fetch_ga4.py     Google Analytics Data + Admin APIs  →  data/raw.json
       ↓
 analyze_ga4.py   raw.json  →  analysis.json · kpis.json · tables.md · CSVs
       ↓
-make_charts.py   analysis.json  →  charts/*.png · charts.json
+make_charts.py   analysis.json  →  charts/*.svg · *.png · charts.json
       ↓
 the agent        analysis.json  →  google-analytics-report-<date>.md
+      ↓
+render_report.py report.md      →  google-analytics-report-<date>.html
 ```
+
+The last step lives in the plugin design system, not in this skill: every
+`reports-*` skill renders through the same one, which is what makes an
+Analytics report and an Ads report look like two documents from one practice.
+It produces a single self-contained HTML file — stylesheet, typeface and every
+chart embedded, nothing fetched from the network — and that is the file the
+client receives. The Markdown stays as the source of record.
+
+```bash
+D=~/the-machine/analytics-insights/design/lib
+python3 $D/render_report.py --report google-analytics-report-<date>.md \
+  --analysis analysis.json --source google-analytics --project-root .
+```
+
+Put `<!-- tiles -->` in the report where the KPI stat-tile row belongs. Details,
+including the per-client accent: `references/design.md` and `design/DESIGN.md`.
 
 The split is what makes everything after retrieval testable offline, against a
 property that has no key events, or lost four days of data, or launched last
@@ -206,7 +224,9 @@ Read the one you need; none of them is required reading before a normal run.
 | `references/analysis-rules.md` | How a number becomes a finding — materiality, verdicts, guards |
 | `references/data-quality.md` | The checks, and what each one changes about the report |
 | `references/output-contract.md` | The shape of `analysis.json`, field by field |
-| `references/visualizations.md` | What is drawn, the rules it follows, how to embed it |
+| `references/visualizations.md` | What is drawn and how to embed it |
+| `references/design.md` | Rendering the client-facing HTML, the per-client accent, what the design system governs |
+| `../../design/DESIGN.md` | **The plugin design system** — colour, type, spacing, components, chart rules. Binding on this skill. |
 | `references/troubleshooting.md` | Any error message, exit code, or number that looks wrong |
 | `references/testing.md` | The offline suite, the fixtures, adding a case |
 

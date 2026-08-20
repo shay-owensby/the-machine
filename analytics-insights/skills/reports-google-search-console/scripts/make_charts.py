@@ -22,8 +22,11 @@ Design rules this file follows, so the charts read as one system:
   * A chart whose data is unavailable is not drawn and is not faked. It is listed
     in the manifest with the reason, so the report can say so in words.
 
-Palette: the validated default categorical/diverging set -- blue #2a78d6, orange
-#eb6834, aqua #1baf7a, diverging blue<->red #e34948 with a grey neutral.
+Colour, type, spacing and the chart theme are NOT defined in this file. They
+come from the plugin design system -- see design/DESIGN.md, with the values in
+design/lib/tokens.py -- and are imported below from design/lib/charts.py.
+Contrast and all-pairs colour-vision separation are measured there rather than
+asserted here: run `python3 design/lib/tokens.py` to re-derive every figure.
 
 Exit codes: 0 charts drawn · 3 nothing could be drawn · 4 matplotlib missing.
 """

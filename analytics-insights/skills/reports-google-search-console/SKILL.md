@@ -28,15 +28,16 @@ rankings and lost click-through are three different pieces of work.
 
 ---
 
-## The three-stage pipeline
+## The four-stage pipeline
 
-Retrieval, analysis and presentation are separate processes writing separate
-files, and they are separate on purpose:
+Retrieval, analysis, drawing and rendering are separate processes writing
+separate files, and they are separate on purpose:
 
 ```
-fetch_search_console.py         API  ->  *_raw.json        what the property said
-analyze_search_performance.py   file ->  *_analysis.json   what it means, plus tables
-make_charts.py                  file ->  charts/*.png      what it looks like
+fetch_search_console.py         API  ->  *_raw.json         what the property said
+analyze_search_performance.py   file ->  *_analysis.json    what it means, plus tables
+make_charts.py                  file ->  charts/*.svg|png   what it looks like
+render_report.py                file ->  *.html             what the client receives
 ```
 
 Once `*_raw.json` exists, everything after it is reproducible offline: the same
@@ -45,6 +46,11 @@ fixtures in `assets/fixtures/` exercise the whole downstream half without
 credentials. A pipeline that re-queried for every re-render would return slightly
 different numbers each time — Search Console restates recent days — and a report
 whose numbers move while you are writing it cannot be checked.
+
+The last stage lives in the plugin's design system rather than in this skill,
+because every `reports-*` skill renders through the same one — that is what
+makes an Analytics report and an Ads report look like two documents from one
+practice. See `design/DESIGN.md`.
 
 ---
 
@@ -251,7 +257,29 @@ a warning nobody received.
 What each check means and which ones block a report:
 `references/data-validation.md`.
 
-### Step 5 — Hand over
+### Step 5 — Render the client-facing HTML
+
+Once the report Markdown exists, render it into the file the client receives:
+
+```bash
+D=~/the-machine/analytics-insights/design/lib
+python3 $D/render_report.py \
+  --report analytics-insights/google-search-console/YYYY-MM-DD-google-search-console.md \
+  --analysis <..._analysis.json> \
+  --source google-search-console --project-root .
+```
+
+One self-contained `.html`: stylesheet, typeface and every chart embedded,
+nothing fetched from the network. Put `<!-- tiles -->` in the report where the
+KPI stat-tile row belongs.
+
+Exit `3` means a referenced chart was not on disk; the HTML still renders, with
+the gap stated in place of the chart.
+
+Rendering, the per-client accent, and what the design system does and does not
+allow: `references/design.md`.
+
+### Step 6 — Hand over
 
 The consumer is normally the `google-search-console` agent, which writes the
 client-facing Markdown report. Give it the paths, not the numbers:
@@ -393,6 +421,8 @@ recommendation that depends on the missing piece.
 | `references/diagnostics.md` | Every diagnostic rule, its threshold, and what it does and does not claim |
 | `references/data-validation.md` | The checks, unavailable vs empty vs zero, dimensional vs property totals, what blocks a report |
 | `references/visualization.md` | The chart catalogue, design rules, palette, when a chart is skipped |
+| `references/design.md` | Rendering the client-facing HTML, the per-client accent, what the design system governs |
+| `../../design/DESIGN.md` | **The plugin design system** — colour, type, spacing, components, chart rules. Binding on this skill. |
 | `references/output-contract.md` | The analysis file field by field |
 | `references/troubleshooting.md` | Search Console API errors mapped to causes and fixes |
 | `references/testing.md` | The test suite, the fixtures, and how to add a case |

@@ -61,17 +61,28 @@ the days the analysis actually accepted as anomalies — not every local minimum
 
 ## Palette
 
-| Role | Hex |
-|---|---|
-| Better / primary series | `#2a78d6` blue |
-| Worse | `#e34948` red |
-| Secondary / CTR | `#1baf7a` aqua |
-| Attention, anomaly rings | `#eb6834` orange |
-| Comparison period, no verdict | `#c3c2b7` neutral |
-| Surface / ink / grid | `#fcfcfb` / `#0b0b0b` / `#e1e0d9` |
+**It is not defined here.** Colour, type, spacing and the chart theme come from
+the plugin design system at `design/DESIGN.md`, and the values live in
+`design/lib/tokens.py`. `make_charts.py` imports the theme from
+`design/lib/charts.py` and defines no colour of its own.
 
-The categorical trio was checked for all-pairs colour-vision separation before
-use here.
+What the roles mean, so a chart can be read without opening the token file:
+
+| Role | Where it comes from |
+|---|---|
+| Improved | `VERDICT["improved"]` — blue, not green, so it survives red-green deficiency |
+| Declined | `VERDICT["declined"]` — red |
+| Ambiguous | `VERDICT["ambiguous"]` — grey, for a metric with no direction of its own |
+| Below materiality | `VERDICT["flat"]` — pale grey |
+| Series 1..5 | `CATEGORICAL[0..4]`, assigned in order, never cycled, never generated |
+| Comparison period | `PREVIOUS` |
+| Surface / ink / grid | `SURFACE` / `INK` / `GRID` |
+
+Contrast and all-pairs colour-vision separation are **measured, not asserted**:
+run `python3 design/lib/tokens.py` to re-derive every figure. Past five classes
+the answer is an "Other" group or a table, never a sixth hue.
+
+Rendering, per-client accent and the full rules: `references/design.md`.
 
 ## When a chart is not drawn
 

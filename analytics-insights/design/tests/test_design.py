@@ -227,6 +227,14 @@ def test_fmt():
         eq("fmt: %s of None says not available" % fn.__name__, fn(None), F.NA)
     eq("fmt: unknown currency falls back to its code", F.money(10, "XYZ"), "XYZ 10.00")
 
+    eq("fmt: duration reads as time, not a quantity", F.duration(104), "1:44")
+    eq("fmt: duration pads its seconds", F.duration(65), "1:05")
+    eq("fmt: duration under a minute", F.duration(9), "0:09")
+    eq("fmt: duration past an hour", F.duration(3725), "1:02:05")
+    eq("fmt: by_unit routes duration", F.by_unit(104, "duration"), "1:44")
+    eq("fmt: an unknown unit still formats as a number",
+       F.by_unit(104.0, "mystery"), "104")
+
 
 # ==========================================================================
 # Tiles
@@ -283,6 +291,59 @@ def test_tiles():
 # ==========================================================================
 # Markdown
 # ==========================================================================
+
+def test_series_adapter():
+    """Both analysis-file shapes must yield the same sparkline input."""
+    import render_report as RR
+
+    ads = {"trend": {"daily": [{"period": "current", "cost": 1.0},
+                               {"period": "current", "cost": 2.0},
+                               {"period": "current", "cost": 3.0},
+                               {"period": "previous", "cost": 9.0}]}}
+    eq("series: reads the ads shape, current period only",
+       RR._daily_series(ads, ["cost"]), {"cost": [1.0, 2.0, 3.0]})
+
+    ga = {"sections": {"trends": {"current": [
+        {"date": "2026-07-21", "values": {"sessions": 10.0}},
+        {"date": "2026-07-22", "values": {"sessions": 12.0}},
+        {"date": "2026-07-23", "values": {"sessions": 11.0}}]}}}
+    eq("series: reads the analytics shape",
+       RR._daily_series(ga, ["sessions"]), {"sessions": [10.0, 12.0, 11.0]})
+
+    eq("series: an unknown shape yields nothing rather than a guess",
+       RR._daily_series({"something": "else"}, ["x"]), {})
+
+    derived = RR._daily_series(
+        {"trend": {"daily": [{"cost": 10.0, "conversions": 2.0},
+                             {"cost": 20.0, "conversions": 4.0},
+                             {"cost": 30.0, "conversions": 5.0}]}},
+        ["cost_per_conversion"])
+    eq("series: a ratio KPI is derived from its two counts",
+       derived, {"cost_per_conversion": [5.0, 5.0, 6.0]})
+
+    # A day with no conversions has an undefined CPA. It must come through as
+    # None -- plotted as a gap -- and never as a zero, which would draw a day
+    # of free conversions.
+    zero = RR._daily_series(
+        {"trend": {"daily": [{"cost": 10.0, "conversions": 0},
+                             {"cost": 20.0, "conversions": 4.0},
+                             {"cost": 30.0, "conversions": 5.0},
+                             {"cost": 40.0, "conversions": 8.0}]}},
+        ["cost_per_conversion"])
+    check("series: a zero denominator is undefined, not zero",
+          zero["cost_per_conversion"] == [None, 5.0, 6.0, 5.0],
+          repr(zero.get("cost_per_conversion")))
+
+    # And when too few days survive, the series is dropped rather than drawn
+    # from two points.
+    thin = RR._daily_series(
+        {"trend": {"daily": [{"cost": 10.0, "conversions": 0},
+                             {"cost": 20.0, "conversions": 4.0},
+                             {"cost": 30.0, "conversions": 5.0}]}},
+        ["cost_per_conversion"])
+    check("series: too few defined days yields no series",
+          "cost_per_conversion" not in thin)
+
 
 def test_markdown():
     out = MD.render("# Title\n\n**Account:** Acme · **Currency:** USD\n")
@@ -455,7 +516,8 @@ def test_render():
 
 def main():
     for fn in (test_color, test_tokens, test_css, test_brand, test_fmt,
-               test_tiles, test_markdown, test_charts, test_render):
+               test_tiles, test_series_adapter, test_markdown, test_charts,
+               test_render):
         try:
             fn()
         except Exception as exc:                       # noqa: BLE001

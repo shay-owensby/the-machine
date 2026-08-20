@@ -55,9 +55,14 @@ plotted at zero.
 **A chart with no data is not drawn and not faked.** It goes in the manifest
 with a reason, so the report can say the visual is unavailable.
 
-Palette: blue `#2a78d6`, aqua `#1baf7a`, orange `#eb6834`, red `#e34948`, grey
-`#b8b6ae` on an off-white `#fcfcfb`. Checked for colour-vision-deficiency
-separation across all pairs.
+**The palette is not defined here.** It comes from the plugin design system at
+`design/DESIGN.md`; the values live in `design/lib/tokens.py` and
+`make_charts.py` imports them from `design/lib/charts.py`. Improved is blue
+rather than green so the improved/declined pair survives red-green deficiency;
+categorical series are assigned in fixed order and never cycled or generated.
+Contrast and all-pairs colour-vision separation are measured — run
+`python3 design/lib/tokens.py` to re-derive them. Rendering and the per-client
+accent: `references/design.md`.
 
 ---
 
@@ -70,7 +75,9 @@ Every drawn chart carries a ready-made line:
 ```
 
 Use `markdown` from the manifest verbatim — the relative path is correct
-wherever the report folder is moved, which an absolute path would not be.
+wherever the report folder is moved, which an absolute path would not be. It
+names the `.png`; the HTML renderer swaps in the `.svg` twin written from the
+same drawing, so the Markdown stays readable as Markdown.
 
 Give every embedded chart a sentence of interpretation beneath it. A chart
 nobody explains is decoration.

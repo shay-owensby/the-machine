@@ -1,6 +1,6 @@
 {
   "name": "analytics-insights",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Turn raw marketing and business data into reports, dashboards, and plain-language insight someone can act on.",
   "author": {
     "name": "Shay Owensby",
@@ -15,7 +15,8 @@
     "data",
     "google-ads",
     "ppc",
-    "paid-search"
+    "paid-search",
+    "design-system"
   ],
   "skills": "./skills/",
   "agents": "./agents/",

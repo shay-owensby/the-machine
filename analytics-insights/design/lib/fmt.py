@@ -88,6 +88,25 @@ def decimal(value, decimals=None):
     return ("{:,.%df}" % decimals).format(value)
 
 
+def duration(value):
+    """Seconds to ``m:ss``, or ``h:mm:ss`` past an hour.
+
+    Analytics reports carry average session duration in seconds. Shown raw it
+    reads as a quantity ("104.0"), which is the one thing it is not -- and the
+    KPI table beside it already says 1:44.
+    """
+    if value is None:
+        return NA
+    total = int(round(float(value)))
+    sign = "-" if total < 0 else ""
+    total = abs(total)
+    hours, rem = divmod(total, 3600)
+    minutes, seconds = divmod(rem, 60)
+    if hours:
+        return "%s%d:%02d:%02d" % (sign, hours, minutes, seconds)
+    return "%s%d:%02d" % (sign, minutes, seconds)
+
+
 def by_unit(value, unit, currency=None, compact=False):
     """Format by the ``unit`` field of a KPI record."""
     if value is None:
@@ -99,6 +118,12 @@ def by_unit(value, unit, currency=None, compact=False):
     if unit == "rate":
         return rate(value)
     if unit == "decimal":
+        return decimal(value)
+    if unit == "duration":
+        return duration(value)
+    # An unrecognised unit falls back to the numeric formatter rather than to
+    # str(), which would print "104.0" where the report says "1:44".
+    if isinstance(value, (int, float)):
         return decimal(value)
     return str(value)
 
