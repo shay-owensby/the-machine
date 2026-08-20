@@ -124,6 +124,9 @@ def main():
     receipts, hidden = pending_files(inbox)
     channel, key, note = read_channel(root / ".env")
 
+    # Surfaced here so a run cannot start without being told the rulebook exists.
+    rules = root / "accounting" / "_references" / "receipts.md"
+
     result = {
         "client": root.name,
         "project_root": str(root),
@@ -135,8 +138,16 @@ def main():
         "slack_channel_id": channel,
         "slack_channel_key": key,
         "slack_note": note,
+        "client_rules": str(rules),
+        "client_rules_exist": rules.is_file(),
         "note": (f"All {len(receipts)} file(s) are receipts to process. This count "
                  "is the number to reconcile against at the end of the run."),
+        "read_first": (f"READ {rules} BEFORE EXTRACTING ANYTHING. It carries this "
+                       "client's standing filing rules, which override the skill's "
+                       "judgement calls."
+                       if rules.is_file() else
+                       f"No client rulebook at {rules} -- say so in the report and "
+                       "carry on."),
     }
     print(json.dumps(result, indent=2))
 

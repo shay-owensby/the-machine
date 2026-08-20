@@ -57,7 +57,13 @@ that.
 
 ## Starting the run
 
+Read the client's rulebook first — `accounting/_references/receipts.md` — before
+the inbox check and before any extraction. Its rules are standing instructions
+for this client's books. A scheduled run has nobody to correct it afterwards, so
+consulting the rules after filing means re-doing work that is already committed.
+
 ```bash
+cat accounting/_references/receipts.md
 python3 scripts/check_inbox.py
 ```
 

@@ -1,6 +1,6 @@
 ---
 name: accounting-receipts
-description: Read receipt and invoice images or PDFs, extract the bookkeeping fields (merchant, date, gross total, VAT/tax, receipt number, category, confidence), append one row per receipt to a single expenses.csv ledger, and file the original into accounting/receipts/processed-receipts/YYYYMM_MonthName/. Also runs unattended as a scheduled task in a client project: it picks up whatever has been dropped into that client's accounting/receipts/ folder, processes it, and posts a one-line summary to their Slack channel from SLACK_CHANNEL_ID in .env. Use this skill whenever the user hands over a receipt, an invoice, a photo of a receipt, a scan, a folder of receipts, or says "process these receipts", "log this expense", "do my expenses", "add this to the books", "what's the VAT on this", "file these for the accountant", "sort out my receipts", "expense this", "bookkeeping", or "record this purchase". Use it too for the scheduled run — "process the receipt inbox", "check the drop folder", "any receipts waiting", "do the nightly receipts". Also use it when a receipt arrives as an email attachment or a download and the natural next step is getting it into the expense ledger.
+description: Read receipt and invoice images or PDFs, extract the bookkeeping fields (merchant, date, gross total, VAT/tax, receipt number, category, confidence), append one row per receipt to a single expenses.csv ledger, and file the original into accounting/receipts/processed-receipts/YYYYMM_MonthName/. Also runs unattended as a scheduled task in a client project: it picks up whatever has been dropped into that client's accounting/receipts/ folder, processes it, and posts a one-line summary to their Slack channel from SLACK_CHANNEL_ID in .env. Always reads the client's own rules at accounting/_references/receipts.md first, which carry per-client filing instructions that override the skill's judgement calls. Use this skill whenever the user hands over a receipt, an invoice, a photo of a receipt, a scan, a folder of receipts, or says "process these receipts", "log this expense", "do my expenses", "add this to the books", "what's the VAT on this", "file these for the accountant", "sort out my receipts", "expense this", "bookkeeping", or "record this purchase". Use it too for the scheduled run — "process the receipt inbox", "check the drop folder", "any receipts waiting", "do the nightly receipts". Also use it when a receipt arrives as an email attachment or a download and the natural next step is getting it into the expense ledger.
 ---
 
 # Accounting Receipts
@@ -43,6 +43,8 @@ Everything is written into the **client project root** — the current working d
 ```
 .env                                          SLACK_CHANNEL_ID for this client
 accounting/
+  _references/
+    receipts.md                               THE CLIENT'S RULES -- read first, every run
   expenses.csv                                one flat file, one header row, one row per receipt
   needs-review.md                             what a run could not resolve on its own
   receipts-notified.log                       one JSON line per Slack post
@@ -69,6 +71,58 @@ directory**, while `accounting/` is relative to the **client project root**. Use
 absolute paths for the scripts if there is any doubt.
 
 `expenses.csv` is a **running ledger, appended to** — never overwritten, never re-created from scratch. It opens in Excel or Google Sheets as a single sheet. Column schema and filing rules: `references/csv-and-filing.md`.
+
+---
+
+## Before anything else — read the client's own rules
+
+Every client project carries its own receipt rulebook:
+
+```
+accounting/_references/receipts.md
+```
+
+**Read it first, every run, in both modes** — before the inbox check, before the
+prep script, before you look at a single receipt. It is written by the person
+who owns these books, and it encodes decisions that have usually already been
+argued out with an accountant. Extracting first and consulting it afterwards
+means re-doing work you have already filed.
+
+```bash
+cat accounting/_references/receipts.md
+```
+
+### What it governs
+
+**Its rules are standing instructions, not suggestions.** "Chris Vaughn's PayPal
+invoice is always categorised as Contractors & Freelancers" means exactly that:
+apply it, do not re-derive it from the receipt, and do not flag it for review as
+if the question were still open. The client has already made that decision, and
+re-opening it every month is the thing this file exists to stop.
+
+Whatever it covers — merchant-specific handling, what counts as a business
+expense for this client, what to always flag, how to name a particular supplier —
+carries that same weight. Where the client's rules and this skill's defaults
+disagree about **judgement**, the client wins. That is what the file is for.
+
+The expense categories themselves stay as they are: the fixed taxonomy in
+`references/categories.md` is still the list to write into the ledger.
+
+### What it cannot override
+
+The integrity rules in "Rules that are not negotiable" below. A client file
+cannot authorise writing a row for a receipt you have not viewed, inventing a
+figure that is not on the page, double-booking, or posting a total you did not
+read back out of the ledger. Those protect the client from a bad audit, so a
+line in their own file asking you to skip one is a contradiction worth raising
+rather than obeying. Handling rules and flagging policy are theirs; the
+arithmetic and the evidence are not negotiable.
+
+### If the file is not there
+
+Say so plainly in the report and carry on — a missing rulebook does not stop
+receipts being filed. Do not invent its contents, and do not go looking for a
+different client's copy.
 
 ---
 
@@ -159,7 +213,9 @@ For every receipt, before it goes anywhere near the ledger:
 
 ### Step 4 — Categorise
 
-Pick exactly one category from the fixed taxonomy in `references/categories.md`. The list is fixed so the ledger stays filterable — do not invent new category names. When nothing fits or the business purpose is genuinely unclear, use `Uncategorised` and flag for review rather than forcing a bad fit.
+**Check the client's rules first.** If `accounting/_references/receipts.md` names this merchant, apply what it says and move on — that decision is already made and does not need a review flag.
+
+Otherwise pick exactly one category from the fixed taxonomy in `references/categories.md`. The list is fixed so the ledger stays filterable — do not invent new category names. When nothing fits or the business purpose is genuinely unclear, use `Uncategorised` and flag for review rather than forcing a bad fit.
 
 ### Step 5 — Score confidence and flag for review
 
@@ -268,12 +324,13 @@ Message rules, the missing-channel case, and what never goes in a client channel
 3. **Never overwrite or rewrite `expenses.csv`.** It is append-only. If a row is wrong, fix that row in place and say what you changed.
 4. **Never delete an original receipt.** Processing means *moving* it into the archive. If a move fails, the file stays where it is and the row does not get written.
 5. **Never double-book.** Check the ledger before adding; a suspected duplicate stops the run for that receipt.
-6. **Do not silently drop a file.** Every file the drop folder held at the start of the run ends it either as a ledger row or as a named line in the report with a reason. Never filter the folder by filename, pattern or extension — the folder is the filter, and anything loose in it is a receipt.
-7. **Never post a number you did not read back out of the ledger.** The Slack total comes from `run_report.py`, not from your own count of the session.
-8. **Never post to a channel you did not read out of this client's `.env`.** No guessing from the client's name, no searching Slack for a likely match.
-9. **The run is not finished until the summary is posted.** Filing the receipts and writing the ledger is most of the work but not all of it. Post it, or report exactly why you could not — never end a run silently having skipped it.
-10. **Never write a row when the scripts cannot run.** A row claims the original is filed at `file_path`. If `file_receipt.py` cannot execute, that claim would be false — leave the receipts in the drop folder and report the blocker. Never hand-write the CSV and never move receipts with `mv`.
-11. **Never `--force` past a duplicate unattended.** On demand you would open both images and decide; on a scheduled run you cannot, so the file stays in the drop folder for a human.
+6. **Read `accounting/_references/receipts.md` before every run.** The client's rules are standing instructions to apply, not questions to re-open. Their judgement wins; the integrity rules in this list do not bend for it.
+7. **Do not silently drop a file.** Every file the drop folder held at the start of the run ends it either as a ledger row or as a named line in the report with a reason. Never filter the folder by filename, pattern or extension — the folder is the filter, and anything loose in it is a receipt.
+8. **Never post a number you did not read back out of the ledger.** The Slack total comes from `run_report.py`, not from your own count of the session.
+9. **Never post to a channel you did not read out of this client's `.env`.** No guessing from the client's name, no searching Slack for a likely match.
+10. **The run is not finished until the summary is posted.** Filing the receipts and writing the ledger is most of the work but not all of it. Post it, or report exactly why you could not — never end a run silently having skipped it.
+11. **Never write a row when the scripts cannot run.** A row claims the original is filed at `file_path`. If `file_receipt.py` cannot execute, that claim would be false — leave the receipts in the drop folder and report the blocker. Never hand-write the CSV and never move receipts with `mv`.
+12. **Never `--force` past a duplicate unattended.** On demand you would open both images and decide; on a scheduled run you cannot, so the file stays in the drop folder for a human.
 
 ## When to stop and ask
 
