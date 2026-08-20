@@ -1,6 +1,6 @@
 {
   "name": "accounting",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Receipt and invoice processing, expense ledgers, VAT and tax extraction, and audit-ready filing for the books.",
   "author": {
     "name": "Shay Owensby",
