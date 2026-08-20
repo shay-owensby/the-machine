@@ -159,7 +159,6 @@ quota:
 python3 scripts/make_fixtures.py                    # write the fixtures
 python3 scripts/analyze_ga4.py --raw assets/fixtures/leadgen-healthy_raw.json --out /tmp/ga4
 python3 scripts/make_charts.py --analysis /tmp/ga4/analysis.json --out /tmp/ga4/charts
-python3 tests/run_tests.py                          # the whole suite
 ```
 
 That is also how to reproduce a bug in the analysis without waiting for the

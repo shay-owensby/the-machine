@@ -30,9 +30,9 @@ already uses:
 
 ```bash
 # ~/clients/agency.env      (placeholders -- never commit real values)
-GOOGLE_CLIENT_ID=000000000000-xxxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com
-GOOGLE_CLIENT_SECRET=GOCSPX-xxxxxxxxxxxxxxxxxxxxxxxx
-GOOGLE_REFRESH_TOKEN=1//0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+GOOGLE_CLIENT_ID=<your-client-id>.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=GOCSPX-<your-client-secret>
+GOOGLE_REFRESH_TOKEN=<your-refresh-token>
 
 # Google Ads uses the same three, plus its own developer token. Analytics does
 # not need a developer token -- there is no such thing for the Analytics APIs.
@@ -225,5 +225,6 @@ python3 scripts/check_config.py --no-network    # config only
   never a prefix, never a length.
 - There is no command-line flag for any secret, so a credential cannot end up
   in shell history or a transcript.
-- The test suite asserts, on every run, that no output file contains a
-  credential (`tests/run_tests.py`, "no output file contains a credential").
+- No generated output file contains a credential; `references/testing.md` lists
+  this among the checks to run against any change that touches configuration
+  or output.

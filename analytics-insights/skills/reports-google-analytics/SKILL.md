@@ -228,30 +228,27 @@ Read the one you need; none of them is required reading before a normal run.
 | `references/design.md` | Rendering the client-facing HTML, the per-client accent, what the design system governs |
 | `../../design/DESIGN.md` | **The plugin design system** — colour, type, spacing, components, chart rules. Binding on this skill. |
 | `references/troubleshooting.md` | Any error message, exit code, or number that looks wrong |
-| `references/testing.md` | The offline suite, the fixtures, adding a case |
+| `references/testing.md` | The fixtures, validating a change offline, adding a case |
 
 `assets/agency.env.example` and `assets/client.env.example` are copy-ready
 placeholders. `assets/report-template.md` is the report's structure.
 
 ---
 
-## Testing
+## Validating a change
 
-```bash
-python3 tests/run_tests.py
-```
-
-Thirty-five checks, offline, no credentials, no quota. They assert — every run —
-that no output file contains a credential, that "not available" never becomes
-zero, that a zero baseline gives an undefined percentage rather than infinity,
-that a collection gap caveats every decline it could explain, and that every
+There is no automated suite. Eleven fixtures in `assets/fixtures/` run the
+pipeline below retrieval offline — no credentials, no quota — and
+`references/testing.md` lists what to check a change against: that no output
+file contains a credential, that "not available" never becomes zero, that a
+zero baseline gives an undefined percentage rather than infinity, that a
+collection gap caveats every decline it could explain, and that every
 recommendation traces back to a finding.
 
-Eleven fixtures in `assets/fixtures/` cover the property states that are hard to
-find on demand: no key events, a tracking outage, an empty comparison period,
-too little traffic to judge, quota failures mid-run, the pre-2024 metric
-naming, heavy `(not set)`, a disabled Admin API, and a schema missing several
-KPIs.
+The fixtures cover the property states that are hard to find on demand: no key
+events, a tracking outage, an empty comparison period, too little traffic to
+judge, quota failures mid-run, the pre-2024 metric naming, heavy `(not set)`, a
+disabled Admin API, and a schema missing several KPIs.
 
 ---
 

@@ -448,7 +448,6 @@ every vision type. The validator fails the build rather than warning.
 ```bash
 cd ~/the-machine/analytics-insights/design
 python3 lib/tokens.py     # every contrast and separation claim, recomputed
-python3 tests/test_design.py
 ```
 
 `lib/tokens.py` re-derives every number this document asserts. Nothing here is

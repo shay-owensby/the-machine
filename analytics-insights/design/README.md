@@ -50,8 +50,7 @@ chart — the data palette is fixed for every client.
 ## Checking it
 
 ```bash
-python3 lib/tokens.py          # every contrast and CVD-separation claim, recomputed
-python3 tests/test_design.py   # the suite
+python3 lib/tokens.py   # every contrast and CVD-separation claim, recomputed
 ```
 
 `lib/tokens.py` re-derives every number `DESIGN.md` asserts. Change a colour and
