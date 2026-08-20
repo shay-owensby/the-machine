@@ -3,3 +3,8 @@ __pycache__/
 *.py[cod]
 .venv/
 venv/
+
+# Never publish local environment files (this repo is public)
+.env
+.env.*
+!.env.example
