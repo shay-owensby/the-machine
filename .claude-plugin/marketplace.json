@@ -1,0 +1,46 @@
+{
+  "name": "the-machine",
+  "description": "An agency in a box — one installable department per discipline, from bookkeeping to paid search to video.",
+  "version": "0.1.0",
+  "owner": {
+    "name": "Shay Owensby",
+    "email": "shay@unchainedaisolutions.com"
+  },
+  "plugins": [
+    {
+      "name": "public-relations",
+      "displayName": "Public Relations",
+      "source": "./public-relations",
+      "description": "Press releases, media lists, pitch angles, spokesperson prep, event and sponsorship scouting, and reputation management.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Shay Owensby",
+        "email": "shay@unchainedaisolutions.com"
+      },
+      "license": "MIT",
+      "category": "marketing",
+      "keywords": [
+        "pr",
+        "press",
+        "media",
+        "publicity",
+        "reputation",
+        "events",
+        "sponsorship"
+      ],
+      "tags": [
+        "pr",
+        "press",
+        "media",
+        "publicity",
+        "reputation",
+        "events",
+        "sponsorship"
+      ],
+      "skills": [
+        "./skills/"
+      ],
+      "strict": false
+    }
+  ]
+}
