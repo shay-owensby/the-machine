@@ -27,5 +27,7 @@ line instead: "Nothing closes in the next 30 days — earliest deadline is
 **Biggest gap:** {the calendar that could not be opened, the cost nobody
 publishes, or the question only the client can answer}
 
-Full report with organizer contacts, deadlines, and vendor rules:
-`Public Relations/Events/{YYYY-MM-DD}-events-report.md`
+:page_facing_up: **[Full report — organizer contacts, deadlines, vendor rules]({drive link})**
+
+*(If the Drive upload was skipped or failed, link nothing and give the repo path
+instead: `Public Relations/Events/{YYYY-MM-DD}-events-report.md`)*

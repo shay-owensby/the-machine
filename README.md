@@ -46,11 +46,14 @@ organizer contacts.
 
 Brand-agnostic. Every run reads the client project's own brief at
 `Public Relations/Events/references/events-search-parameters.md` before searching,
-writes a dated report to `Public Relations/Events/`, and posts a decision summary
-to the Slack channel named in that same brief.
+writes a dated report to `Public Relations/Events/`, uploads it to the client's
+Google Drive folder, and posts a decision summary to their Slack channel — both
+destinations named in that same brief.
 
-The report file is the document; the Slack message is the decision. Slack caps a
-message at 5,000 characters, so the channel gets the deadlines, the top three
-picks, and the biggest gap — not the whole report. A channel is never guessed: a
-blank Slack Channel ID skips delivery rather than falling back to another
-channel.
+The repo holds the source, Drive holds the readable copy, Slack holds the
+decision and the link. Slack caps a message at 5,000 characters and cannot take a
+file upload, so the channel gets the deadlines, the top three picks, and the
+biggest gap — not the whole report.
+
+Neither destination is ever guessed. A blank folder or channel ID skips that
+delivery and says so, rather than falling back to somewhere that looked right.

@@ -36,15 +36,15 @@ Required fields:
 | **Business Category** | What the business does — drives category-native events and audience overlap |
 | **Business Address** | The centre of the search ring |
 | **Search Radius** | How far out to look, in miles |
-| **Slack Channel ID** | Where the finished report is delivered (Step 7) |
+| **Google Drive Folder ID** | Where the report file is uploaded (Step 7) |
+| **Slack Channel ID** | Where the summary is posted (Step 8) |
 
 The file is open-ended — read and honour anything else it carries: target
 customer, budget ceiling, blackout dates, events already worked or declined,
 competitors to watch, brand cautions, staffing limits.
 
-The Slack Channel ID normally sits under a `## Report Delivery` heading. If it
-appears in more than one place and the values disagree, stop and ask — do not
-pick one.
+Both delivery IDs sit under a `## Report Delivery` heading. If either appears in
+more than one place and the values disagree, stop and ask — do not pick one.
 
 **If the file is missing:** stop. Ask the user for the required fields with
 AskUserQuestion, create the directory, write the file from
@@ -68,9 +68,11 @@ One dated snapshot per run. Create the parent directory before writing. Never
 overwrite a prior run's report — the history of what was considered and rejected
 is worth keeping.
 
-The file is the full report. A **summary** of it is then delivered to the Slack
-channel named in the parameters file (Step 7) — Slack caps a message at 5,000
-characters, so the channel gets the decision, not the document.
+That file is then uploaded to the client's Google Drive folder (Step 7), and a
+**summary** linking to it is posted to the client's Slack channel (Step 8).
+Slack caps a message at 5,000 characters and cannot take a file upload, so the
+chain is: repo holds the source, Drive holds the readable copy, Slack holds the
+decision and the link.
 
 ## Step 1 — Build the geographic frame
 
@@ -160,28 +162,53 @@ Use `assets/events-report-template.md`. Ordered: ACT NOW deadlines, then
 finalists by score, then considered-and-passed, then the parameters and sources
 used. Every event carries its source URL.
 
-## Step 7 — Deliver the summary to Slack
+## Step 7 — Upload the report to Google Drive
+
+Read the **Google Drive Folder ID** from the parameters file and upload the
+report there with `create_file`, using `parentId` set to that folder and
+`textContent` carrying the markdown.
+
+Upload it as a **Google Doc**, not a raw `.md`. The link in the Slack message
+gets opened on a phone by someone who will not clone a repo — a Doc renders its
+headings and tables, a raw markdown file does not. Title it
+`Events Report — {Business}, {YYYY-MM-DD}`.
+
+Capture the file ID and the web link from the response; the Slack message in
+Step 8 links to that, not to a local path.
+
+**Never guess a folder.** A blank Google Drive Folder ID skips the upload — say
+so, and let Step 8 link to the repo path instead. Do not search Drive for a
+folder that looks right.
+
+Mime types, the conversion flag, re-runs, and the access trap that makes a
+perfect link useless: `references/drive-delivery.md`.
+
+## Step 8 — Deliver the summary to Slack
 
 Read the **Slack Channel ID** from the parameters file. Compose the summary using
 `assets/slack-summary-template.md`: the ACT NOW deadlines, the top three
 finalists with the one reason each, the counts, and the single biggest gap.
 Budget 3,000 characters; 5,000 is the hard ceiling.
 
+The message closes with the **Drive link** from Step 7 — that is the copy the
+client opens. Fall back to the repo path only when the upload was skipped or
+failed.
+
 Show the composed message and the destination channel ID to the user, then send
 it with `slack_send_message`. Return the message permalink.
 
-**Never guess a channel.** If the Slack Channel ID is missing or blank, write the
-report, tell the user Slack delivery was skipped and why, and stop there — do not
-search for a channel by name and do not fall back to another channel.
+**Never guess a channel.** If the Slack Channel ID is missing or blank, skip the
+post, note it in Step 9, and go no further — do not search for a channel by name
+and do not fall back to another channel.
 
 Message shape, character budget, and the four ways this fails:
 `references/slack-delivery.md`.
 
-## Step 8 — Report to the user
+## Step 9 — Report to the user
 
 Lead with the three events you would actually spend the money on and why, the
 nearest deadline, and the biggest gap you hit (a calendar you could not access, a
-cost nobody publishes). Give the report path and the Slack permalink. Do not
+cost nobody publishes). Give the Drive link and the Slack permalink. Do not
 recap the report — they can read it.
 
 ## Standing rules
@@ -202,9 +229,13 @@ recap the report — they can read it.
   ways — it proves the audience and it crowds the field.
 - **The radius is a guideline.** An unusually strong event just outside it gets
   included and flagged as outside the ring, with the drive time.
-- **Nothing goes to Slack that has not been verified.** The channel is the
-  client's. A wrong date posted there is a phone call to the client, not a line
-  in a file. Step 5 runs before Step 7, always.
+- **Nothing leaves the repo that has not been verified.** The Drive folder and
+  the Slack channel are the client's. A wrong date in a local file is an edit; the
+  same date in their Drive and their Slack is a phone call. Step 5 runs before
+  Steps 7 and 8, always.
+- **Delivery failing is not the run failing.** The report file is written before
+  either delivery is attempted. If Drive or Slack breaks, say what broke, hand
+  over the one action that fixes it, and never treat the run as lost.
 - **Sponsorship and booth are different products.** Sponsorship buys logo and
   mention; a booth buys conversations. Say which one an event is actually good
   for, and note when a sponsor tier includes booth space.

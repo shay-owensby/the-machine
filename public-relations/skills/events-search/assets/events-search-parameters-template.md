@@ -15,13 +15,17 @@
 
 ## Report Delivery
 
+**Google Drive Folder ID:** {the string from drive.google.com/drive/folders/<THIS>}
 **Slack Channel ID:** {e.g. C08PT0A2YPQ — the ID, not the channel name}
 
 <!--
-Required: Business Category, Business Address, Search Radius, Slack Channel ID.
-Everything else is optional — leave a field blank and it is ignored, fill it and
-it is honoured.
+Required: Business Category, Business Address, Search Radius, Google Drive Folder
+ID, Slack Channel ID. Everything else is optional — leave a field blank and it is
+ignored, fill it and it is honoured.
 
-Leaving Slack Channel ID blank skips Slack delivery; the report is still written
-to Public Relations/Events/. A channel will never be guessed.
+Leaving a delivery ID blank skips that delivery; the report is still written to
+Public Relations/Events/. A folder or channel will never be guessed.
+
+Whether the Slack link actually opens for people depends on how the Drive FOLDER
+is shared — the uploaded file inherits it. Worth confirming once, on the first run.
 -->

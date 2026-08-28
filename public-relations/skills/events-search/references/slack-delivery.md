@@ -1,7 +1,9 @@
 # Slack delivery
 
-The report file is the document. The Slack message is the decision. Do not try to
-make the message be the report.
+The report file is the document, Drive hosts the readable copy, and the Slack
+message is the decision. Do not try to make the message be the report — and note
+that this toolset cannot attach a file to a Slack message, which is why Step 7
+uploads to Drive first.
 
 ## Where the channel comes from
 
@@ -52,7 +54,7 @@ Structure and exact wording: `assets/slack-summary-template.md`. In brief:
 - Top three finalists: name, date, cost, one reason
 - Counts: candidates found, finalists, passed
 - The one biggest gap
-- Where the full report lives
+- The Google Drive link to the full report (Step 7)
 
 Formatting notes for `slack_send_message`:
 
@@ -62,6 +64,8 @@ Formatting notes for `slack_send_message`:
 - Keep tables to three or four columns. Slack renders wide tables badly on
   mobile, and this message gets read on a phone
 - Link event names to their source URL rather than pasting bare URLs
+- The closing link is the Drive doc from Step 7. Fall back to the repo path only
+  when the upload was skipped or failed, and say which it was
 - Do not put anything sensitive in link query parameters
 
 ## Preview before sending
