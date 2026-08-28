@@ -10,7 +10,7 @@ __pycache__/
 .venv/
 venv/
 
-# Local environment files — never commit secrets, private repo or not
+# Never publish local environment files (this repo is public)
 .env
 .env.*
 !.env.example
