@@ -190,9 +190,14 @@ Read the **Slack Channel ID** from the parameters file. Compose the summary usin
 finalists with the one reason each, the counts, and the single biggest gap.
 Budget 3,000 characters; 5,000 is the hard ceiling.
 
-The message closes with the **Drive link** from Step 7 — that is the copy the
-client opens. Fall back to the repo path only when the upload was skipped or
-failed.
+Two elements are never omitted:
+
+- **`<!channel>` opens the message**, on its own line, before anything else. Write
+  it in that angle-bang form — a literal `@channel` posts as plain text and
+  notifies nobody.
+- **The Drive URL from Step 7 closes it**, bare on its own line so Slack unfurls
+  it into a card. Use the link Drive returned; never assemble one from a file ID.
+  Fall back to the repo path only when the upload was skipped or failed.
 
 Show the composed message and the destination channel ID to the user, then send
 it with `slack_send_message`. Return the message permalink.

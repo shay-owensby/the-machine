@@ -44,17 +44,48 @@ text in a client channel is worse than one tight summary plus a file path. And
 do not silently truncate mid-table — Slack will render a broken table rather than
 fail.
 
+## Every message opens with @channel
+
+The message begins with `<!channel>`, on its own line, before anything else.
+
+**Write `<!channel>`, not `@channel`.** The Slack Web API takes channel-wide
+mentions in angle-bang form. A literal `@channel` in the message body posts as
+plain grey text and notifies nobody — the message looks right in the channel and
+silently fails at the only job the mention has.
+
+| Want | Write |
+|---|---|
+| Notify everyone in the channel | `<!channel>` |
+| Notify active members only | `<!here>` |
+| A specific person | `<@U01RQT2Q9TJ>` |
+
+**Verify this once, on the first run against a new workspace.** Open the posted
+message and check the mention rendered as a blue, highlighted `@channel` rather
+than literal text. If it came through literally, the MCP layer escaped it — say
+so, fall back to plain `@channel`, and tell the user the notification did not
+fire.
+
+Two things worth knowing, neither of which changes the rule:
+
+- `@channel` notifies **every member**, including people who are offline or on
+  Do Not Disturb. The desktop app's "are you sure?" prompt for large channels
+  does not exist on the API path — it just sends.
+- Some workspaces restrict `@channel` to admins. Where it is restricted the
+  message still posts, but the mention does not notify. If the client reports no
+  alert, this is the first thing to check.
+
 ## Message shape
 
 Structure and exact wording: `assets/slack-summary-template.md`. In brief:
 
+- `<!channel>` on its own line, first
 - A headline naming the business and the window searched
 - **ACT NOW** first, if anything closes inside 30 days — this is the reason the
   message exists at all
 - Top three finalists: name, date, cost, one reason
 - Counts: candidates found, finalists, passed
 - The one biggest gap
-- The Google Drive link to the full report (Step 7)
+- The Google Drive URL from Step 7, bare on its own line, last
 
 Formatting notes for `slack_send_message`:
 
@@ -64,8 +95,12 @@ Formatting notes for `slack_send_message`:
 - Keep tables to three or four columns. Slack renders wide tables badly on
   mobile, and this message gets read on a phone
 - Link event names to their source URL rather than pasting bare URLs
-- The closing link is the Drive doc from Step 7. Fall back to the repo path only
-  when the upload was skipped or failed, and say which it was
+- The closing link is the Drive URL from Step 7, pasted **bare** on its own line
+  rather than wrapped in markdown — Slack unfurls a Drive URL into a card showing
+  the document title, which a `[label](url)` link suppresses
+- Use the link Drive returned. Never assemble a Drive URL from a file ID
+- Fall back to the repo path only when the upload was skipped or failed, and say
+  which it was
 - Do not put anything sensitive in link query parameters
 
 ## Preview before sending
@@ -85,6 +120,7 @@ Return the message permalink in the final report to the user.
 | **Not a member of the channel** | `not_in_channel` | Tell the user to invite the Slack app to the channel; do not try another channel |
 | **Bad or stale channel ID** | `channel_not_found` | Do not search for a replacement — surface the ID that failed and ask |
 | **Free workspace** | Canvas creation unavailable | Only relevant if using a canvas; the plain message path is unaffected |
+| **@channel restricted** | Message posts, nobody is notified | Workspace policy limits `@channel` to admins — tell the user; it is not fixable from here |
 
 In every case: the report file is already written, so the run has still produced
 its deliverable. Say what failed, say the report is on disk, and hand the user
