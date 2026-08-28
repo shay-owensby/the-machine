@@ -4,6 +4,7 @@
 **Window searched:** {TODAY} – {TODAY + 12 months}
 **Search ring:** {RADIUS} miles from {ADDRESS} — {TOWN, TOWN, TOWN, …}
 **Raw candidates found:** {N} · **Finalists:** {N} · **Passed:** {N}
+**Delivered to Slack:** {channel ID} — [message]({permalink}) *(or: skipped, no Slack Channel ID in parameters)*
 
 ---
 

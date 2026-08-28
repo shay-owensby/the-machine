@@ -46,4 +46,11 @@ organizer contacts.
 
 Brand-agnostic. Every run reads the client project's own brief at
 `Public Relations/Events/references/events-search-parameters.md` before searching,
-and writes a dated report to `Public Relations/Events/`.
+writes a dated report to `Public Relations/Events/`, and posts a decision summary
+to the Slack channel named in that same brief.
+
+The report file is the document; the Slack message is the decision. Slack caps a
+message at 5,000 characters, so the channel gets the deadlines, the top three
+picks, and the biggest gap — not the whole report. A channel is never guessed: a
+blank Slack Channel ID skips delivery rather than falling back to another
+channel.

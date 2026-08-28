@@ -36,12 +36,17 @@ Required fields:
 | **Business Category** | What the business does — drives category-native events and audience overlap |
 | **Business Address** | The centre of the search ring |
 | **Search Radius** | How far out to look, in miles |
+| **Slack Channel ID** | Where the finished report is delivered (Step 7) |
 
 The file is open-ended — read and honour anything else it carries: target
 customer, budget ceiling, blackout dates, events already worked or declined,
 competitors to watch, brand cautions, staffing limits.
 
-**If the file is missing:** stop. Ask the user for the three required fields with
+The Slack Channel ID normally sits under a `## Report Delivery` heading. If it
+appears in more than one place and the values disagree, stop and ask — do not
+pick one.
+
+**If the file is missing:** stop. Ask the user for the required fields with
 AskUserQuestion, create the directory, write the file from
 `assets/events-search-parameters-template.md`, then continue. Do not proceed on a
 verbally-supplied brief without writing it down — the next run needs it too.
@@ -62,6 +67,10 @@ Public Relations/Events/YYYY-MM-DD-events-report.md
 One dated snapshot per run. Create the parent directory before writing. Never
 overwrite a prior run's report — the history of what was considered and rejected
 is worth keeping.
+
+The file is the full report. A **summary** of it is then delivered to the Slack
+channel named in the parameters file (Step 7) — Slack caps a message at 5,000
+characters, so the channel gets the decision, not the document.
 
 ## Step 1 — Build the geographic frame
 
@@ -151,11 +160,29 @@ Use `assets/events-report-template.md`. Ordered: ACT NOW deadlines, then
 finalists by score, then considered-and-passed, then the parameters and sources
 used. Every event carries its source URL.
 
-## Step 7 — Report to the user
+## Step 7 — Deliver the summary to Slack
+
+Read the **Slack Channel ID** from the parameters file. Compose the summary using
+`assets/slack-summary-template.md`: the ACT NOW deadlines, the top three
+finalists with the one reason each, the counts, and the single biggest gap.
+Budget 3,000 characters; 5,000 is the hard ceiling.
+
+Show the composed message and the destination channel ID to the user, then send
+it with `slack_send_message`. Return the message permalink.
+
+**Never guess a channel.** If the Slack Channel ID is missing or blank, write the
+report, tell the user Slack delivery was skipped and why, and stop there — do not
+search for a channel by name and do not fall back to another channel.
+
+Message shape, character budget, and the four ways this fails:
+`references/slack-delivery.md`.
+
+## Step 8 — Report to the user
 
 Lead with the three events you would actually spend the money on and why, the
 nearest deadline, and the biggest gap you hit (a calendar you could not access, a
-cost nobody publishes). Do not recap the report — they can read it.
+cost nobody publishes). Give the report path and the Slack permalink. Do not
+recap the report — they can read it.
 
 ## Standing rules
 
@@ -175,6 +202,9 @@ cost nobody publishes). Do not recap the report — they can read it.
   ways — it proves the audience and it crowds the field.
 - **The radius is a guideline.** An unusually strong event just outside it gets
   included and flagged as outside the ring, with the drive time.
+- **Nothing goes to Slack that has not been verified.** The channel is the
+  client's. A wrong date posted there is a phone call to the client, not a line
+  in a file. Step 5 runs before Step 7, always.
 - **Sponsorship and booth are different products.** Sponsorship buys logo and
   mention; a booth buys conversations. Say which one an event is actually good
   for, and note when a sponsor tier includes booth space.
