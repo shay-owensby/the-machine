@@ -185,10 +185,12 @@ perfect link useless: `references/drive-delivery.md`.
 
 ## Step 8 — Deliver the summary to Slack
 
-Read the **Slack Channel ID** from the parameters file. Compose the summary using
-`assets/slack-summary-template.md`: the ACT NOW deadlines, the top three
-finalists with the one reason each, the counts, and the single biggest gap.
-Budget 3,000 characters; 5,000 is the hard ceiling.
+Read the **Slack Channel ID** from the parameters file.
+
+**Open `assets/slack-summary-template.md` and fill it in. This is a hard gate.**
+Do not compose a Slack message from memory or from what you are about to tell the
+user — the template carries three rules that are invisible unless you are looking
+at it. Budget 3,000 characters; 5,000 is the hard ceiling.
 
 Two elements are never omitted:
 
@@ -198,6 +200,23 @@ Two elements are never omitted:
 - **The Drive URL from Step 7 closes it**, bare on its own line so Slack unfurls
   it into a card. Use the link Drive returned; never assemble one from a file ID.
   Fall back to the repo path only when the upload was skipped or failed.
+
+**This message is not the Step 9 report.** They summarise the same run and it is
+tempting to write one text and use it twice. Do not — the Slack message is a
+posted client artifact with a required opener, a required closer, and a table;
+the Step 9 report is prose for the person who ran the skill. Composing Step 9
+first and posting it is the known way this step fails, and it silently drops the
+`<!channel>` mention along with everything else the template specifies.
+
+**Before sending, read back the composed string and confirm all three:**
+
+| Check | Pass condition |
+|---|---|
+| Opener | The very first line is exactly `<!channel>` |
+| Closer | The last line is a bare Drive URL — no `[label](url)`, no `<url\|label>` |
+| Shape | It came from the template: headline, ACT NOW block, Top picks table |
+
+If any check fails, you composed the wrong artifact. Go back to the template.
 
 Show the composed message and the destination channel ID to the user, then send
 it with `slack_send_message`. Return the message permalink.
@@ -215,6 +234,11 @@ Lead with the three events you would actually spend the money on and why, the
 nearest deadline, and the biggest gap you hit (a calendar you could not access, a
 cost nobody publishes). Give the Drive link and the Slack permalink. Do not
 recap the report — they can read it.
+
+This is prose for the person who ran the skill, and it is a **different artifact**
+from the Slack message in Step 8. Never post this text to Slack, and never reuse
+the Slack text here. If Step 8 has already run, the message is sent — this step
+reports on it, it does not repeat it.
 
 ## Standing rules
 

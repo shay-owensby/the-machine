@@ -4,6 +4,10 @@ ceiling. Cut finalists before cutting the ACT NOW block.*
 *`<!channel>` opens every message and is never dropped. The Drive URL closes
 every message, bare on its own line so Slack unfurls it into a card.*
 
+*This is not the Step 9 report to the user. Do not write one summary and use it
+for both — that is how the opener and the closer get lost. Before sending, check
+the first line is exactly `<!channel>` and the last line is a bare Drive URL.*
+
 ---
 
 <!channel>

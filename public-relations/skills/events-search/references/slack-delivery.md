@@ -59,11 +59,25 @@ silently fails at the only job the mention has.
 | Notify active members only | `<!here>` |
 | A specific person | `<@U01RQT2Q9TJ>` |
 
-**Verify this once, on the first run against a new workspace.** Open the posted
-message and check the mention rendered as a blue, highlighted `@channel` rather
-than literal text. If it came through literally, the MCP layer escaped it — say
-so, fall back to plain `@channel`, and tell the user the notification did not
-fire.
+`<!channel>` passes through `slack_send_message` intact and renders as a live blue
+mention — confirmed against this workspace on 2026-08-27. The MCP layer does not
+escape it. If a message posts without the mention, the mention was never written,
+so do not go looking for an encoding bug.
+
+**The observed failure is omission, not encoding.** On the 2026-08-28 Dapper Doodle
+run the posted message contained no `<!channel>` anywhere in its raw text, because
+the composer wrote the Step 9 user report and posted that instead of filling in
+`assets/slack-summary-template.md`. The Drive link went to the top as a markdown
+link in the same run, for the same reason. Both rules live in the template; skip
+the template and you lose both at once. Guard against it with the pre-send check
+in Step 8, not with a different mention syntax.
+
+**Verify on the first run against a new workspace.** Open the posted message and
+check the mention rendered as a blue, highlighted `@channel` rather than literal
+grey text. If it came through literally, the MCP layer escaped it — say so and
+tell the user the notification did not fire. Do not "fall back" to a plain
+`@channel`: that is the form that notifies nobody, so it fixes nothing and hides
+the failure behind text that looks correct.
 
 Two things worth knowing, neither of which changes the rule:
 
@@ -121,6 +135,7 @@ Return the message permalink in the final report to the user.
 | **Bad or stale channel ID** | `channel_not_found` | Do not search for a replacement — surface the ID that failed and ask |
 | **Free workspace** | Canvas creation unavailable | Only relevant if using a canvas; the plain message path is unaffected |
 | **@channel restricted** | Message posts, nobody is notified | Workspace policy limits `@channel` to admins — tell the user; it is not fixable from here |
+| **Template skipped** | Message posts with no `<!channel>`, Drive link at the top, no ACT NOW block or table | The Step 9 report was posted instead of the Step 8 message. Re-compose from `assets/slack-summary-template.md`. Do not re-post over the top — tell the user the first message went out unmentioned and ask before sending a second |
 
 In every case: the report file is already written, so the run has still produced
 its deliverable. Say what failed, say the report is on disk, and hand the user
