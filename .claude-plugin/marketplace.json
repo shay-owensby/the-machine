@@ -1,12 +1,53 @@
 {
   "name": "the-machine",
-  "description": "An agency in a box — one installable department per discipline, from bookkeeping to paid search to video.",
+  "description": "An agency in a box \u2014 one installable department per discipline, from bookkeeping to paid search to video.",
   "version": "0.1.0",
   "owner": {
     "name": "Shay Owensby",
     "email": "shay@unchainedaisolutions.com"
   },
   "plugins": [
+    {
+      "name": "email-marketing",
+      "displayName": "Email Marketing",
+      "source": "./email-marketing",
+      "description": "Campaign reporting, list health and segmentation, newsletter and broadcast copy, automation and lifecycle flows, and deliverability.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Shay Owensby",
+        "email": "shay@unchainedaisolutions.com"
+      },
+      "license": "MIT",
+      "category": "marketing",
+      "keywords": [
+        "email",
+        "email-marketing",
+        "mailchimp",
+        "newsletter",
+        "campaigns",
+        "crm",
+        "lists",
+        "segmentation",
+        "deliverability",
+        "reporting"
+      ],
+      "tags": [
+        "email",
+        "email-marketing",
+        "mailchimp",
+        "newsletter",
+        "campaigns",
+        "crm",
+        "lists",
+        "segmentation",
+        "deliverability",
+        "reporting"
+      ],
+      "skills": [
+        "./skills/"
+      ],
+      "strict": false
+    },
     {
       "name": "public-relations",
       "displayName": "Public Relations",
